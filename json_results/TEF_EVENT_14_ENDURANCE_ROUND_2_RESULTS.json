@@ -1,0 +1,959 @@
+{
+  "schema_version": "0.1-trial",
+  "event": {
+    "event_id": "EVENT-14-THC-ENDURANCE-R2-2024",
+    "event_number": 14,
+    "name": "Thailand Endurance Championships 2024 (THC Endurance Round 2)",
+    "venue": "Thai Polo & Equestrian Club, Pattaya, Chonburi",
+    "date_range": "2024-07-12 ถึง 2024-07-14",
+    "year_be": 2567
+  },
+  "extraction_summary": {
+    "source_file": "14.THC Enurance Round 2 2024/THC Enadurance Round 2 2024.pdf",
+    "total_classes": 2,
+    "total_entries": 18,
+    "status": "completed_100_percent"
+  },
+  "classes": [
+    {
+      "class_id": "THC-2024-END-CEI1",
+      "name": "CEI 1* (100 Km.)",
+      "date": "2024-07-13",
+      "distance_km": 100,
+      "loop_count": 4,
+      "source_pages": [
+        1,
+        2
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "102",
+          "rider": "WARIT KHUNTARAPORN",
+          "horse": "SHARDELL ELECTRIC SILVER",
+          "club": "The Horses",
+          "total_riding_time": "06:42:39",
+          "total_riding_time_seconds": 24159,
+          "avg_speed_kmh": 15.14,
+          "status": "PASS",
+          "best_condition_award": true,
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "07:57:54",
+              "max_vet_in": "08:12:54",
+              "actual_vet_in": "08:01:18",
+              "time_to_vet_in": "00:03:24",
+              "avg_recover": "00:03:24",
+              "riding_time": "02:01:18",
+              "speed_kmh": 15.23,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "08:41:18",
+              "arrival": "10:34:42",
+              "max_vet_in": "10:49:42",
+              "actual_vet_in": "10:39:06",
+              "time_to_vet_in": "00:04:24",
+              "avg_recover": "00:03:54",
+              "riding_time": "01:57:48",
+              "speed_kmh": 15.69,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "11:29:06",
+              "arrival": "12:38:57",
+              "max_vet_in": "12:53:57",
+              "actual_vet_in": "12:43:51",
+              "time_to_vet_in": "00:04:54",
+              "avg_recover": "00:04:14",
+              "riding_time": "01:14:45",
+              "speed_kmh": 16.05,
+              "status": "PASS"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "13:33:51",
+              "arrival": "15:02:39",
+              "max_vet_in": "15:22:39",
+              "actual_vet_in": "15:07:35",
+              "time_to_vet_in": "00:04:56",
+              "avg_recover": "00:04:24",
+              "riding_time": "01:28:48",
+              "speed_kmh": 13.51,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "bib": "105",
+          "rider": "YODCHAI MEECHOKCHAI",
+          "horse": "MEAW JUNTHA",
+          "club": "MCC Sansuk",
+          "total_riding_time": "07:51:03",
+          "total_riding_time_seconds": 28263,
+          "avg_speed_kmh": 12.94,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "07:55:24",
+              "max_vet_in": "08:10:24",
+              "actual_vet_in": "08:01:28",
+              "time_to_vet_in": "00:06:04",
+              "avg_recover": "00:06:04",
+              "riding_time": "02:01:28",
+              "speed_kmh": 15.21,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "08:41:28",
+              "arrival": "10:34:43",
+              "max_vet_in": "10:49:43",
+              "actual_vet_in": "10:39:33",
+              "time_to_vet_in": "00:04:50",
+              "avg_recover": "00:05:27",
+              "riding_time": "01:58:05",
+              "speed_kmh": 15.65,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "11:29:33",
+              "arrival": "13:10:59",
+              "max_vet_in": "13:25:59",
+              "actual_vet_in": "13:15:42",
+              "time_to_vet_in": "00:04:43",
+              "avg_recover": "00:05:12",
+              "riding_time": "01:46:09",
+              "speed_kmh": 11.3,
+              "status": "PASS"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "14:05:42",
+              "arrival": "16:11:03",
+              "max_vet_in": "16:31:03",
+              "actual_vet_in": "16:18:01",
+              "time_to_vet_in": "00:06:58",
+              "avg_recover": "00:05:39",
+              "riding_time": "02:05:21",
+              "speed_kmh": 9.57,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "bib": "104",
+          "rider": "PHATCHA SAWATKITTHAMRONG",
+          "horse": "RIDER",
+          "club": "Suphan Horse Sport Club",
+          "total_riding_time": "07:52:32",
+          "total_riding_time_seconds": 28352,
+          "avg_speed_kmh": 12.9,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "08:03:57",
+              "max_vet_in": "08:18:57",
+              "actual_vet_in": "08:07:52",
+              "time_to_vet_in": "00:03:55",
+              "avg_recover": "00:03:55",
+              "riding_time": "02:07:52",
+              "speed_kmh": 14.45,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "08:47:52",
+              "arrival": "10:44:32",
+              "max_vet_in": "10:59:32",
+              "actual_vet_in": "10:50:43",
+              "time_to_vet_in": "00:06:11",
+              "avg_recover": "00:05:03",
+              "riding_time": "02:02:51",
+              "speed_kmh": 15.04,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "11:40:43",
+              "arrival": "13:10:59",
+              "max_vet_in": "13:25:59",
+              "actual_vet_in": "13:18:04",
+              "time_to_vet_in": "00:07:05",
+              "avg_recover": "00:05:44",
+              "riding_time": "01:37:21",
+              "speed_kmh": 12.33,
+              "status": "PASS"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "14:08:04",
+              "arrival": "16:12:32",
+              "max_vet_in": "16:32:32",
+              "actual_vet_in": "16:22:13",
+              "time_to_vet_in": "00:09:41",
+              "avg_recover": "00:06:43",
+              "riding_time": "02:04:28",
+              "speed_kmh": 9.64,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "bib": "106",
+          "rider": "THIRATAWAT KULVAROTAMA",
+          "horse": "CHORUS",
+          "club": "MCC Sansuk",
+          "total_riding_time": "08:17:35",
+          "total_riding_time_seconds": 29855,
+          "avg_speed_kmh": 12.25,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "07:58:38",
+              "max_vet_in": "08:13:38",
+              "actual_vet_in": "08:04:30",
+              "time_to_vet_in": "00:05:52",
+              "avg_recover": "00:05:52",
+              "riding_time": "02:04:30",
+              "speed_kmh": 14.84,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "08:44:30",
+              "arrival": "10:44:40",
+              "max_vet_in": "10:59:40",
+              "actual_vet_in": "10:51:19",
+              "time_to_vet_in": "00:06:39",
+              "avg_recover": "00:06:16",
+              "riding_time": "02:06:49",
+              "speed_kmh": 14.57,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "11:41:19",
+              "arrival": "13:26:20",
+              "max_vet_in": "13:41:20",
+              "actual_vet_in": "13:35:31",
+              "time_to_vet_in": "00:09:11",
+              "avg_recover": "00:07:14",
+              "riding_time": "01:54:12",
+              "speed_kmh": 10.51,
+              "status": "PASS"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "14:25:31",
+              "arrival": "16:37:35",
+              "max_vet_in": "16:57:35",
+              "actual_vet_in": "16:48:20",
+              "time_to_vet_in": "00:10:45",
+              "avg_recover": "00:08:07",
+              "riding_time": "02:12:04",
+              "speed_kmh": 9.09,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "107",
+          "rider": "NALUEPOL KLAMKLIANG",
+          "horse": "FATHER FARO",
+          "club": "FARO FARM 101",
+          "total_riding_time": "06:30:00",
+          "total_riding_time_seconds": 23400,
+          "avg_speed_kmh": 4.95,
+          "status": "FTQ-ME",
+          "review_note": "Failed to Qualify - Metabolic (Vet-in Loop 3)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "08:29:08",
+              "max_vet_in": "08:44:08",
+              "actual_vet_in": "08:32:53",
+              "time_to_vet_in": "00:03:45",
+              "avg_recover": "00:03:45",
+              "riding_time": "02:32:53",
+              "speed_kmh": 12.09,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "09:12:53",
+              "arrival": "12:19:05",
+              "max_vet_in": "12:34:05",
+              "actual_vet_in": "12:33:49",
+              "time_to_vet_in": "00:14:44",
+              "avg_recover": "00:09:14",
+              "riding_time": "03:20:56",
+              "speed_kmh": 9.2,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "13:23:49",
+              "arrival": null,
+              "max_vet_in": "00:15:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "08:06:10",
+              "riding_time": "10:36:11",
+              "speed_kmh": 1.89,
+              "status": "FTQ-ME"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "00:50:00",
+              "arrival": null,
+              "max_vet_in": "00:20:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "12:04:37",
+              "riding_time": "23:10:00",
+              "speed_kmh": 0.86,
+              "status": null
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "108",
+          "rider": "JIRASAK PATIJAROENCHAI",
+          "horse": "FARABELLA",
+          "club": "FARO FARM 101",
+          "total_riding_time": "06:30:00",
+          "total_riding_time_seconds": 23400,
+          "avg_speed_kmh": 4.95,
+          "status": "FTQ-ME",
+          "review_note": "Failed to Qualify - Metabolic (Vet-in Loop 2)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "08:21:08",
+              "max_vet_in": "08:36:08",
+              "actual_vet_in": "08:25:49",
+              "time_to_vet_in": "00:04:41",
+              "avg_recover": "00:04:41",
+              "riding_time": "02:25:49",
+              "speed_kmh": 12.67,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "09:05:49",
+              "arrival": "12:06:52",
+              "max_vet_in": "12:21:52",
+              "actual_vet_in": "12:20:58",
+              "time_to_vet_in": "00:14:06",
+              "avg_recover": "00:09:24",
+              "riding_time": "03:15:09",
+              "speed_kmh": 9.47,
+              "status": "FTQ-ME"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "13:10:58",
+              "arrival": null,
+              "max_vet_in": "00:15:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "08:06:16",
+              "riding_time": "10:49:02",
+              "speed_kmh": 1.85,
+              "status": null
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "00:50:00",
+              "arrival": null,
+              "max_vet_in": "00:20:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "12:04:42",
+              "riding_time": "23:10:00",
+              "speed_kmh": 0.86,
+              "status": null
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "101",
+          "rider": "MATHAWIN NUMAUIM",
+          "horse": "THE HORSES ELGA",
+          "club": "Mounted Police Club",
+          "total_riding_time": "06:30:00",
+          "total_riding_time_seconds": 23400,
+          "avg_speed_kmh": 4.95,
+          "status": "FTQ-ME",
+          "review_note": "Failed to Qualify - Metabolic (Vet-in Loop 2)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "08:31:01",
+              "max_vet_in": "08:46:01",
+              "actual_vet_in": "08:36:27",
+              "time_to_vet_in": "00:05:26",
+              "avg_recover": "00:05:26",
+              "riding_time": "02:36:27",
+              "speed_kmh": 11.81,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "09:16:27",
+              "arrival": "12:08:21",
+              "max_vet_in": "12:23:21",
+              "actual_vet_in": "12:21:22",
+              "time_to_vet_in": "00:13:01",
+              "avg_recover": "00:09:14",
+              "riding_time": "03:04:55",
+              "speed_kmh": 9.99,
+              "status": "FTQ-ME"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "13:11:22",
+              "arrival": null,
+              "max_vet_in": "00:15:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "08:06:09",
+              "riding_time": "10:48:38",
+              "speed_kmh": 1.85,
+              "status": null
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "00:50:00",
+              "arrival": null,
+              "max_vet_in": "00:20:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "12:04:37",
+              "riding_time": "23:10:00",
+              "speed_kmh": 0.86,
+              "status": null
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "103",
+          "rider": "WIPAWAN PAWITAYALARP",
+          "horse": "THE HORSES HENRIETTA",
+          "club": "The Horses",
+          "total_riding_time": "07:20:00",
+          "total_riding_time_seconds": 26400,
+          "avg_speed_kmh": 3.55,
+          "status": "RET",
+          "review_note": "Retired (Loop 2)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "08:01:27",
+              "max_vet_in": "08:16:27",
+              "actual_vet_in": "08:14:27",
+              "time_to_vet_in": "00:13:00",
+              "avg_recover": "00:13:00",
+              "riding_time": "02:14:27",
+              "speed_kmh": 13.74,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "08:54:27",
+              "arrival": null,
+              "max_vet_in": "00:15:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "12:06:30",
+              "riding_time": "15:05:33",
+              "speed_kmh": 2.04,
+              "status": "RET"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "00:50:00",
+              "arrival": null,
+              "max_vet_in": "00:15:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "16:04:20",
+              "riding_time": "23:10:00",
+              "speed_kmh": 0.86,
+              "status": null
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "00:50:00",
+              "arrival": null,
+              "max_vet_in": "00:20:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "18:03:15",
+              "riding_time": "23:10:00",
+              "speed_kmh": 0.86,
+              "status": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class_id": "THC-2024-END-CEN40",
+      "name": "CEN 40 (40 Km.)",
+      "date": "2024-07-13",
+      "distance_km": 40,
+      "loop_count": 2,
+      "source_pages": [
+        3
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "60",
+          "rider": "JIRASAK PATIJAROENCHAI",
+          "horse": "HERMES FARO",
+          "club": "FARO FARM 101",
+          "total_riding_time": "02:46:36",
+          "total_riding_time_seconds": 9996,
+          "avg_speed_kmh": 14.41,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 20.0,
+              "depart": "06:00:00",
+              "arrival": "07:14:28",
+              "max_vet_in": "07:29:28",
+              "actual_vet_in": "07:17:07",
+              "time_to_vet_in": "00:02:39",
+              "avg_recover": "00:02:39",
+              "riding_time": "01:17:07",
+              "speed_kmh": 15.56,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 20.0,
+              "depart": "07:57:07",
+              "arrival": "09:26:36",
+              "max_vet_in": "09:46:36",
+              "actual_vet_in": "09:30:34",
+              "time_to_vet_in": "00:03:58",
+              "avg_recover": "00:03:19",
+              "riding_time": "01:29:29",
+              "speed_kmh": 13.41,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "bib": "52",
+          "rider": "WARIT KHUNTARAPORN",
+          "horse": "THE HORSES LI-MARIK",
+          "club": "The Horses",
+          "total_riding_time": "02:59:41",
+          "total_riding_time_seconds": 10781,
+          "avg_speed_kmh": 13.36,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 20.0,
+              "depart": "06:00:00",
+              "arrival": "07:27:17",
+              "max_vet_in": "07:42:17",
+              "actual_vet_in": "07:34:38",
+              "time_to_vet_in": "00:07:21",
+              "avg_recover": "00:07:21",
+              "riding_time": "01:34:38",
+              "speed_kmh": 12.68,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 20.0,
+              "depart": "08:14:38",
+              "arrival": "09:39:41",
+              "max_vet_in": "09:59:41",
+              "actual_vet_in": "09:50:08",
+              "time_to_vet_in": "00:10:27",
+              "avg_recover": "00:08:54",
+              "riding_time": "01:25:03",
+              "speed_kmh": 14.11,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "bib": "53",
+          "rider": "WIPAWAN PAWITAYALARP",
+          "horse": "THE HORSES LETIS",
+          "club": "The Horses",
+          "total_riding_time": "02:59:42",
+          "total_riding_time_seconds": 10782,
+          "avg_speed_kmh": 13.36,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 20.0,
+              "depart": "06:00:00",
+              "arrival": "07:27:18",
+              "max_vet_in": "07:42:18",
+              "actual_vet_in": "07:34:55",
+              "time_to_vet_in": "00:07:37",
+              "avg_recover": "00:07:37",
+              "riding_time": "01:34:55",
+              "speed_kmh": 12.64,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 20.0,
+              "depart": "08:14:55",
+              "arrival": "09:39:42",
+              "max_vet_in": "09:59:42",
+              "actual_vet_in": "09:50:16",
+              "time_to_vet_in": "00:10:34",
+              "avg_recover": "00:09:05",
+              "riding_time": "01:24:47",
+              "speed_kmh": 14.15,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "bib": "54",
+          "rider": "NATTAWUT AUNJAIYAI",
+          "horse": "CHRISTOPHER",
+          "club": "Suphan Horse Sport Club",
+          "total_riding_time": "03:28:52",
+          "total_riding_time_seconds": 12532,
+          "avg_speed_kmh": 11.49,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 20.0,
+              "depart": "06:00:00",
+              "arrival": "07:43:46",
+              "max_vet_in": "07:58:46",
+              "actual_vet_in": "07:52:57",
+              "time_to_vet_in": "00:09:11",
+              "avg_recover": "00:09:11",
+              "riding_time": "01:52:57",
+              "speed_kmh": 10.62,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 20.0,
+              "depart": "08:32:57",
+              "arrival": "10:08:52",
+              "max_vet_in": "10:28:52",
+              "actual_vet_in": "10:17:51",
+              "time_to_vet_in": "00:08:59",
+              "avg_recover": "00:09:05",
+              "riding_time": "01:35:55",
+              "speed_kmh": 12.51,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "bib": "58",
+          "rider": "ELIZAVETA KORNEEVA",
+          "horse": "WINNER-WIND OF HEAVEN",
+          "club": "Wind of Heaven",
+          "total_riding_time": "03:31:55",
+          "total_riding_time_seconds": 12715,
+          "avg_speed_kmh": 11.33,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 20.0,
+              "depart": "06:00:00",
+              "arrival": "07:38:17",
+              "max_vet_in": "07:53:17",
+              "actual_vet_in": "07:53:07",
+              "time_to_vet_in": "00:14:50",
+              "avg_recover": "00:14:50",
+              "riding_time": "01:53:07",
+              "speed_kmh": 10.61,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 20.0,
+              "depart": "08:33:07",
+              "arrival": "10:11:55",
+              "max_vet_in": "10:31:55",
+              "actual_vet_in": "10:28:34",
+              "time_to_vet_in": "00:16:39",
+              "avg_recover": "00:15:44",
+              "riding_time": "01:38:48",
+              "speed_kmh": 12.15,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "bib": "57",
+          "rider": "IRINA KORNEEVA",
+          "horse": "ZEUS THE THUNDERER",
+          "club": "Wind of Heaven",
+          "total_riding_time": "03:31:56",
+          "total_riding_time_seconds": 12716,
+          "avg_speed_kmh": 11.32,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 20.0,
+              "depart": "06:00:00",
+              "arrival": "07:38:16",
+              "max_vet_in": "07:53:16",
+              "actual_vet_in": "07:47:46",
+              "time_to_vet_in": "00:09:30",
+              "avg_recover": "00:09:30",
+              "riding_time": "01:47:46",
+              "speed_kmh": 11.14,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 20.0,
+              "depart": "08:27:46",
+              "arrival": "10:11:56",
+              "max_vet_in": "10:31:56",
+              "actual_vet_in": "10:28:26",
+              "time_to_vet_in": "00:16:30",
+              "avg_recover": "00:13:00",
+              "riding_time": "01:44:10",
+              "speed_kmh": 11.52,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "bib": "56",
+          "rider": "THANUTCHANOK MUNKONGDEE",
+          "horse": "ANGIE",
+          "club": "MCC Sansuk",
+          "total_riding_time": "03:34:16",
+          "total_riding_time_seconds": 12856,
+          "avg_speed_kmh": 11.2,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 20.0,
+              "depart": "06:00:00",
+              "arrival": "07:42:16",
+              "max_vet_in": "07:57:16",
+              "actual_vet_in": "07:48:09",
+              "time_to_vet_in": "00:05:53",
+              "avg_recover": "00:05:53",
+              "riding_time": "01:48:09",
+              "speed_kmh": 11.1,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 20.0,
+              "depart": "08:28:09",
+              "arrival": "10:14:16",
+              "max_vet_in": "10:34:16",
+              "actual_vet_in": "10:21:42",
+              "time_to_vet_in": "00:07:26",
+              "avg_recover": "00:06:40",
+              "riding_time": "01:46:07",
+              "speed_kmh": 11.31,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 8,
+          "bib": "55",
+          "rider": "NATAKORN KRAIPHAN",
+          "horse": "ANGELLO",
+          "club": "MCC Sansuk",
+          "total_riding_time": "03:34:17",
+          "total_riding_time_seconds": 12857,
+          "avg_speed_kmh": 11.2,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 20.0,
+              "depart": "06:00:00",
+              "arrival": "07:42:35",
+              "max_vet_in": "07:57:35",
+              "actual_vet_in": "07:48:33",
+              "time_to_vet_in": "00:05:58",
+              "avg_recover": "00:05:58",
+              "riding_time": "01:48:33",
+              "speed_kmh": 11.05,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 20.0,
+              "depart": "08:28:33",
+              "arrival": "10:14:17",
+              "max_vet_in": "10:34:17",
+              "actual_vet_in": "10:21:26",
+              "time_to_vet_in": "00:07:09",
+              "avg_recover": "00:06:33",
+              "riding_time": "01:45:44",
+              "speed_kmh": 11.35,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 9,
+          "bib": "59",
+          "rider": "NALUEPOL KLAMKLIANG",
+          "horse": "ACHA RA FARO",
+          "club": "FARO FARM 101",
+          "total_riding_time": "04:27:56",
+          "total_riding_time_seconds": 16076,
+          "avg_speed_kmh": 8.96,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 20.0,
+              "depart": "06:00:00",
+              "arrival": "07:57:20",
+              "max_vet_in": "08:12:20",
+              "actual_vet_in": "08:05:27",
+              "time_to_vet_in": "00:08:07",
+              "avg_recover": "00:08:07",
+              "riding_time": "02:05:27",
+              "speed_kmh": 9.57,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 20.0,
+              "depart": "08:45:27",
+              "arrival": "11:07:56",
+              "max_vet_in": "11:27:56",
+              "actual_vet_in": "11:14:04",
+              "time_to_vet_in": "00:06:08",
+              "avg_recover": "00:07:07",
+              "riding_time": "02:22:29",
+              "speed_kmh": 8.42,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 10,
+          "bib": "51",
+          "rider": "BOONYANUCH NONGYAI",
+          "horse": "HARRY KANE",
+          "club": "Icetara Pattaya",
+          "total_riding_time": "04:27:56",
+          "total_riding_time_seconds": 16076,
+          "avg_speed_kmh": 8.96,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 20.0,
+              "depart": "06:00:00",
+              "arrival": "07:52:29",
+              "max_vet_in": "08:07:29",
+              "actual_vet_in": "07:59:56",
+              "time_to_vet_in": "00:07:27",
+              "avg_recover": "00:07:27",
+              "riding_time": "01:59:56",
+              "speed_kmh": 10.01,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 20.0,
+              "depart": "08:39:56",
+              "arrival": "11:07:56",
+              "max_vet_in": "11:27:56",
+              "actual_vet_in": "11:21:34",
+              "time_to_vet_in": "00:13:38",
+              "avg_recover": "00:10:32",
+              "riding_time": "02:28:00",
+              "speed_kmh": 8.11,
+              "status": "PASS"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

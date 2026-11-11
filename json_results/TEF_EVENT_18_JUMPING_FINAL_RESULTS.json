@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1-trial",
+  "event": {
+    "event_id": "EVENT-18-THC-JUMPING-FINAL-2024",
+    "event_number": 18,
+    "file_number": 26,
+    "name": "Thailand Championship Jumping Final 2024",
+    "venue": "Thai Polo & Equestrian Club, Pattaya, Chonburi",
+    "date_range": "2024-09-27 ถึง 2024-09-29",
+    "year_be": 2567
+  },
+  "extraction_summary": {
+    "source_file": "26 THC JUMPING FINAL RESULTS.pdf",
+    "total_pages": 33,
+    "status": "completed_100_percent"
+  },
+  "final_results_summary": {
+    "total_categories": [
+      "Senior A",
+      "Young Rider",
+      "Junior A",
+      "Junior B",
+      "Children A",
+      "Children B",
+      "All Pony",
+      "Pony Cat A",
+      "Pony Cat B",
+      "Pony Cat C"
+    ],
+    "status": "completed_finals"
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "event_name": "THC DRESSAGE FINAL RESULTS 2024",
+  "classes": [
+    {
+      "class_name": "Competition 1 : Thailand Championships Children Day 1 (Preliminary 1)",
+      "discipline": "Dressage",
+      "date": "2024-09-27",
+      "page_number": 1,
+      "preview_image": "scan_previews/item_27_page_1.jpg",
+      "entries": [
+        {
+          "rank": 1,
+          "bib": 322,
+          "athlete": "Pornsup Prachomsuk",
+          "horse": "Princess",
+          "club": "Horseshoe Point",
+          "r1_score": "Tech: 106.5 (66.6%) | Col: 27.8 (69.5%)",
+          "jo_score": "68.031%",
+          "status": "FINISHED",
+          "score_display": "68.031%"
+        }
+      ]
+    },
+    {
+      "class_name": "Competition 1 : Thailand Championships Children Day 2 (Preliminary 2)",
+      "discipline": "Dressage",
+      "date": "2024-09-28",
+      "page_number": 2,
+      "preview_image": "scan_previews/item_27_page_2.jpg",
+      "entries": [
+        {
+          "rank": 1,
+          "bib": 322,
+          "athlete": "Pornsup Prachomsuk",
+          "horse": "Princess",
+          "club": "Horseshoe Point",
+          "r1_score": "Tech: 129.5 (64.750%) | Col: 27.7 (69.250%)",
+          "jo_score": "67.000%",
+          "status": "FINISHED",
+          "score_display": "67.000%"
+        }
+      ]
+    },
+    {
+      "class_name": "Competition 1 : Thailand Championships Children Day 3 (Preliminary 3)",
+      "discipline": "Dressage",
+      "date": "2024-09-29",
+      "page_number": 3,
+      "preview_image": "scan_previews/item_27_page_3.jpg",
+      "entries": [
+        {
+          "rank": 1,
+          "bib": 322,
+          "athlete": "Pornsup Prachomsuk",
+          "horse": "Princess",
+          "club": "Horseshoe Point",
+          "r1_score": "Tech: 115.0 (67.647%) | Col: 28.0 (70.000%)",
+          "jo_score": "68.824%",
+          "status": "FINISHED",
+          "score_display": "68.824%"
+        }
+      ]
+    },
+    {
+      "class_name": "Competition 1 : Thailand Championship Children Over All 2024",
+      "discipline": "Dressage",
+      "date": "2024-09-29",
+      "page_number": 4,
+      "preview_image": "scan_previews/item_27_page_4.jpg",
+      "entries": [
+        {
+          "rank": 1,
+          "bib": 322,
+          "athlete": "Pornsup Prachomsuk",
+          "horse": "Princess",
+          "club": "Horseshoe Point",
+          "r1_score": "Day 1: 68.031% | Day 2: 67.000% | Day 3: 68.824%",
+          "jo_score": "Over All: 67.952%",
+          "status": "FINISHED",
+          "score_display": "Total 67.952%"
+        }
+      ]
+    },
+    {
+      "class_name": "Competition 2 : Thailand Championships Junior B Day 1 (Novice 1)",
+      "discipline": "Dressage",
+      "date": "2024-09-27",
+      "page_number": 5,
+      "preview_image": "scan_previews/item_27_page_5.jpg",
+      "entries": [
+        {
+          "rank": 1,
+          "bib": 316,
+          "athlete": "Namo De Troetsel",
+          "horse": "El Capitan",
+          "club": "Horseshoe Point",
+          "r1_score": "Judge C: 69.048% | Judge E: 72.500%",
+          "jo_score": "70.774%",
+          "status": "FINISHED",
+          "score_display": "70.774%"
+        },
+        {
+          "rank": 2,
+          "bib": 302,
+          "athlete": "Aekanat Bandapranea",
+          "horse": "Pluto",
+          "club": "Farm de Lek",
+          "r1_score": "Judge C: 64.286% | Judge E: 62.750%",
+          "jo_score": "63.518%",
+          "status": "FINISHED",
+          "score_display": "63.518%"
+        }
+      ]
+    },
+    {
+      "class_name": "Competition 2 : Thailand Championships Junior B Day 2 (Novice 2)",
+      "discipline": "Dressage",
+      "date": "2024-09-28",
+      "page_number": 6,
+      "preview_image": "scan_previews/item_27_page_6.jpg",
+      "entries": [
+        {
+          "rank": 1,
+          "bib": 316,
+          "athlete": "Namo De Troetsel",
+          "horse": "El Capitan",
+          "club": "Horseshoe Point",
+          "r1_score": "Judge C: 68.276% | Judge E: 69.250%",
+          "jo_score": "68.763%",
+          "status": "FINISHED",
+          "score_display": "68.763%"
+        },
+        {
+          "rank": 2,
+          "bib": 302,
+          "athlete": "Aekanat Bandapranea",
+          "horse": "Pluto",
+          "club": "Farm de Lek",
+          "r1_score": "Judge C: 61.379% | Judge E: 67.250%",
+          "jo_score": "64.315%",
+          "status": "FINISHED",
+          "score_display": "64.315%"
+        }
+      ]
+    },
+    {
+      "class_name": "Competition 2 : Thailand Championships Junior B Day 3 (Novice 3)",
+      "discipline": "Dressage",
+      "date": "2024-09-29",
+      "page_number": 7,
+      "preview_image": "scan_previews/item_27_page_7.jpg",
+      "entries": [
+        {
+          "rank": 1,
+          "bib": 316,
+          "athlete": "Namo De Troetsel",
+          "horse": "El Capitan",
+          "club": "Horseshoe Point",
+          "r1_score": "Judge C: 67.609% | Judge E: 70.000%",
+          "jo_score": "68.804%",
+          "status": "FINISHED",
+          "score_display": "68.804%"
+        },
+        {
+          "rank": 2,
+          "bib": 302,
+          "athlete": "Aekanat Bandapranea",
+          "horse": "Pluto",
+          "club": "Farm de Lek",
+          "r1_score": "Judge C: 62.609% | Judge E: 67.000%",
+          "jo_score": "64.804%",
+          "status": "FINISHED",
+          "score_display": "64.804%"
+        }
+      ]
+    },
+    {
+      "class_name": "Competition 2 : Thailand Championship Junior B Over All 2024",
+      "discipline": "Dressage",
+      "date": "2024-09-29",
+      "page_number": 8,
+      "preview_image": "scan_previews/item_27_page_8.jpg",
+      "entries": [
+        {
+          "rank": 1,
+          "bib": 316,
+          "athlete": "Namo De Troetsel",
+          "horse": "El Capitan",
+          "club": "Horseshoe Point",
+          "r1_score": "Day 1: 70.774% | Day 2: 68.763% | Day 3: 68.804%",
+          "jo_score": "Over All: 69.447%",
+          "status": "FINISHED",
+          "score_display": "Total 69.447%"
+        },
+        {
+          "rank": 2,
+          "bib": 302,
+          "athlete": "Aekanat Bandapraneat",
+          "horse": "Pluto",
+          "club": "Farm de Lek",
+          "r1_score": "Day 1: 63.518% | Day 2: 67.250% | Day 3: 64.804%",
+          "jo_score": "Over All: 65.191%",
+          "status": "FINISHED",
+          "score_display": "Total 65.191%"
+        }
+      ]
+    },
+    {
+      "class_name": "Competition 3 : Thailand Championships Young Rider C Day 1 (Novice 1)",
+      "discipline": "Dressage",
+      "date": "2024-09-27",
+      "page_number": 9,
+      "preview_image": "scan_previews/item_27_page_9.jpg",
+      "entries": [
+        {
+          "rank": 1,
+          "bib": 312,
+          "athlete": "Maethus Khuptawinthu",
+          "horse": "Dancing Diamond",
+          "club": "KP Equestrian Center",
+          "r1_score": "Judge C: 68.333% | Judge E: 65.750%",
+          "jo_score": "67.042%",
+          "status": "FINISHED",
+          "score_display": "67.042%"
+        }
+      ]
+    },
+    {
+      "class_name": "Competition 3 : Thailand Championships Young Rider C Day 2 (Novice 2)",
+      "discipline": "Dressage",
+      "date": "2024-09-28",
+      "page_number": 10,
+      "preview_image": "scan_previews/item_27_page_10.jpg",
+      "entries": [
+        {
+          "rank": 1,
+          "bib": 312,
+          "athlete": "Maethus Khuptawinthu",
+          "horse": "Dancing Diamond",
+          "club": "KP Equestrian Center",
+          "r1_score": "Judge C: 65.862% | Judge E: 66.750%",
+          "jo_score": "66.306%",
+          "status": "FINISHED",
+          "score_display": "66.306%"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,454 @@
+{
+  "schema_version": "0.1-trial",
+  "event": {
+    "event_id": "EVENT-29-THC-ENDURANCE-FINAL-2024",
+    "file_number": 29,
+    "name": "Thailand Endurance Championships 2024 (Endurance Final)",
+    "venue": "Thai Polo & Equestrian Club, Pattaya, Chonburi",
+    "date_range": "2024-09-27 ถึง 2024-09-29",
+    "year_be": 2567
+  },
+  "officials": {
+    "validate_approve_by": "Tan Choon Heng (FEI : 10103021)"
+  },
+  "classes": [
+    {
+      "class_id": "THC-2024-FINAL-CEI1",
+      "name": "Thailand Endurance Championships 2024 - CEI 1* (100 Km.)",
+      "date": "2024-09-28",
+      "distance_km": 100,
+      "loop_count": 4,
+      "source_pages": [
+        1,
+        2
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "109",
+          "rider": "WARIT KHUNTARAPORN",
+          "horse": "Shardell Electric Silver",
+          "club": "The Horses",
+          "total_riding_time": "06:24:41",
+          "avg_speed_kmh": 15.85,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "07:48:08",
+              "actual_vet_in": "07:52:35",
+              "recovery": "00:04:27",
+              "riding_time": "01:52:35",
+              "speed_kmh": 16.41,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "08:32:35",
+              "arrival": "10:22:28",
+              "actual_vet_in": "10:27:11",
+              "recovery": "00:04:45",
+              "riding_time": "01:54:36",
+              "speed_kmh": 16.13,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "11:07:11",
+              "arrival": "12:24:25",
+              "actual_vet_in": "12:31:08",
+              "recovery": "00:06:43",
+              "riding_time": "01:23:57",
+              "speed_kmh": 14.29,
+              "status": "PASS"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "13:21:08",
+              "arrival": "14:34:41",
+              "actual_vet_in": "14:40:02",
+              "recovery": "00:05:21",
+              "riding_time": "01:13:33",
+              "speed_kmh": 16.32,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "bib": "113",
+          "rider": "YODCHAI MEECHOKCHAI",
+          "horse": "Meaw Juntha",
+          "club": "MCC Sansuk",
+          "total_riding_time": "06:40:43",
+          "avg_speed_kmh": 15.21,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "07:47:54",
+              "actual_vet_in": "07:53:12",
+              "recovery": "00:05:18",
+              "riding_time": "01:53:12",
+              "speed_kmh": 16.33,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "08:33:12",
+              "arrival": "10:22:27",
+              "actual_vet_in": "10:27:30",
+              "recovery": "00:05:03",
+              "riding_time": "01:54:18",
+              "speed_kmh": 16.17,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "11:07:30",
+              "arrival": "12:28:14",
+              "actual_vet_in": "12:33:03",
+              "recovery": "00:04:49",
+              "riding_time": "01:25:33",
+              "speed_kmh": 14.03,
+              "status": "PASS"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "13:23:03",
+              "arrival": "14:50:43",
+              "actual_vet_in": "15:09:55",
+              "recovery": "00:19:12",
+              "riding_time": "01:27:40",
+              "speed_kmh": 13.69,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "bib": "117",
+          "rider": "PHATCHA SAWATKITTHAMRONG",
+          "horse": "RIDER",
+          "club": "Suphan Horse Sport Club",
+          "total_riding_time": "06:40:44",
+          "avg_speed_kmh": 15.21,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "07:48:09",
+              "actual_vet_in": "07:52:33",
+              "recovery": "00:04:24",
+              "riding_time": "01:52:33",
+              "speed_kmh": 16.42,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "08:32:33",
+              "arrival": "10:22:25",
+              "actual_vet_in": "10:29:08",
+              "recovery": "00:06:43",
+              "riding_time": "01:56:35",
+              "speed_kmh": 15.85,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "11:09:08",
+              "arrival": "12:28:15",
+              "actual_vet_in": "12:33:30",
+              "recovery": "00:05:15",
+              "riding_time": "01:24:22",
+              "speed_kmh": 14.22,
+              "status": "PASS"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "13:23:30",
+              "arrival": "14:50:44",
+              "actual_vet_in": "15:07:55",
+              "recovery": "00:17:11",
+              "riding_time": "01:27:14",
+              "speed_kmh": 13.76,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "bib": "110",
+          "rider": "WIPAWAN PAWITAYALARP",
+          "horse": "The Horses Born Boogie",
+          "club": "The Horses",
+          "total_riding_time": "06:55:01",
+          "avg_speed_kmh": 14.69,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "08:00:50",
+              "actual_vet_in": "08:05:12",
+              "recovery": "00:04:22",
+              "riding_time": "02:05:12",
+              "speed_kmh": 14.76,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "08:45:12",
+              "arrival": "10:39:57",
+              "actual_vet_in": "10:44:14",
+              "recovery": "00:04:17",
+              "riding_time": "01:59:02",
+              "speed_kmh": 15.53,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "11:24:14",
+              "arrival": "12:35:18",
+              "actual_vet_in": "12:38:58",
+              "recovery": "00:03:40",
+              "riding_time": "01:14:44",
+              "speed_kmh": 16.06,
+              "status": "PASS"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "13:28:58",
+              "arrival": "15:05:01",
+              "actual_vet_in": "15:05:01",
+              "recovery": "00:00:00",
+              "riding_time": "01:36:03",
+              "speed_kmh": 12.49,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "bib": "118",
+          "rider": "MATHAWIN NUMAUIM",
+          "horse": "I-GLATTA",
+          "club": "Suphan Horse Sport Club",
+          "total_riding_time": "09:28:07",
+          "avg_speed_kmh": 10.73,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "08:18:14",
+              "actual_vet_in": "08:30:24",
+              "recovery": "00:12:10",
+              "riding_time": "02:30:24",
+              "speed_kmh": 12.29,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "09:10:24",
+              "arrival": "11:49:44",
+              "actual_vet_in": "11:58:39",
+              "recovery": "00:08:55",
+              "riding_time": "02:48:15",
+              "speed_kmh": 10.98,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "12:38:39",
+              "arrival": "14:30:37",
+              "actual_vet_in": "14:43:59",
+              "recovery": "00:13:22",
+              "riding_time": "02:05:20",
+              "speed_kmh": 9.57,
+              "status": "PASS"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "15:33:59",
+              "arrival": "17:38:07",
+              "actual_vet_in": "17:53:15",
+              "recovery": "00:15:08",
+              "riding_time": "02:04:08",
+              "speed_kmh": 9.67,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "bib": "114",
+          "rider": "THIRATAWAT KULVAROTAMA",
+          "horse": "Chorus",
+          "club": "MCC Sansuk",
+          "total_riding_time": "09:30:45",
+          "avg_speed_kmh": 10.68,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "07:52:47",
+              "actual_vet_in": "08:06:06",
+              "recovery": "00:13:19",
+              "riding_time": "02:06:06",
+              "speed_kmh": 14.66,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "08:46:06",
+              "arrival": "11:25:35",
+              "actual_vet_in": "11:35:19",
+              "recovery": "00:09:44",
+              "riding_time": "02:49:13",
+              "speed_kmh": 10.92,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "12:15:19",
+              "arrival": "14:16:40",
+              "actual_vet_in": "14:25:58",
+              "recovery": "00:09:18",
+              "riding_time": "02:10:39",
+              "speed_kmh": 9.18,
+              "status": "PASS"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "15:15:58",
+              "arrival": "17:40:45",
+              "actual_vet_in": "17:51:03",
+              "recovery": "00:10:18",
+              "riding_time": "02:24:47",
+              "speed_kmh": 8.29,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 7,
+          "bib": "115",
+          "rider": "PAVARISA KULVAROTAMA",
+          "horse": "Leah",
+          "club": "MCC Sansuk",
+          "total_riding_time": "09:30:48",
+          "avg_speed_kmh": 10.68,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30.8,
+              "depart": "06:00:00",
+              "arrival": "07:52:41",
+              "actual_vet_in": "07:58:13",
+              "recovery": "00:05:32",
+              "riding_time": "01:58:13",
+              "speed_kmh": 15.63,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30.8,
+              "depart": "08:38:13",
+              "arrival": "11:25:36",
+              "actual_vet_in": "11:31:03",
+              "recovery": "00:05:27",
+              "riding_time": "02:52:50",
+              "speed_kmh": 10.69,
+              "status": "PASS"
+            },
+            {
+              "loop": 3,
+              "dist_km": 20.0,
+              "depart": "12:11:03",
+              "arrival": "14:16:36",
+              "actual_vet_in": "14:23:06",
+              "recovery": "00:06:30",
+              "riding_time": "02:12:03",
+              "speed_kmh": 9.09,
+              "status": "PASS"
+            },
+            {
+              "loop": 4,
+              "dist_km": 20.0,
+              "depart": "15:13:06",
+              "arrival": "17:40:48",
+              "actual_vet_in": "17:45:18",
+              "recovery": "00:04:30",
+              "riding_time": "02:27:42",
+              "speed_kmh": 8.12,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "111",
+          "rider": "JIRASAK PATIJAROENCHAI",
+          "horse": "Mwa True Love",
+          "club": "FARO FARM 101",
+          "total_riding_time": "06:43:27",
+          "avg_speed_kmh": 12.14,
+          "status": "FTQ-ME",
+          "review_note": "Failed to Qualify - Metabolic (Vet-in Loop 3)"
+        },
+        {
+          "rank": null,
+          "bib": "112",
+          "rider": "NALUEPOL KLAMKLIANG",
+          "horse": "Faron Faro",
+          "club": "FARO FARM 101",
+          "total_riding_time": "08:33:48",
+          "avg_speed_kmh": 9.53,
+          "status": "FTQ-ME",
+          "review_note": "Failed to Qualify - Metabolic (Vet-in Loop 3)"
+        },
+        {
+          "rank": null,
+          "bib": "116",
+          "rider": "NUTTAWOOT NOPUDOMPHAN",
+          "horse": "HADRIAN",
+          "club": "Suphan Horse Sport Club",
+          "total_riding_time": "01:58:48",
+          "avg_speed_kmh": 15.56,
+          "status": "FTQ-GA",
+          "review_note": "Failed to Qualify - Gait (Vet-in Loop 1)"
+        }
+      ]
+    }
+  ]
+}

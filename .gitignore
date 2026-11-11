@@ -1,0 +1,14 @@
+# Ignore heavy raw PDF scans and archive folders to keep repo ultra-lightweight (<50MB)
+*.pdf
+*/*.pdf
+*/*/*.pdf
+*/*/*/*.pdf
+[0-9]*.*
+[0-9]*.*/**
+ตารางการแข่งขันประจำปี 2024/
+*.rar
+Thumbs.db
+.DS_Store
+*.pyc
+__pycache__/
+client_secret_*.json

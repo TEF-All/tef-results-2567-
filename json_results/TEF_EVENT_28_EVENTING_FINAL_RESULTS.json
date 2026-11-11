@@ -1,0 +1,176 @@
+{
+  "schema_version": "0.1-trial",
+  "event": {
+    "event_id": "EVENT-28-THC-EVENTING-FINAL-2024",
+    "file_number": 28,
+    "name": "Thailand Championships 2024 - Eventing (Final Round)",
+    "venue": "Thai Polo & Equestrian Club, Pattaya, Chonburi",
+    "date_range": "2024-09-27 ถึง 2024-09-29",
+    "year_be": 2567
+  },
+  "officials": {
+    "ground_jury": [
+      "Maj.Gen. Vithai Laithomya",
+      "Ms. Maja Stukelj (FEI 3*)"
+    ],
+    "course_designer": "Maj. Mana Sornkratok"
+  },
+  "final_round_results": {
+    "class_name": "Competition C1: Thailand Championship Eventing",
+    "date": "2024-09-29",
+    "entries": [
+      {
+        "rank": 1,
+        "bib": "303",
+        "rider": "Arinadtha Chavatanont",
+        "horse": "Baileys",
+        "club": "Chavallino",
+        "dressage": {
+          "judge_c_pct": 68.478,
+          "judge_e_pct": 65.875,
+          "total_pct": 67.17,
+          "penalties": 32.8
+        },
+        "jumping": {
+          "jump_faults": 0,
+          "time_taken": 71.25,
+          "time_faults": 1.6,
+          "penalties": 1.6
+        },
+        "cross_country": {
+          "jump_faults": 0,
+          "time_taken": 207.84,
+          "time_faults": 0.0,
+          "penalties": 0.0
+        },
+        "total_penalties": 34.4,
+        "status": "finished"
+      },
+      {
+        "rank": 2,
+        "bib": "309",
+        "rider": "Waruesa Pavasantanon",
+        "horse": "Lilivale Giovani",
+        "club": "Chavallino",
+        "dressage": {
+          "judge_c_pct": 65.652,
+          "judge_e_pct": 64.348,
+          "total_pct": 65.0,
+          "penalties": 35.0
+        },
+        "jumping": {
+          "jump_faults": 0,
+          "time_taken": 62.06,
+          "time_faults": 0.0,
+          "penalties": 0.0
+        },
+        "cross_country": {
+          "jump_faults": 0,
+          "time_taken": 214.14,
+          "time_faults": 0.0,
+          "penalties": 0.0
+        },
+        "total_penalties": 35.0,
+        "status": "finished"
+      },
+      {
+        "rank": 3,
+        "bib": "318",
+        "rider": "Sm3. Katawoot Tha-Ngern",
+        "horse": "Sawang",
+        "club": "Royal Stable Unit",
+        "dressage": {
+          "judge_c_pct": 65.652,
+          "judge_e_pct": 64.13,
+          "total_pct": 64.89,
+          "penalties": 35.1
+        },
+        "jumping": {
+          "jump_faults": 0,
+          "time_taken": 57.42,
+          "time_faults": 0.0,
+          "penalties": 0.0
+        },
+        "cross_country": {
+          "jump_faults": 0,
+          "time_taken": 213.1,
+          "time_faults": 0.0,
+          "penalties": 0.0
+        },
+        "total_penalties": 35.1,
+        "status": "finished"
+      },
+      {
+        "rank": 4,
+        "bib": "322",
+        "rider": "Lt. Ronnachai Meesat",
+        "horse": "Popcorn_CC",
+        "club": "Cavalry Center",
+        "dressage": {
+          "judge_c_pct": 59.348,
+          "judge_e_pct": 63.696,
+          "total_pct": 61.52,
+          "penalties": 38.5
+        },
+        "jumping": {
+          "jump_faults": 0,
+          "time_taken": 71.0,
+          "time_faults": 1.2,
+          "penalties": 1.2
+        },
+        "cross_country": {
+          "jump_faults": 0,
+          "time_taken": 213.89,
+          "time_faults": 0.0,
+          "penalties": 0.0
+        },
+        "total_penalties": 39.7,
+        "status": "finished"
+      },
+      {
+        "rank": 5,
+        "bib": "305",
+        "rider": "SM1. Nattapong Siritum",
+        "horse": "Hongsean",
+        "club": "Navamintra NQG",
+        "dressage": {
+          "judge_c_pct": 60.435,
+          "judge_e_pct": 60.217,
+          "total_pct": 60.33,
+          "penalties": 39.7
+        },
+        "jumping": {
+          "jump_faults": 0,
+          "time_taken": 69.32,
+          "time_faults": 0.0,
+          "penalties": 0.0
+        },
+        "cross_country": {
+          "jump_faults": 20,
+          "time_taken": 231.31,
+          "time_faults": 6.4,
+          "penalties": 26.4
+        },
+        "total_penalties": 66.87,
+        "status": "finished"
+      },
+      {
+        "rank": null,
+        "bib": "310",
+        "rider": "Pichamon Chuerattakorn",
+        "horse": "Luna",
+        "club": "BB Horse Stable",
+        "dressage": {
+          "judge_c_pct": null,
+          "judge_e_pct": null,
+          "total_pct": null,
+          "penalties": "EL"
+        },
+        "jumping": null,
+        "cross_country": null,
+        "total_penalties": null,
+        "status": "EL"
+      }
+    ]
+  }
+}

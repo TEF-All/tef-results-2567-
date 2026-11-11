@@ -1,0 +1,153 @@
+{
+  "schema_version": "0.1-trial",
+  "event": {
+    "event_id": "EVENT-17-HSP-DRESSAGE-PONY-THC-Q5-2024",
+    "event_number": 17,
+    "file_number": 25,
+    "name": "Dressage Horse & Pony Thailand Championship 2024 #Q5",
+    "venue": "Horseshoe Point International Riding School, Pattaya",
+    "date_range": "2024-09-06 ถึง 2024-09-08",
+    "year_be": 2567
+  },
+  "extraction_summary": {
+    "source_file": "25 Results HSP Dressage_Pony THC 2024 _Q5.pdf",
+    "total_pages": 23,
+    "status": "completed_100_percent"
+  },
+  "classes": [
+    {
+      "page": 1,
+      "name": "Thailand Championship All Pony",
+      "article": "Pony Preliminary 2",
+      "date": "2024-09-08",
+      "entries": [
+        {
+          "rank": 1,
+          "rider": "Pornsup Prachomsuk",
+          "horse": "Princess",
+          "club": "Horseshoe Point",
+          "total_percent": 68.097,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "rider": "Madeline Kongsuebchart",
+          "horse": "Km Gobi",
+          "club": "NP Equestrian club by mana",
+          "total_percent": 67.361,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "name": "Thailand Championship Pony II",
+      "article": "Pony Preliminary 2",
+      "date": "2024-09-08",
+      "entries": [
+        {
+          "rank": 1,
+          "rider": "Nada Nobsuwanwong",
+          "horse": "Coco",
+          "club": "Farmdelek",
+          "total_percent": 69.375,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "rider": "Yata Chusakultanachai",
+          "horse": "Flossie",
+          "club": "Farmdelek",
+          "total_percent": 64.25,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "rider": "Marisa Tantirungkit",
+          "horse": "Pal",
+          "club": "Horseshoe Point",
+          "total_percent": 59.375,
+          "status": "finished"
+        },
+        {
+          "rank": null,
+          "rider": "Nisharat Limsawadwong",
+          "horse": "Lola",
+          "club": "Farmdelek",
+          "status": "EL"
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "name": "Thailand Championship Pony Cat.A",
+      "article": "Pony Preliminary 1",
+      "date": "2024-09-07",
+      "entries": [
+        {
+          "rank": 1,
+          "rider": "Pornsup Prachomsuk",
+          "horse": "Princess",
+          "club": "Horseshoe Point",
+          "total_percent": 72.75,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "rider": "Madeline Kongsuebchart",
+          "horse": "Km Gobi",
+          "club": "NP Equestrian club by mana",
+          "total_percent": 67.375,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "rider": "Yata Chusakultanachai",
+          "horse": "Flossie",
+          "club": "Farmdelek",
+          "total_percent": 65.625,
+          "status": "finished"
+        },
+        {
+          "rank": null,
+          "rider": "Nisharat Limsawadwong",
+          "horse": "Lola",
+          "club": "Farmdelek",
+          "status": "EL"
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "name": "Thailand Championship Pony Cat.B",
+      "article": "Pony Preliminary 1",
+      "date": "2024-09-07",
+      "entries": [
+        {
+          "rank": 1,
+          "rider": "Tamonvom Silapabanleng",
+          "horse": "Jasper",
+          "club": "Golden Horse Riding Club",
+          "total_percent": 66.5,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "rider": "Nada Nobsuwanwong",
+          "horse": "Coco",
+          "club": "Farmdelek",
+          "total_percent": 62.844,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "rider": "Jinpawee Sutjaridorakul",
+          "horse": "Maya",
+          "club": "Lertnimit Horse House",
+          "total_percent": 59.781,
+          "status": "finished"
+        }
+      ]
+    }
+  ]
+}

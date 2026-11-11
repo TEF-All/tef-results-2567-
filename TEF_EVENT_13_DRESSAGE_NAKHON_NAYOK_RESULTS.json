@@ -1,0 +1,1843 @@
+{
+  "schema_version": "0.1-trial",
+  "event": {
+    "event_id": "EVENT-13-THC-DRESSAGE-NN-2024",
+    "event_number": 13,
+    "name": "Dressage Nakhon Nayok 2024 (Thailand Championship Dressage Horse & Pony Qualifier #4)",
+    "venue": "Equestrian Paradice, Nakhon Nayok",
+    "date_range": "2024-07-11 ถึง 2024-07-14",
+    "year_be": 2567
+  },
+  "extraction_summary": {
+    "source_file": "13.THC Dressage Nakhon Nayok/THC EP Results.pdf",
+    "total_pages": 19,
+    "total_competitions": 19,
+    "total_entries": 82,
+    "status": "completed_100_percent"
+  },
+  "classes": [
+    {
+      "page": 1,
+      "date": "2024-07-12",
+      "competition_number": "1",
+      "name": "THC Dressage Senior A",
+      "article": "FEI Junior Individual 2022 (Pr St-Grg & Int I)",
+      "max_points": 340,
+      "time": "09:10",
+      "average_time": "7 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2*)"
+        },
+        {
+          "pos": "E",
+          "name": "Ong Wan Ming (FEI 2*)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "321",
+          "rider": "Phumwatchana Boonlue",
+          "horse": "Victoria K.",
+          "club": "Golden Horse Riding Club",
+          "judge_c": {
+            "points": 188.5,
+            "percent": 55.441
+          },
+          "judge_e": {
+            "points": 194.5,
+            "percent": 57.206
+          },
+          "total_percent": 56.324,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "date": "2024-07-12",
+      "competition_number": "2",
+      "name": "THC Dressage Junior B",
+      "article": "Novice 1 (T2023)",
+      "max_points": "210/40",
+      "time": "09:30",
+      "average_time": "7 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2*)"
+        },
+        {
+          "pos": "E",
+          "name": "Ong Wan Ming (FEI 2*)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "316",
+          "rider": "Namo De Troetsel",
+          "horse": "El Capitan",
+          "club": "Horseshoe Point",
+          "judge_c": {
+            "tech": 143.5,
+            "percent": 68.3
+          },
+          "judge_e": {
+            "col": 27.4,
+            "percent": 68.5
+          },
+          "total_percent": 68.417,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "336",
+          "rider": "Kornpravee Wirotcharatsee",
+          "horse": "Bocelo Hcl15",
+          "club": "Chavallino",
+          "judge_c": {
+            "tech": 137.0,
+            "percent": 65.2
+          },
+          "judge_e": {
+            "col": 25.0,
+            "percent": 62.5
+          },
+          "total_percent": 63.869,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "date": "2024-07-12",
+      "competition_number": "4",
+      "name": "THC Dressage Senior D",
+      "article": "Novice 1 (T2023)",
+      "max_points": "210/40",
+      "time": "09:51",
+      "average_time": "7 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2*)"
+        },
+        {
+          "pos": "E",
+          "name": "Ong Wan Ming (FEI 2*)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "334",
+          "rider": "Yutthaphan Phadungchan",
+          "horse": "Ineke",
+          "club": "Farm Delek",
+          "judge_c": {
+            "tech": 136.5,
+            "percent": 65.0
+          },
+          "judge_e": {
+            "col": 27.0,
+            "percent": 67.5
+          },
+          "total_percent": 66.25,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "340",
+          "rider": "Onpreeya Putharak",
+          "horse": "For Love De Theyssarr",
+          "club": "Equestrian Paradice",
+          "judge_c": {
+            "tech": 129.5,
+            "percent": 61.7
+          },
+          "judge_e": {
+            "col": 26.0,
+            "percent": 65.0
+          },
+          "total_percent": 62.833,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": "325",
+          "rider": "Regan Pairojmahakij",
+          "horse": "Cassini",
+          "club": "Farm Delek",
+          "judge_c": {
+            "tech": 127.0,
+            "percent": 60.5
+          },
+          "judge_e": {
+            "col": 25.5,
+            "percent": 63.8
+          },
+          "total_percent": 62.113,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": "305",
+          "rider": "Hansa Kraikosol",
+          "horse": "Peter Pan",
+          "club": "Checkmate",
+          "judge_c": {
+            "tech": 120.0,
+            "percent": 57.1
+          },
+          "judge_e": {
+            "col": 25.0,
+            "percent": 62.5
+          },
+          "total_percent": 59.821,
+          "status": "finished"
+        },
+        {
+          "rank": null,
+          "bib": "310",
+          "rider": "Lea elisabeth Cremerius",
+          "horse": "Fuego",
+          "club": "Horseshoe Point",
+          "judge_c": null,
+          "judge_e": null,
+          "total_percent": null,
+          "status": "RT"
+        },
+        {
+          "rank": null,
+          "bib": "337",
+          "rider": "Chalimchorn Tangboonchod",
+          "horse": "Corrie",
+          "club": "Checkmate",
+          "judge_c": null,
+          "judge_e": null,
+          "total_percent": null,
+          "status": "WD"
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "date": "2024-07-12",
+      "competition_number": "5",
+      "name": "EP Dressage Preliminary Open",
+      "article": "Preliminary 1 (T2023)",
+      "max_points": "160/40",
+      "time": "10:55",
+      "average_time": "7 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2*)"
+        },
+        {
+          "pos": "E",
+          "name": "Ong Wan Ming (FEI 2*)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": null,
+          "rider": "Rinlapat Chaipipat",
+          "horse": "Lola",
+          "club": "Farm Delek",
+          "judge_c": {
+            "tech": 101.0,
+            "percent": 63.1
+          },
+          "judge_e": {
+            "col": 26.6,
+            "percent": 66.5
+          },
+          "total_percent": 63.813,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": null,
+          "rider": "Punjaporn Tejavibulya",
+          "horse": "Chacco S",
+          "club": "Checkmate",
+          "judge_c": {
+            "tech": 99.0,
+            "percent": 61.9
+          },
+          "judge_e": {
+            "col": 25.4,
+            "percent": 63.5
+          },
+          "total_percent": 62.688,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": null,
+          "rider": "Kornpop Vethisakul",
+          "horse": "Diamond Eye",
+          "club": "Pari Passu",
+          "judge_c": {
+            "tech": 98.5,
+            "percent": 61.6
+          },
+          "judge_e": {
+            "col": 25.0,
+            "percent": 62.5
+          },
+          "total_percent": 62.031,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": null,
+          "rider": "Solajjha Banthaokul",
+          "horse": "Marshall",
+          "club": "Chomview",
+          "judge_c": {
+            "tech": 94.5,
+            "percent": 59.1
+          },
+          "judge_e": {
+            "col": 25.9,
+            "percent": 64.8
+          },
+          "total_percent": 61.906,
+          "status": "finished"
+        },
+        {
+          "rank": 5,
+          "bib": null,
+          "rider": "Supanida Jitasombuti",
+          "horse": "Lovelynn",
+          "club": "Equestrian Paradice",
+          "judge_c": {
+            "tech": 89.0,
+            "percent": 55.6
+          },
+          "judge_e": {
+            "col": 25.1,
+            "percent": 62.8
+          },
+          "total_percent": 59.188,
+          "status": "finished"
+        },
+        {
+          "rank": 6,
+          "bib": null,
+          "rider": "Pitchayapa Udompoch",
+          "horse": "Mini cooper",
+          "club": "Good Feel",
+          "judge_c": {
+            "tech": 91.0,
+            "percent": 56.9
+          },
+          "judge_e": {
+            "col": 24.5,
+            "percent": 61.3
+          },
+          "total_percent": 59.063,
+          "status": "finished"
+        },
+        {
+          "rank": 7,
+          "bib": null,
+          "rider": "Rashmika Khanijou",
+          "horse": "Norina",
+          "club": "The RBSC Polo Club",
+          "judge_c": {
+            "tech": 75.0,
+            "percent": 46.9
+          },
+          "judge_e": {
+            "col": 24.3,
+            "percent": 60.8
+          },
+          "total_percent": 53.813,
+          "status": "finished"
+        },
+        {
+          "rank": 8,
+          "bib": null,
+          "rider": "Vanilla Petchsuwan",
+          "horse": "Hippo",
+          "club": "Chavallino",
+          "judge_c": {
+            "tech": 75.5,
+            "percent": 47.2
+          },
+          "judge_e": {
+            "col": 22.8,
+            "percent": 57.0
+          },
+          "total_percent": 52.094,
+          "status": "finished"
+        },
+        {
+          "rank": null,
+          "bib": null,
+          "rider": "Olivia Balzli",
+          "horse": "Comet",
+          "club": "Horseshoe Point",
+          "judge_c": null,
+          "judge_e": null,
+          "total_percent": null,
+          "status": "RT"
+        },
+        {
+          "rank": null,
+          "bib": null,
+          "rider": "Akkhrawat Chaitiemwong",
+          "horse": "Stylist Ambassador",
+          "club": "Horse Haven",
+          "judge_c": null,
+          "judge_e": null,
+          "total_percent": null,
+          "status": "WD"
+        },
+        {
+          "rank": null,
+          "bib": null,
+          "rider": "Chalimchorn Tangboonchod",
+          "horse": "Corrie",
+          "club": "Checkmate",
+          "judge_c": null,
+          "judge_e": null,
+          "total_percent": null,
+          "status": "WD"
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "date": "2024-07-12",
+      "competition_number": "6",
+      "name": "THC Dressage Children",
+      "article": "Preliminary 1 (T2023)",
+      "max_points": "160/40",
+      "time": "14:00",
+      "average_time": "7 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2* C)"
+        },
+        {
+          "pos": "B",
+          "name": "Ong Wan Ming (FEI 2* B)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "306",
+          "rider": "Jida Chiembanchong",
+          "horse": "Belina",
+          "club": "Chavallino",
+          "judge_c": {
+            "tech": 110.0,
+            "percent": 68.8
+          },
+          "judge_e": {
+            "col": 26.5,
+            "percent": 66.3
+          },
+          "total_percent": 67.5,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "318",
+          "rider": "Olivia Balzli",
+          "horse": "Comet",
+          "club": "Horseshoe Point",
+          "judge_c": {
+            "tech": 95.5,
+            "percent": 59.7
+          },
+          "judge_e": {
+            "col": 26.0,
+            "percent": 65.0
+          },
+          "total_percent": 62.344,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": "319",
+          "rider": "Phandchanit Inorn",
+          "horse": "Nanna",
+          "club": "Equestrian Paradice",
+          "judge_c": {
+            "tech": 95.5,
+            "percent": 59.7
+          },
+          "judge_e": {
+            "col": 24.9,
+            "percent": 62.3
+          },
+          "total_percent": 60.969,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": "338",
+          "rider": "Supanida Jitasombuti",
+          "horse": "Edwina",
+          "club": "Equestrian Paradice",
+          "judge_c": {
+            "tech": 87.5,
+            "percent": 54.7
+          },
+          "judge_e": {
+            "col": 25.0,
+            "percent": 62.5
+          },
+          "total_percent": 58.594,
+          "status": "finished"
+        },
+        {
+          "rank": 5,
+          "bib": "339",
+          "rider": "Isabelle Aryssa Sophia",
+          "horse": "Amanda",
+          "club": "Equestrian Paradice",
+          "judge_c": {
+            "tech": 85.0,
+            "percent": 53.1
+          },
+          "judge_e": {
+            "col": 24.7,
+            "percent": 61.8
+          },
+          "total_percent": 57.438,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "date": "2024-07-12",
+      "competition_number": "7C",
+      "name": "THC Dressage Pony CAT C",
+      "article": "Pony Preliminary 1",
+      "max_points": "160/40",
+      "time": "15:15",
+      "average_time": "7 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2* C)"
+        },
+        {
+          "pos": "B",
+          "name": "Ong Wan Ming (FEI 2* B)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "820",
+          "rider": "Kornpop Vethisakul",
+          "horse": "Mario",
+          "club": "Pari Passu",
+          "judge_c": {
+            "tech": 105.0,
+            "percent": 65.6
+          },
+          "judge_e": {
+            "col": 25.5,
+            "percent": 63.8
+          },
+          "total_percent": 64.688,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "817",
+          "rider": "Pitchayapa Udompoch",
+          "horse": "Mini cooper",
+          "club": "Good Feel",
+          "judge_c": {
+            "tech": 98.0,
+            "percent": 61.3
+          },
+          "judge_e": {
+            "col": 25.6,
+            "percent": 64.0
+          },
+          "total_percent": 62.625,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": "813",
+          "rider": "Thanthara Ruangturakit",
+          "horse": "Tawan",
+          "club": "Chomview",
+          "judge_c": {
+            "tech": 97.0,
+            "percent": 60.6
+          },
+          "judge_e": {
+            "col": 25.1,
+            "percent": 62.8
+          },
+          "total_percent": 61.188,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "date": "2024-07-12",
+      "competition_number": "7B",
+      "name": "THC Dressage Pony CAT B",
+      "article": "Pony Preliminary 1",
+      "max_points": "160/40",
+      "time": "15:45",
+      "average_time": "7 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2* C)"
+        },
+        {
+          "pos": "B",
+          "name": "Ong Wan Ming (FEI 2* B)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "814",
+          "rider": "Atikarn Phisuthikul",
+          "horse": "Mocha 99",
+          "club": "The RBSC Polo Club",
+          "judge_c": {
+            "tech": 107.5,
+            "percent": 67.2
+          },
+          "judge_e": {
+            "col": 26.3,
+            "percent": 65.8
+          },
+          "total_percent": 66.469,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "812",
+          "rider": "Supanida Jitasombuti",
+          "horse": "Caramel",
+          "club": "Equestrian Paradice",
+          "judge_c": {
+            "tech": 98.0,
+            "percent": 61.3
+          },
+          "judge_e": {
+            "col": 25.6,
+            "percent": 64.0
+          },
+          "total_percent": 62.625,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": "833",
+          "rider": "Nada Nopsuwanvong",
+          "horse": "Coco",
+          "club": "Farm Delek",
+          "judge_c": {
+            "tech": 96.5,
+            "percent": 60.3
+          },
+          "judge_e": {
+            "col": 24.7,
+            "percent": 61.8
+          },
+          "total_percent": 61.031,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": "838",
+          "rider": "Apiyada Ekpaet",
+          "horse": "Dritter",
+          "club": "Chomview",
+          "judge_c": {
+            "tech": 92.0,
+            "percent": 57.5
+          },
+          "judge_e": {
+            "col": 24.2,
+            "percent": 60.5
+          },
+          "total_percent": 59.0,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "date": "2024-07-12",
+      "competition_number": "7A",
+      "name": "THC Dressage Pony CAT A",
+      "article": "Pony Preliminary 1",
+      "max_points": "160/40",
+      "time": "16:30",
+      "average_time": "7 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2* C)"
+        },
+        {
+          "pos": "B",
+          "name": "Ong Wan Ming (FEI 2* B)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "805",
+          "rider": "Jida Chiembanchong",
+          "horse": "Belina",
+          "club": "Chavallino",
+          "judge_c": {
+            "tech": 112.0,
+            "percent": 70.0
+          },
+          "judge_e": {
+            "col": 27.1,
+            "percent": 67.8
+          },
+          "total_percent": 68.875,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "832",
+          "rider": "Kornpravee Wirotcharatsee",
+          "horse": "A Shinning Star",
+          "club": "Chavallino",
+          "judge_c": {
+            "tech": 107.5,
+            "percent": 67.2
+          },
+          "judge_e": {
+            "col": 25.2,
+            "percent": 63.0
+          },
+          "total_percent": 65.094,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": "827",
+          "rider": "Madeline Kongsuebchart",
+          "horse": "Km Gobi",
+          "club": "NP Equestrian club",
+          "judge_c": {
+            "tech": 106.5,
+            "percent": 66.6
+          },
+          "judge_e": {
+            "col": 25.4,
+            "percent": 63.5
+          },
+          "total_percent": 65.031,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": "831",
+          "rider": "Solajjha Banthaokul",
+          "horse": "Marshall",
+          "club": "Chomview",
+          "judge_c": {
+            "tech": 96.5,
+            "percent": 60.3
+          },
+          "judge_e": {
+            "col": 24.9,
+            "percent": 62.3
+          },
+          "total_percent": 61.281,
+          "status": "finished"
+        },
+        {
+          "rank": 5,
+          "bib": "828",
+          "rider": "Pawinrada Lertasadamongkol",
+          "horse": "Maxwin Adventure",
+          "club": "NP Equestrian club",
+          "judge_c": {
+            "tech": 94.0,
+            "percent": 58.8
+          },
+          "judge_e": {
+            "col": 24.0,
+            "percent": 60.0
+          },
+          "total_percent": 59.375,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "date": "2024-07-13",
+      "competition_number": "8",
+      "name": "EP Dressage Walk-Trot Open",
+      "article": "TEF Walk Trot 1",
+      "max_points": 110,
+      "time": "09:30",
+      "average_time": "6 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Ong Wan Ming (FEI 2*)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": null,
+          "rider": "Pathruthai Piyapoikul",
+          "horse": "Lola",
+          "club": "Farm Delek",
+          "judge_c": {
+            "points": 73.5,
+            "percent": 66.8
+          },
+          "total_percent": 66.818,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": null,
+          "rider": "Kornpop Vethisakul",
+          "horse": "Mario",
+          "club": "Pari Passu",
+          "judge_c": {
+            "points": 73.0,
+            "percent": 66.4
+          },
+          "total_percent": 66.364,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": null,
+          "rider": "Arinrath Sriintharasut",
+          "horse": "Gogowa",
+          "club": "Checkmate",
+          "judge_c": {
+            "points": 71.0,
+            "percent": 64.5
+          },
+          "total_percent": 64.545,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": null,
+          "rider": "Pitchayapa Udompoch",
+          "horse": "Lamborghini",
+          "club": "Good Feel",
+          "judge_c": {
+            "points": 70.0,
+            "percent": 63.6
+          },
+          "total_percent": 63.636,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": null,
+          "rider": "Racha Vorasadhit",
+          "horse": "Ma-Praw CM",
+          "club": "Checkmate",
+          "judge_c": {
+            "points": 70.0,
+            "percent": 63.6
+          },
+          "total_percent": 63.636,
+          "status": "finished"
+        },
+        {
+          "rank": 6,
+          "bib": null,
+          "rider": "Pryn sarasin Laokasem",
+          "horse": "Chanom",
+          "club": "Farm Delek",
+          "judge_c": {
+            "points": 65.5,
+            "percent": 59.5
+          },
+          "total_percent": 59.545,
+          "status": "finished"
+        },
+        {
+          "rank": 7,
+          "bib": null,
+          "rider": "Gwendolyn Pairojmahakij",
+          "horse": "Cassini",
+          "club": "Farm Delek",
+          "judge_c": {
+            "points": 62.5,
+            "percent": 56.8
+          },
+          "total_percent": 56.818,
+          "status": "finished"
+        },
+        {
+          "rank": 8,
+          "bib": null,
+          "rider": "Vanilla Petchsuwan",
+          "horse": "Hippo",
+          "club": "Chavallino",
+          "judge_c": {
+            "points": 62.0,
+            "percent": 56.4
+          },
+          "total_percent": 56.364,
+          "status": "finished"
+        },
+        {
+          "rank": 9,
+          "bib": null,
+          "rider": "Nawiya Chueakongtrakul",
+          "horse": "Nova",
+          "club": "Farm Delek",
+          "judge_c": {
+            "points": 56.0,
+            "percent": 50.9
+          },
+          "total_percent": 50.909,
+          "status": "finished"
+        },
+        {
+          "rank": null,
+          "bib": null,
+          "rider": "Kornpravee Wirotcharatsee",
+          "horse": "Bocelo Hcl15",
+          "club": "Chavallino",
+          "judge_c": {
+            "points": 86.5,
+            "percent": 78.6
+          },
+          "total_percent": null,
+          "status": "HC"
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "date": "2024-07-13",
+      "competition_number": "9",
+      "name": "THC Dressage Pony II",
+      "article": "Pony Preliminary 2",
+      "max_points": "200/40",
+      "time": "10:50",
+      "average_time": "6 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Ong Wan Ming (FEI 2* C)"
+        },
+        {
+          "pos": "B",
+          "name": "Vittorio Barba (FEI 3* B)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "805",
+          "rider": "Jida Chiembanchong",
+          "horse": "Belina",
+          "club": "Chavallino",
+          "judge_c": {
+            "tech": 140.5,
+            "percent": 70.3
+          },
+          "judge_e": {
+            "col": 27.7,
+            "percent": 69.3
+          },
+          "total_percent": 69.75,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "813",
+          "rider": "Thanthara Ruangturakit",
+          "horse": "Tawan",
+          "club": "Chomview",
+          "judge_c": {
+            "tech": 129.0,
+            "percent": 64.5
+          },
+          "judge_e": {
+            "col": 25.2,
+            "percent": 63.0
+          },
+          "total_percent": 63.75,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": "831",
+          "rider": "Solajjha Banthaokul",
+          "horse": "Marshall",
+          "club": "Chomview",
+          "judge_c": {
+            "tech": 124.5,
+            "percent": 62.3
+          },
+          "judge_e": {
+            "col": 25.9,
+            "percent": 64.8
+          },
+          "total_percent": 63.5,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": "819",
+          "rider": "Kornpop Vethisakul",
+          "horse": "Diamond Eye",
+          "club": "Pari Passu",
+          "judge_c": {
+            "tech": 120.5,
+            "percent": 60.3
+          },
+          "judge_e": {
+            "col": 25.8,
+            "percent": 64.5
+          },
+          "total_percent": 62.375,
+          "status": "finished"
+        },
+        {
+          "rank": 5,
+          "bib": "833",
+          "rider": "Nada Nopsuwanvong",
+          "horse": "Coco",
+          "club": "Farm Delek",
+          "judge_c": {
+            "tech": 119.5,
+            "percent": 59.8
+          },
+          "judge_e": {
+            "col": 24.4,
+            "percent": 61.0
+          },
+          "total_percent": 60.375,
+          "status": "finished"
+        },
+        {
+          "rank": 6,
+          "bib": "838",
+          "rider": "Apiyada Ekpaet",
+          "horse": "Dritter",
+          "club": "Chomview",
+          "judge_c": {
+            "tech": 113.0,
+            "percent": 56.5
+          },
+          "judge_e": {
+            "col": 24.7,
+            "percent": 61.8
+          },
+          "total_percent": 59.125,
+          "status": "finished"
+        },
+        {
+          "rank": 7,
+          "bib": "828",
+          "rider": "Pawinrada Lertasadamongkol",
+          "horse": "Maxwin Adventure",
+          "club": "NP Equestrian club",
+          "judge_c": {
+            "tech": 113.0,
+            "percent": 56.5
+          },
+          "judge_e": {
+            "col": 24.1,
+            "percent": 60.3
+          },
+          "total_percent": 58.375,
+          "status": "finished"
+        },
+        {
+          "rank": 8,
+          "bib": "839",
+          "rider": "Nakaporn Bumrungkit",
+          "horse": "Kang-Jan",
+          "club": "Farm Delek",
+          "judge_c": {
+            "tech": 95.0,
+            "percent": 47.5
+          },
+          "judge_e": {
+            "col": 20.5,
+            "percent": 51.3
+          },
+          "total_percent": 49.375,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "date": "2024-07-13",
+      "competition_number": "10",
+      "name": "THC Dressage All Pony",
+      "article": "Pony Novice 1",
+      "max_points": "180/40",
+      "time": "14:00",
+      "average_time": "6 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Ong Wan Ming (FEI 2* C)"
+        },
+        {
+          "pos": "B",
+          "name": "Vittorio Barba (FEI 3* B)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "827",
+          "rider": "Madeline Kongsuebchart",
+          "horse": "Km Gobi",
+          "club": "NP Equestrian club",
+          "judge_c": {
+            "tech": 118.0,
+            "percent": 65.6
+          },
+          "judge_e": {
+            "col": 24.6,
+            "percent": 61.5
+          },
+          "total_percent": 63.528,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "814",
+          "rider": "Atikarn Phisuthikul",
+          "horse": "Mocha 99",
+          "club": "The RBSC Polo Club",
+          "judge_c": {
+            "tech": 110.0,
+            "percent": 61.1
+          },
+          "judge_e": {
+            "col": 25.7,
+            "percent": 64.3
+          },
+          "total_percent": 62.681,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": "832",
+          "rider": "Kornpravee Wirotcharatsee",
+          "horse": "A Shinning Star",
+          "club": "Chavallino",
+          "judge_c": {
+            "tech": 111.0,
+            "percent": 61.7
+          },
+          "judge_e": {
+            "col": 25.0,
+            "percent": 62.5
+          },
+          "total_percent": 62.083,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": "812",
+          "rider": "Supanida Jitasombuti",
+          "horse": "Caramel",
+          "club": "Equestrian Paradice",
+          "judge_c": {
+            "tech": 106.5,
+            "percent": 59.2
+          },
+          "judge_e": {
+            "col": 24.2,
+            "percent": 60.5
+          },
+          "total_percent": 59.833,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "date": "2024-07-13",
+      "competition_number": "13",
+      "name": "THC Dressage Senior C",
+      "article": "Elementary 1 (T2023)",
+      "max_points": "270/40",
+      "time": "15:10",
+      "average_time": "8 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Ong Wan Ming (FEI 2* C)"
+        },
+        {
+          "pos": "B",
+          "name": "Vittorio Barba (FEI 3* B)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "330",
+          "rider": "Warong Tagerd",
+          "horse": "Stylist Ambassador",
+          "club": "Horse Haven",
+          "judge_c": {
+            "tech": 172.5,
+            "percent": 63.9
+          },
+          "judge_e": {
+            "col": 24.8,
+            "percent": 62.0
+          },
+          "total_percent": 62.944,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "335",
+          "rider": "Patrika Posayanond",
+          "horse": "Amazing Grace",
+          "club": "The RBSC Polo Club",
+          "judge_c": {
+            "tech": 160.0,
+            "percent": 59.3
+          },
+          "judge_e": {
+            "col": 24.0,
+            "percent": 60.0
+          },
+          "total_percent": 59.13,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "date": "2024-07-13",
+      "competition_number": "16",
+      "name": "THC Dressage Senior A",
+      "article": "Prix St George",
+      "max_points": 340,
+      "time": "16:00",
+      "average_time": "7 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2*)"
+        },
+        {
+          "pos": "B",
+          "name": "Ong Wan Ming (FEI 2*)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "321",
+          "rider": "Phumwatchana Boonlue",
+          "horse": "Victoria K.",
+          "club": "Golden Horse Riding Club",
+          "judge_c": {
+            "points": 184.5,
+            "percent": 54.3
+          },
+          "judge_b": {
+            "points": 182.0,
+            "percent": 53.5
+          },
+          "total_percent": 53.897,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "date": "2024-07-14",
+      "competition_number": "17",
+      "name": "EP Dressage Walk-Trot Open",
+      "article": "TEF Walk Trot 3",
+      "max_points": 200,
+      "time": "08:30",
+      "average_time": "7 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2* C)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": null,
+          "rider": "Kornpop Vethisakul",
+          "horse": "Mario",
+          "club": "Pari Passu",
+          "judge_c": {
+            "points": 135.5,
+            "percent": 67.8
+          },
+          "total_percent": 67.75,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": null,
+          "rider": "Pitchayapa Udompoch",
+          "horse": "Lamborghini",
+          "club": "Good Feel",
+          "judge_c": {
+            "points": 126.5,
+            "percent": 63.3
+          },
+          "total_percent": 63.25,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": null,
+          "rider": "Nakaporn Bumrungkit",
+          "horse": "Kang-Jan",
+          "club": "Farm Delek",
+          "judge_c": {
+            "points": 121.5,
+            "percent": 60.8
+          },
+          "total_percent": 60.75,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": null,
+          "rider": "Nawiya Chueakongtrakul",
+          "horse": "Nova",
+          "club": "Farm Delek",
+          "judge_c": {
+            "points": 105.5,
+            "percent": 52.8
+          },
+          "total_percent": 52.75,
+          "status": "finished"
+        },
+        {
+          "rank": null,
+          "bib": null,
+          "rider": "Arinrath Sriintharasut",
+          "horse": "Gogowa",
+          "club": "Checkmate",
+          "judge_c": null,
+          "total_percent": null,
+          "status": "EL"
+        },
+        {
+          "rank": null,
+          "bib": null,
+          "rider": "Apichaya Sirivatanakosol",
+          "horse": "Chanom",
+          "club": "Farm Delek",
+          "judge_c": null,
+          "total_percent": null,
+          "status": "EL"
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "date": "2024-07-14",
+      "competition_number": "18",
+      "name": "THC Dressage Children",
+      "article": "Preliminary 2 (T2023)",
+      "max_points": "200/40",
+      "time": "09:30",
+      "average_time": "8 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2*)"
+        },
+        {
+          "pos": "E",
+          "name": "Ong Wan Ming (FEI 2*)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "306",
+          "rider": "Jida Chiembanchong",
+          "horse": "Belina",
+          "club": "Chavallino",
+          "judge_c": {
+            "tech": 143.0,
+            "percent": 71.5
+          },
+          "judge_e": {
+            "col": 28.1,
+            "percent": 70.3
+          },
+          "total_percent": 70.875,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "318",
+          "rider": "Olivia Balzli",
+          "horse": "Comet",
+          "club": "Horseshoe Point",
+          "judge_c": {
+            "tech": 121.5,
+            "percent": 60.8
+          },
+          "judge_e": {
+            "col": 26.0,
+            "percent": 65.0
+          },
+          "total_percent": 62.875,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": "339",
+          "rider": "Isabelle Aryssa Sophia",
+          "horse": "Amanda",
+          "club": "Equestrian Paradice",
+          "judge_c": {
+            "tech": 115.5,
+            "percent": 57.8
+          },
+          "judge_e": {
+            "col": 25.3,
+            "percent": 63.3
+          },
+          "total_percent": 60.5,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": "338",
+          "rider": "Supanida Jitasombuti",
+          "horse": "Edwina",
+          "club": "Equestrian Paradice",
+          "judge_c": {
+            "tech": 113.0,
+            "percent": 56.5
+          },
+          "judge_e": {
+            "col": 25.2,
+            "percent": 63.0
+          },
+          "total_percent": 59.75,
+          "status": "finished"
+        },
+        {
+          "rank": 5,
+          "bib": "319",
+          "rider": "Phandchanit Inorn",
+          "horse": "Nanna",
+          "club": "Equestrian Paradice",
+          "judge_c": {
+            "tech": 112.0,
+            "percent": 56.0
+          },
+          "judge_e": {
+            "col": 25.2,
+            "percent": 63.0
+          },
+          "total_percent": 59.5,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "date": "2024-07-14",
+      "competition_number": "19",
+      "name": "EP Dressage Preliminary Open",
+      "article": "Preliminary 2 (T2023)",
+      "max_points": "200/40",
+      "time": "10:40",
+      "average_time": "8 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 3*)"
+        },
+        {
+          "pos": "E",
+          "name": "Ong Wan Ming (FEI 2*)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": null,
+          "rider": "Olivia Balzli",
+          "horse": "Comet",
+          "club": "Horseshoe Point",
+          "judge_c": {
+            "tech": 127.5,
+            "percent": 63.8
+          },
+          "judge_e": {
+            "col": 26.5,
+            "percent": 66.3
+          },
+          "total_percent": 65.0,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": null,
+          "rider": "Chalimchorn Tangboonchod",
+          "horse": "Corrie",
+          "club": "Checkmate",
+          "judge_c": {
+            "tech": 131.0,
+            "percent": 65.5
+          },
+          "judge_e": {
+            "col": 25.8,
+            "percent": 64.5
+          },
+          "total_percent": 65.0,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": null,
+          "rider": "Kornpravee Wirotcharatsee",
+          "horse": "A Shinning Star",
+          "club": "Chavallino",
+          "judge_c": {
+            "tech": 126.5,
+            "percent": 63.3
+          },
+          "judge_e": {
+            "col": 25.0,
+            "percent": 62.5
+          },
+          "total_percent": 62.875,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": null,
+          "rider": "Kornpop Vethisakul",
+          "horse": "Diamond Eye",
+          "club": "Pari Passu",
+          "judge_c": {
+            "tech": 125.0,
+            "percent": 62.5
+          },
+          "judge_e": {
+            "col": 25.2,
+            "percent": 63.0
+          },
+          "total_percent": 62.75,
+          "status": "finished"
+        },
+        {
+          "rank": 5,
+          "bib": null,
+          "rider": "Nada Nopsuwanvong",
+          "horse": "Coco",
+          "club": "Farm Delek",
+          "judge_c": {
+            "tech": 122.0,
+            "percent": 61.0
+          },
+          "judge_e": {
+            "col": 24.7,
+            "percent": 61.8
+          },
+          "total_percent": 61.375,
+          "status": "finished"
+        },
+        {
+          "rank": 6,
+          "bib": null,
+          "rider": "Punjaporn Tejavibulya",
+          "horse": "Chacco S",
+          "club": "Checkmate",
+          "judge_c": {
+            "tech": 121.5,
+            "percent": 60.8
+          },
+          "judge_e": {
+            "col": 24.7,
+            "percent": 61.8
+          },
+          "total_percent": 60.75,
+          "status": "finished"
+        },
+        {
+          "rank": 7,
+          "bib": null,
+          "rider": "Supanida Jitasombuti",
+          "horse": "Lovelynn",
+          "club": "Equestrian Paradice",
+          "judge_c": {
+            "tech": 105.5,
+            "percent": 52.8
+          },
+          "judge_e": {
+            "col": 24.5,
+            "percent": 61.3
+          },
+          "total_percent": 57.0,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "date": "2024-07-14",
+      "competition_number": "20",
+      "name": "THC Dressage Junior B",
+      "article": "Novice 2 (T2023)",
+      "max_points": "290/40",
+      "time": "13:00",
+      "average_time": "8 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Ong Wan Ming (FEI 2* C)"
+        },
+        {
+          "pos": "B",
+          "name": "Vittorio Barba (FEI 2* B)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "316",
+          "rider": "Namo De Troetsel",
+          "horse": "El Capitan",
+          "club": "Horseshoe Point",
+          "judge_c": {
+            "tech": 187.5,
+            "percent": 64.7
+          },
+          "judge_e": {
+            "col": 27.2,
+            "percent": 68.0
+          },
+          "total_percent": 66.328,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "336",
+          "rider": "Kornpravee Wirotcharatsee",
+          "horse": "Bocelo Hcl15",
+          "club": "Chavallino",
+          "judge_c": {
+            "tech": 176.5,
+            "percent": 60.9
+          },
+          "judge_e": {
+            "col": 25.5,
+            "percent": 63.8
+          },
+          "total_percent": 62.306,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "date": "2024-07-14",
+      "competition_number": "22",
+      "name": "THC Dressage Senior D",
+      "article": "Novice 2 (T2023)",
+      "max_points": "290/40",
+      "time": "13:24",
+      "average_time": "8 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2*)"
+        },
+        {
+          "pos": "E",
+          "name": "Ong Wan Ming (FEI 2*)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "334",
+          "rider": "Yutthaphan Phadungchan",
+          "horse": "Ineke",
+          "club": "Farm Delek",
+          "judge_c": {
+            "tech": 190.0,
+            "percent": 65.5
+          },
+          "judge_e": {
+            "col": 25.7,
+            "percent": 64.3
+          },
+          "total_percent": 64.884,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "325",
+          "rider": "Regan Pairojmahakij",
+          "horse": "Cassini",
+          "club": "Farm Delek",
+          "judge_c": {
+            "tech": 177.0,
+            "percent": 61.0
+          },
+          "judge_e": {
+            "col": 24.2,
+            "percent": 60.5
+          },
+          "total_percent": 60.767,
+          "status": "finished"
+        },
+        {
+          "rank": 3,
+          "bib": "310",
+          "rider": "Lea elisabeth Cremerius",
+          "horse": "Fuego",
+          "club": "Horseshoe Point",
+          "judge_c": {
+            "tech": 174.5,
+            "percent": 60.2
+          },
+          "judge_e": {
+            "col": 24.1,
+            "percent": 60.3
+          },
+          "total_percent": 60.211,
+          "status": "finished"
+        },
+        {
+          "rank": 4,
+          "bib": "337",
+          "rider": "Chalimchorn Tangboonchod",
+          "horse": "Corrie",
+          "club": "Checkmate",
+          "judge_c": {
+            "tech": 167.0,
+            "percent": 57.6
+          },
+          "judge_e": {
+            "col": 24.6,
+            "percent": 61.5
+          },
+          "total_percent": 59.543,
+          "status": "finished"
+        },
+        {
+          "rank": 5,
+          "bib": "305",
+          "rider": "Hansa Kraikosol",
+          "horse": "Peter Pan",
+          "club": "Checkmate",
+          "judge_c": {
+            "tech": 170.5,
+            "percent": 58.8
+          },
+          "judge_e": {
+            "col": 23.4,
+            "percent": 58.5
+          },
+          "total_percent": 58.647,
+          "status": "finished"
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "date": "2024-07-14",
+      "competition_number": "25",
+      "name": "THC Dressage Senior C",
+      "article": "Elementary 2 (T2023)",
+      "max_points": "300/40",
+      "time": "14:28",
+      "average_time": "7 Minutes",
+      "judges": [
+        {
+          "pos": "C",
+          "name": "Vittorio Barba (FEI 2*)"
+        },
+        {
+          "pos": "E",
+          "name": "Ong Wan Ming (FEI 2*)"
+        }
+      ],
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "335",
+          "rider": "Patrika Posayanond",
+          "horse": "Amazing Grace",
+          "club": "The RBSC Polo Club",
+          "judge_c": {
+            "tech": 177.0,
+            "percent": 59.0
+          },
+          "judge_e": {
+            "col": 24.6,
+            "percent": 61.5
+          },
+          "total_percent": 60.25,
+          "status": "finished"
+        },
+        {
+          "rank": 2,
+          "bib": "330",
+          "rider": "Warong Tagerd",
+          "horse": "Stylist Ambassador",
+          "club": "Horse Haven",
+          "judge_c": {
+            "tech": 181.0,
+            "percent": 60.3
+          },
+          "judge_e": {
+            "col": 23.9,
+            "percent": 59.8
+          },
+          "total_percent": 59.542,
+          "status": "finished"
+        }
+      ]
+    }
+  ]
+}

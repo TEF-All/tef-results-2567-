@@ -1,0 +1,2430 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<title>TEF Results Archive & Verification Portal — Liquid Cream Glass UI</title>
+<style>
+  :root {
+    --cream-bg: #FAF7F2;
+    --cream-surface: rgba(255, 255, 255, 0.75);
+    --cream-surface-hover: rgba(255, 255, 255, 0.88);
+    --glass-border: rgba(255, 255, 255, 0.85);
+    --glass-shadow: 0 20px 40px -12px rgba(95, 75, 50, 0.08), 0 2px 6px rgba(95, 75, 50, 0.04);
+    --liquid-specular: inset 0 1.5px 1px rgba(255, 255, 255, 0.95), inset 0 -2px 5px rgba(215, 200, 180, 0.22);
+    --ink-dark: #231C18;
+    --ink-muted: #6E645D;
+    --line: rgba(218, 204, 188, 0.55);
+    --brand-green: #1B4D2B;
+    --brand-green-dark: #12351D;
+    --brand-soft: rgba(27, 77, 43, 0.08);
+    --gold: #C59B3F;
+    --gold-soft: rgba(197, 155, 63, 0.12);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+  }
+  
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Sarabun', 'Noto Sans Thai', 'Segoe UI', Roboto, sans-serif; }
+  
+  body {
+    background-color: var(--cream-bg);
+    color: var(--ink-dark);
+    line-height: 1.5;
+    font-size: 13.5px;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Ambient Liquid Background Gradients (Showing through frosted glass) */
+  .liquid-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.75;
+  }
+  .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #F6EBDD 0%, rgba(246,235,221,0) 70%); top: -100px; left: -100px; }
+  .orb-2 { width: 600px; height: 600px; background: radial-gradient(circle, #EFE2CB 0%, rgba(239,226,203,0) 70%); top: 15%; right: -150px; }
+  .orb-3 { width: 550px; height: 550px; background: radial-gradient(circle, #D8EADB 0%, rgba(216,234,219,0) 70%); bottom: -80px; left: 10%; }
+  .orb-4 { width: 450px; height: 450px; background: radial-gradient(circle, #F8E6DA 0%, rgba(248,230,218,0) 70%); bottom: 20%; right: 15%; }
+
+  /* Header - Liquid Glass Floating Bar */
+  header {
+    background: rgba(255, 253, 249, 0.82);
+    backdrop-filter: blur(28px) saturate(190%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(95, 75, 50, 0.04);
+  }
+  .nav-wrap {
+    max-width: 1750px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .logo-block { display: flex; align-items: center; gap: 14px; }
+  .badge-tef {
+    background: linear-gradient(135deg, #245834 0%, #153820 100%);
+    color: #fff;
+    font-weight: 800;
+    font-size: 13px;
+    padding: 6px 12px;
+    border-radius: 9px;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 12px rgba(21, 56, 32, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  }
+  .app-title h1 { font-size: 16.5px; font-weight: 800; color: var(--brand-green-dark); line-height: 1.2; letter-spacing: -0.2px; }
+  .app-title p { font-size: 11.5px; color: var(--ink-muted); font-weight: 500; }
+
+  /* Mode Switcher - Liquid Capsule Toggle */
+  .mode-switch {
+    display: flex;
+    background: rgba(241, 234, 222, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    padding: 3px;
+    gap: 4px;
+    box-shadow: inset 0 1px 3px rgba(100, 80, 60, 0.08);
+  }
+  .mode-btn {
+    border: none;
+    background: transparent;
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-muted);
+    border-radius: 9px;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .mode-btn.active {
+    background: #ffffff;
+    color: var(--brand-green);
+    box-shadow: 0 4px 12px rgba(95, 75, 50, 0.1), inset 0 1px 1px #fff;
+  }
+
+  .container { max-width: 1750px; margin: 0 auto; padding: 18px 24px; }
+
+  /* Liquid Glass Panels */
+  .liquid-panel {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(250, 245, 237, 0.65) 100%);
+    backdrop-filter: blur(28px) saturate(190%);
+    -webkit-backdrop-filter: blur(28px) saturate(190%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow), var(--liquid-specular);
+    position: relative;
+  }
+
+  /* Signature Glossy Capsule Bezel Rims (Inspired by Sample SVG) */
+  .liquid-panel::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 52px;
+    background: linear-gradient(180deg, #382c24 0%, #1a1410 100%);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.4);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  .liquid-panel::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -4px;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 52px;
+    background: linear-gradient(180deg, #382c24 0%, #1a1410 100%);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.4);
+    opacity: 0.85;
+    pointer-events: none;
+  }
+
+  /* Stats Bar */
+  .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 14px; margin-bottom: 18px; }
+  .stat-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(250, 246, 239, 0.7) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 12px 18px;
+    box-shadow: var(--glass-shadow), var(--liquid-specular);
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-2px); }
+  .stat-card .val { font-size: 22px; font-weight: 800; color: var(--brand-green); line-height: 1.2; }
+  .stat-card .lbl { font-size: 11.5px; color: var(--ink-muted); font-weight: 600; margin-top: 2px; }
+
+  /* Dropdown Control Card */
+  .control-card { padding: 18px 22px; margin-bottom: 18px; }
+  .dropdowns-row { display: grid; grid-template-columns: 2.2fr 1.6fr 1.6fr auto; gap: 14px; align-items: end; }
+  @media (max-width: 1100px) { .dropdowns-row { grid-template-columns: 1fr; } }
+  .ctrl-group label { display: block; font-size: 12px; font-weight: 700; color: var(--ink-muted); margin-bottom: 6px; }
+  
+  /* Liquid Form Controls */
+  select.form-control, input.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(220, 208, 192, 0.7);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--ink-dark);
+    font-size: 13.5px;
+    outline: none;
+    font-weight: 600;
+    box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.95), 0 2px 6px rgba(95, 75, 50, 0.04);
+    transition: all .15s;
+  }
+  select.form-control:focus, input.form-control:focus {
+    border-color: var(--brand-green);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(27, 77, 43, 0.12), inset 0 1px 2px #fff;
+  }
+
+  /* Split View */
+  .split-view { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+  .split-view.full-scan { grid-template-columns: 1fr 0; }
+  .split-view.full-table { grid-template-columns: 0 1fr; }
+  @media (max-width: 1080px) { .split-view { grid-template-columns: 1fr; } }
+  
+  .pane-card { padding: 16px 20px; }
+  .pane-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pane-header h2 { font-size: 15px; font-weight: 800; color: var(--brand-green-dark); display: flex; align-items: center; gap: 8px; }
+
+  /* Scan Viewers (Image & PDF) */
+  .viewer-controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+  .scan-wrap {
+    width: 100%;
+    height: 74vh;
+    border: 1px solid rgba(220, 208, 192, 0.7);
+    border-radius: var(--radius-md);
+    overflow: auto;
+    background: #2b2622;
+    position: relative;
+    text-align: center;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.25);
+  }
+  
+  /* Interactive Image Viewer */
+  #imageViewerContainer { min-height: 100%; display: flex; align-items: flex-start; justify-content: center; padding: 14px; }
+  #scanImage { max-width: 100%; height: auto; border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,0.4); transition: transform 0.15s ease-out; transform-origin: top center; }
+  iframe#scanIframe { width: 100%; height: 100%; border: none; }
+
+    /* Table Scroll & Sizing - Universal Auto-Compact for ALL 29 Items */
+  .table-wrap {
+    max-height: 74vh;
+    height: auto;
+    min-height: 160px;
+    overflow-x: auto;
+    overflow-y: auto;
+    border: 1px solid rgba(220, 208, 192, 0.7);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.8);
+  }
+  table.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+    table-layout: auto;
+  }
+  table.results-table th {
+    background: rgba(247, 242, 233, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 8px 12px;
+    font-weight: 700;
+    color: var(--ink-muted);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+  table.results-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid rgba(225, 215, 200, 0.4);
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  table.results-table tr:hover td { background: rgba(255, 255, 255, 0.95); }
+
+  .cell-athlete { font-weight: 700; color: var(--brand-green-dark); min-width: 125px; max-width: 190px; white-space: normal; line-height: 1.25; }
+  .cell-horse { font-weight: 600; color: var(--ink-dark); min-width: 105px; max-width: 150px; white-space: normal; line-height: 1.25; }
+  .cell-club { color: var(--ink-muted); font-size: 11.5px; min-width: 125px; max-width: 175px; white-space: normal; line-height: 1.25; }
+  .cell-score { font-family: -apple-system, BlinkMacSystemFont, monospace, sans-serif; font-weight: 700; color: var(--ink-dark); text-align: center; }
+  .score-lead { color: #166534 !important; font-weight: 800 !important; }
+  .speed-lead { color: #92400e !important; font-weight: 800 !important; }
+
+  /* Badges */
+  .rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; font-weight: 800; font-size: 11.5px; }
+  .rank-1 { background: #FEF3C7; color: #B45309; border: 1px solid #F59E0B; box-shadow: 0 2px 6px rgba(245, 158, 11, 0.2); }
+  .rank-2 { background: #F1F5F9; color: #475569; border: 1px solid #94A3B8; }
+  .rank-3 { background: #FFEDD5; color: #9A3412; border: 1px solid #EA580C; }
+  .rank-other { background: transparent; color: var(--ink-muted); font-weight: 600; }
+  
+  .status-badge { display: inline-block; padding: 3px 9px; border-radius: 8px; font-size: 11px; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
+  .status-pass { background: #DCFCE7; color: #166534; border: 1px solid #BBF7D0; }
+  .status-el { background: #FEE2E2; color: #991B1B; border: 1px solid #FECACA; }
+  .status-ret { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+  .status-wd { background: #F1F5F9; color: #475569; }
+
+  /* Liquid Gel Buttons */
+  .btn {
+    padding: 7px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--ink-dark);
+    font-weight: 700;
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: all .15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(95, 75, 50, 0.05), inset 0 1px 1px #fff;
+  }
+  .btn:hover { background: #ffffff; transform: translateY(-1px); box-shadow: 0 4px 10px rgba(95, 75, 50, 0.1); }
+  .btn-primary {
+    background: linear-gradient(180deg, #245834 0%, #163e23 100%);
+    color: #fff;
+    border-color: #1a4627;
+    box-shadow: 0 4px 14px rgba(22, 62, 35, 0.28), inset 0 1px 1.5px rgba(255, 255, 255, 0.45);
+  }
+  .btn-primary:hover { background: linear-gradient(180deg, #1c472a 0%, #102e1a 100%); }
+  .btn-unconfirmed {
+    background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%) !important;
+    color: #ffffff !important;
+    border-color: #7f1d1d !important;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35), inset 0 1px 1.5px rgba(255, 255, 255, 0.45) !important;
+    font-weight: 800 !important;
+  }
+  .btn-unconfirmed:hover {
+    background: linear-gradient(180deg, #b91c1c 0%, #7f1d1d 100%) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(220, 38, 38, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5) !important;
+  }
+  .btn-confirmed {
+    background: linear-gradient(180deg, #15803d 0%, #14532d 100%) !important;
+    color: #ffffff !important;
+    border-color: #0f3d20 !important;
+    box-shadow: 0 4px 14px rgba(21, 128, 61, 0.35), inset 0 1px 1.5px rgba(255, 255, 255, 0.45) !important;
+    font-weight: 800 !important;
+  }
+  .btn-confirmed:hover {
+    background: linear-gradient(180deg, #166534 0%, #0d381c 100%) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(21, 128, 61, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.5) !important;
+  }
+  .btn-sm { padding: 5px 10px; font-size: 11.5px; }
+
+  /* Scan Tabs */
+  .scan-tabs {
+    display: flex;
+    background: rgba(235, 226, 212, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 2px;
+    gap: 2px;
+  }
+  .scan-tab {
+    border: none;
+    background: transparent;
+    padding: 4px 11px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--ink-muted);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .scan-tab.active {
+    background: #ffffff;
+    color: var(--brand-green);
+    box-shadow: 0 2px 6px rgba(95, 75, 50, 0.08);
+  }
+
+  .pill { padding: 3px 10px; border-radius: 12px; font-size: 11.5px; font-weight: 700; background: var(--brand-soft); color: var(--brand-green); }
+  .empty-box { padding: 60px 20px; text-align: center; color: var(--ink-muted); font-weight: 600; }
+
+  /* Filter Pills */
+  .pills-row { display: flex; gap: 7px; flex-wrap: wrap; align-items: center; margin-top: 12px; }
+  .filter-pill {
+    padding: 5px 13px;
+    border-radius: 18px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid rgba(220, 208, 192, 0.7);
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--ink-muted);
+    transition: all .15s;
+  }
+  .filter-pill.active {
+    background: var(--brand-green);
+    color: #fff;
+    border-color: var(--brand-green);
+    box-shadow: 0 4px 10px rgba(27, 77, 43, 0.2);
+  }
+
+  /* E-Commerce Magnifier & Fullscreen Lightbox */
+  #scanImage {
+    cursor: zoom-in;
+    transition: transform 0.1s ease-out;
+    transform-origin: center top;
+  }
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(20, 16, 12, 0.88);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .lightbox-modal.active { display: flex; }
+  .lightbox-toolbar {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    margin-bottom: 14px;
+    color: #fff;
+    backdrop-filter: blur(16px);
+  }
+  .lightbox-wrap {
+    width: 100%;
+    max-width: 1400px;
+    height: calc(100vh - 110px);
+    overflow: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  #modalImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    cursor: crosshair;
+    transition: transform 0.1s ease-out;
+    transform-origin: center top;
+  }
+  .btn-close-modal {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .btn-close-modal:hover { background: rgba(255, 255, 255, 0.35); }
+
+
+  /* ========================================================
+     OFFICIAL TEF PRINT & PDF STYLESHEET (A4 LANDSCAPE)
+     ======================================================== */
+  @media screen {
+    #printArea { display: none !important; }
+  }
+  @media print {
+    @page {
+      size: A4 portrait;
+      margin: 6mm 8mm;
+    }
+    /* Hide all direct body elements except #printArea */
+    body > *:not(#printArea) {
+      display: none !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+      opacity: 0 !important;
+    }
+    /* Explicitly hide all webapp UI elements */
+    header, main, footer, nav, .container, .stats-bar, .split-view,
+    .liquid-orb, .orb-1, .orb-2, .orb-3, .orb-4,
+    .liquid-panel, .control-card, .pane-card,
+    .lightbox-modal, #lightboxModal {
+      display: none !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+      opacity: 0 !important;
+    }
+    html, body {
+      background: #fff !important;
+      color: #111 !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Sarabun", "Thonburi", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+      font-size: 10pt !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+    #printArea {
+      display: block !important;
+      visibility: visible !important;
+      position: static !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #fff !important;
+      color: #111 !important;
+      page-break-before: avoid !important;
+      page-break-after: avoid !important;
+    }
+    .print-sheet {
+      page-break-after: avoid;
+      background: #fff !important;
+      color: #111 !important;
+    }
+    .print-header-box {
+      border-bottom: 2px solid #1a365d;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .print-tef-title {
+      font-size: 15pt;
+      font-weight: 800;
+      color: #1a365d;
+      margin: 0 0 2px 0;
+      letter-spacing: -0.3px;
+    }
+    .print-tef-subtitle {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #2b6cb0;
+      margin: 0 0 3px 0;
+    }
+    .print-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px 10px;
+      background: #f7fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      font-size: 9pt;
+    }
+    .print-meta-item strong {
+      color: #4a5568;
+    }
+    .print-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 8.8pt;
+    }
+    .print-table th {
+      background: #2b6cb0 !important;
+      color: #fff !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      padding: 6px 8px;
+      text-align: left;
+      font-weight: 700;
+      border: 1px solid #2b6cb0;
+    }
+    .print-table td {
+      padding: 5px 8px;
+      border-bottom: 1px solid #e2e8f0;
+      border-right: 1px solid #edf2f7;
+      border-left: 1px solid #edf2f7;
+      vertical-align: middle;
+    }
+    .print-table tr:nth-child(even) td {
+      background-color: #f7fafc !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .print-signatures {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      margin-top: 25px;
+      page-break-inside: avoid;
+    }
+    .print-sign-box {
+      border-top: 1px dashed #718096;
+      padding-top: 6px;
+      text-align: center;
+      font-size: 8.5pt;
+      color: #2d3748;
+    }
+    .print-footer-audit {
+      margin-top: 12px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 4px;
+      font-size: 7.5pt;
+      color: #718096;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+
+  /* Interactive Yellow Highlighter for Certificate Evidence */
+  .scan-highlight-box {
+    position: absolute;
+    background: rgba(254, 240, 138, 0.55);
+    border: 2px dashed #ca8a04;
+    border-radius: 4px;
+    cursor: move;
+    z-index: 100;
+    pointer-events: auto;
+    box-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
+    mix-blend-mode: multiply;
+    transition: top 0.04s ease-out;
+    box-sizing: border-box;
+  }
+  .scan-highlight-box::after {
+    content: '★ ผู้ขอใบรับรอง';
+    position: absolute;
+    right: 4px;
+    top: -16px;
+    background: #ca8a04;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 1px 6px;
+    border-radius: 3px;
+    pointer-events: none;
+    line-height: 14px;
+    white-space: nowrap;
+  }
+  .btn-highlight.active {
+    background: #fef08a !important;
+    color: #854d0e !important;
+    border-color: #facc15 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 0 8px rgba(250, 204, 21, 0.6) !important;
+  }
+
+
+  /* ========================================================
+     RESPONSIVE WEB DESIGN (RWD) STYLESHEET
+     Adapts dynamically across Mobile, Tablet, Laptop, Desktop
+     ======================================================== */
+  
+  /* Mobile Segmented Pane Switcher (Hidden on Desktop) */
+  .mobile-pane-switcher {
+    display: none;
+    background: rgba(241, 234, 222, 0.85);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 4px;
+    gap: 4px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(95, 75, 50, 0.06);
+  }
+  .mobile-tab-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 9px 8px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--ink-muted);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .2s;
+    text-align: center;
+  }
+  .mobile-tab-btn.active {
+    background: #ffffff;
+    color: var(--brand-green);
+    box-shadow: 0 3px 10px rgba(95, 75, 50, 0.12);
+  }
+
+  /* --- TABLET BREAKPOINT (max-width: 1024px) --- */
+  @media (max-width: 1024px) {
+    .container { padding: 14px 16px; }
+    .stats-bar { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .dropdowns-row { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .dropdowns-row > div:nth-child(4) { grid-column: span 2; display: flex; justify-content: flex-end; }
+    
+    .mobile-pane-switcher { display: flex; }
+    .split-view { display: flex; flex-direction: column; gap: 14px; }
+    .split-view.mobile-view-table #leftScanPane { display: none; }
+    .split-view.mobile-view-table #rightTablePane { display: block; width: 100%; }
+    .split-view.mobile-view-scan #leftScanPane { display: block; width: 100%; }
+    .split-view.mobile-view-scan #rightTablePane { display: none; }
+    .split-view.mobile-view-both #leftScanPane { display: block; width: 100%; }
+    .split-view.mobile-view-both #rightTablePane { display: block; width: 100%; }
+    
+    .scan-wrap { height: 56vh; min-height: 360px; }
+    .table-wrap { max-height: 60vh; }
+  }
+
+  /* --- MOBILE SMARTPHONE BREAKPOINT (max-width: 768px) --- */
+  @media (max-width: 768px) {
+    body { font-size: 13px; }
+    .container { padding: 10px 12px; }
+    
+    /* Navigation Bar */
+    header { position: relative; }
+    .nav-wrap { flex-direction: column; align-items: stretch; gap: 10px; padding: 10px 14px; }
+    .logo-block { justify-content: flex-start; }
+    .badge-tef { font-size: 11.5px; padding: 5px 9px; }
+    .app-title h1 { font-size: 14.5px; }
+    .app-title p { font-size: 10.5px; }
+    
+    .mode-switch { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .mode-btn { font-size: 11.5px; padding: 8px 4px; text-align: center; }
+
+    /* Hide decorative side capsule rims on mobile to eliminate any horizontal overflow */
+    .liquid-panel::before, .liquid-panel::after { display: none !important; }
+    .liquid-panel { border-radius: 18px; }
+
+    /* Stats Bar */
+    .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px; }
+    .stat-card { padding: 9px 12px; border-radius: 12px; }
+    .stat-card .val { font-size: 18px; }
+    .stat-card .lbl { font-size: 10px; }
+    .stat-card:last-child { grid-column: span 2; }
+
+    /* Control Card & Dropdowns */
+    .control-card { padding: 12px 14px; margin-bottom: 12px; }
+    .dropdowns-row { grid-template-columns: 1fr; gap: 10px; }
+    .dropdowns-row > div:nth-child(4) {
+      grid-column: span 1;
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      width: 100%;
+    }
+    .dropdowns-row > div:nth-child(4) .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 9px 8px;
+      font-size: 12px;
+    }
+    select.form-control, input.form-control {
+      font-size: 14px; /* Prevents auto-zoom in iOS Safari */
+      padding: 9px 12px;
+    }
+
+    /* Panes */
+    .pane-card { padding: 12px 14px; }
+    .pane-header { flex-direction: column; align-items: stretch; gap: 8px; }
+    .pane-header > div:first-child { width: 100%; }
+    .pane-header h2 { font-size: 14px; }
+    
+    /* Action Buttons in Table Pane */
+    .pane-header > div:last-child {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      width: 100%;
+    }
+    .pane-header > div:last-child .btn {
+      width: 100%;
+      justify-content: center;
+      font-size: 11.5px;
+      padding: 8px 6px;
+    }
+
+    /* Scan Controls */
+    .viewer-controls { gap: 4px; }
+    .viewer-controls > div:last-child {
+      margin-left: 0 !important;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .viewer-controls button {
+      padding: 6px 8px;
+      font-size: 11px;
+    }
+    .scan-wrap { height: 48vh; min-height: 280px; }
+
+    /* Table & Table Scroll */
+    .table-wrap {
+      max-height: 58vh;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+    }
+    table.results-table { font-size: 12px; }
+    table.results-table th { padding: 7px 8px; font-size: 11px; }
+    table.results-table td { padding: 6px 8px; }
+    .cell-athlete { min-width: 110px; max-width: 150px; font-size: 12px; }
+    .cell-horse { min-width: 95px; max-width: 130px; font-size: 11.5px; }
+    .cell-club { min-width: 105px; max-width: 140px; font-size: 11px; }
+
+    /* Search Portal on Mobile */
+    #sectionSearch .control-card > div:first-child {
+      flex-direction: column;
+      gap: 8px;
+    }
+    #sectionSearch .control-card input,
+    #sectionSearch .control-card select {
+      width: 100%;
+    }
+    #sectionSearch .control-card > div:first-child button {
+      width: 100%;
+      justify-content: center;
+      padding: 9px;
+    }
+    .pills-row {
+      overflow-x: auto;
+      white-space: nowrap;
+      flex-wrap: nowrap;
+      padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .filter-pill { font-size: 11px; padding: 5px 10px; }
+
+    /* Lightbox Modal on Mobile */
+    .lightbox-modal { padding: 6px; }
+    .lightbox-toolbar {
+      padding: 8px 10px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 6px;
+      border-radius: 12px;
+    }
+    .lightbox-toolbar > div:last-child {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: space-between;
+    }
+    .lightbox-toolbar button {
+      padding: 5px 7px;
+      font-size: 11px;
+    }
+    .lightbox-wrap {
+      height: calc(100vh - 140px);
+      padding: 8px;
+      border-radius: 12px;
+    }
+  }
+
+  /* --- ULTRA COMPACT PHONES (max-width: 480px) --- */
+  @media (max-width: 480px) {
+    .container { padding: 6px 8px; }
+    .pane-card, .control-card { padding: 10px 12px; }
+    .stat-card .val { font-size: 16.5px; }
+    .app-title h1 { font-size: 13.5px; }
+    .scan-wrap { height: 42vh; min-height: 250px; }
+    .table-wrap { max-height: 52vh; }
+  }
+
+</style>
+<script src="tef_master_data.js"></script>
+</head>
+<body>
+
+<!-- Ambient Liquid Orbs -->
+<div class="liquid-orb orb-1"></div>
+<div class="liquid-orb orb-2"></div>
+<div class="liquid-orb orb-3"></div>
+<div class="liquid-orb orb-4"></div>
+
+<header>
+  <div class="nav-wrap">
+    <div class="logo-block">
+      <div class="badge-tef">TEF</div>
+      <div class="app-title">
+        <h1>ระบบตรวจทานผลการแข่งขันขี่ม้าแห่งประเทศไทย (THC 2567)</h1>
+        <p>Thailand Equestrian Federation · ตรวจทานผลเทียบเอกสารจริง 29 รายการ (Liquid Cream Glass)</p>
+      </div>
+    </div>
+    <div class="mode-switch">
+      <button class="mode-btn active" id="btnModeInspector" onclick="setMode('inspector')">📋 ตรวจตามรายการ 1-29 (Dropdown & Scan)</button>
+      <button class="mode-btn" id="btnModeSearch" onclick="setMode('search')">🔍 ค้นหาผลรวมทุกรายการ (Search Portal)</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-card"><div class="val" id="statEvents">29</div><div class="lbl">รายการแข่งขันทั้งหมด (รายการที่ 1–29)</div></div>
+    <div class="stat-card"><div class="val" id="statClasses">190+</div><div class="lbl">คลาส / รุ่นการแข่งขัน</div></div>
+    <div class="stat-card"><div class="val" id="statEntries">2,450</div><div class="lbl">ระเบียนผลการแข่งขันรวม</div></div>
+    <div class="stat-card"><div class="val" id="statAthletes">400+</div><div class="lbl">นักกีฬาที่มีสถิติในระบบ</div></div>
+    <div class="stat-card"><div class="val" id="statHorses">520+</div><div class="lbl">ม้าที่บันทึกข้อมูล</div></div>
+  </div>
+
+  <!-- VIEW 1: DROPDOWN & SCAN INSPECTOR (DEFAULT VIEW) -->
+  <section id="sectionInspector">
+    <div class="liquid-panel control-card">
+      <div class="dropdowns-row">
+        <!-- Dropdown 1: Event 1-29 -->
+        <div class="ctrl-group">
+          <label>🏆 1. เลือกรายการแข่งขัน (ครบ 29 รายการ 1–29):</label>
+          <select class="form-control" id="inspectorEventSel" onchange="onInspectorEventChange(this.value)"></select>
+        </div>
+        <!-- Dropdown 2: Class -->
+        <div class="ctrl-group">
+          <label>🎯 2. เลือกรุ่น / คลาส (Class):</label>
+          <select class="form-control" id="inspectorClassSel" onchange="onInspectorClassChange(this.value)"></select>
+        </div>
+        <!-- Dropdown 3: PDF Scan File -->
+        <div class="ctrl-group">
+          <label>📄 3. เลือกไฟล์สแกนต้นฉบับ (PDF Scan):</label>
+          <select class="form-control" id="inspectorPdfSel" onchange="onInspectorPdfChange(this.value)"></select>
+        </div>
+        <!-- Action Buttons -->
+        <div style="display: flex; gap: 6px;">
+          <a class="btn" id="btnOpenPdfNewTab" target="_blank" href="#" title="เปิดไฟล์สแกนในแท็บใหม่ของเบราว์เซอร์">↗ เปิดสแกนแท็บใหม่</a>
+          <button class="btn" id="btnToggleSplit" onclick="toggleSplitLayout()" title="สลับมุมมอง ขยายภาพสแกน หรือขยายตาราง">↔ ปรับขนาด</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dual Pane Split View -->
+        <!-- Mobile Responsive Segmented Switcher (Visible on Mobile & Tablet <= 1024px) -->
+    <div class="mobile-pane-switcher" id="mobilePaneSwitcher">
+      <button class="mobile-tab-btn active" id="btnMobileTable" onclick="setMobilePane('table')">📊 ตารางคะแนน (Table)</button>
+      <button class="mobile-tab-btn" id="btnMobileScan" onclick="setMobilePane('scan')">📄 เอกสารสแกน (Scan)</button>
+      <button class="mobile-tab-btn" id="btnMobileBoth" onclick="setMobilePane('both')">↔ ดูทั้งคู่ (Both)</button>
+    </div>
+<div class="split-view" id="splitViewContainer">
+      <!-- Left Pane: Live Document Scan Viewer -->
+      <div class="liquid-panel pane-card" id="leftScanPane">
+        <div class="pane-header">
+          <h2>📄 เอกสารสแกนต้นฉบับจริง (Original Scan Document)</h2>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <div class="scan-tabs">
+              <button class="scan-tab active" id="tabViewImage" onclick="switchScanViewer('image')">🖼 ภาพสแกน (JPG)</button>
+              <button class="scan-tab" id="tabViewPdf" onclick="switchScanViewer('pdf')">📄 เอกสาร (PDF)</button>
+            </div>
+            <span class="pill" id="scanFileBadge">JPG View</span>
+          </div>
+        </div>
+
+        <!-- Viewer Controls for Image Scan -->
+        <div class="viewer-controls" id="imageControls">
+          <button class="btn btn-sm" onclick="prevScanPage()">◀ หน้าก่อน</button>
+          <span style="font-weight: 700; font-size: 12px; color: var(--ink-muted);" id="pageIndicator">หน้า 1 / 1</span>
+          <button class="btn btn-sm" onclick="nextScanPage()">หน้าถัดไป ▶</button>
+          <div style="margin-left: auto; display: flex; gap: 4px; align-items: center;">
+            <button class="btn btn-sm" onclick="rotateScan(90)" title="หมุนตามเข็มนาฬิกา 90 องศา">🔄 หมุน 90°</button>
+            <button class="btn btn-sm" onclick="zoomScan(-0.2)">🔍 -</button>
+            <button class="btn btn-sm" onclick="resetZoomScan()">100%</button>
+            <button class="btn btn-sm" onclick="zoomScan(0.2)">🔍 +</button>
+            <button class="btn btn-sm btn-highlight" id="panelBtnHighlight" onclick="toggleHighlightMode()" title="เปิด/ปิด แถบไฮไลท์สีเหลืองบนชื่อผู้ขอใบรับรอง">🖍 ไฮไลท์</button>
+            <button class="btn btn-sm" onclick="printCurrentScanProof()" title="พิมพ์ภาพสแกนหลักฐานผลการแข่งขันสำหรับแนบใบรับรอง (A4)">🖨 พิมพ์ภาพสแกน (A4)</button>
+          </div>
+        </div>
+
+        <div class="scan-wrap" id="scanWrapBox">
+          <!-- Image Viewer Container (Default 100% Reliable Offline) -->
+          <div id="imageViewerContainer" style="position: relative; display: inline-block;">
+            <img id="scanImage" src="" alt="ภาพสแกนต้นฉบับ" onclick="onScanImageClicked(event, this)">
+            <div id="scanHighlightBar" class="scan-highlight-box" style="display: none;" onmousedown="startHighlightDrag(event)"></div>
+          </div>
+          <!-- PDF Iframe Container -->
+          <iframe id="scanIframe" src="about:blank" style="display: none;"></iframe>
+        </div>
+        <div style="margin-top: 8px; font-size: 11.5px; color: var(--ink-muted); display: flex; justify-content: space-between;">
+          <span id="scanViewerNote">💡 โหมดรูปภาพสแกน JPG คมชัดสูง เปิดดูได้ทันทีแบบ Offline 100% โดยไม่ต้องพึ่งปลั๊กอิน</span>
+          <span id="scanPathDisplay" style="font-family: monospace;">-</span>
+        </div>
+      </div>
+
+      <!-- Right Pane: Interactive Results Table -->
+      <div class="liquid-panel pane-card" id="rightTablePane">
+        <div class="pane-header">
+          <div>
+            <h2 id="tableClassTitle">-</h2>
+            <div style="font-size: 11.5px; color: var(--ink-muted); margin-top: 2px;" id="tableClassMeta">-</div>
+          </div>
+          <div style="display: flex; gap: 6px;">
+            <button class="btn btn-unconfirmed" id="btnConfirmClass" onclick="toggleConfirmCurrentClass()" title="คลิกเพื่อยืนยันคลาสนี้">✕ ยังไม่ยืนยัน</button>
+            <button class="btn" onclick="printCurrentClassResults()" title="พิมพ์หรือบันทึกเป็น PDF ทางการสำหรับสมาชิก">🖨 พิมพ์ผลแข่ง (Print / PDF)</button>
+            <button class="btn" onclick="exportCurrentClassJSON()">💾 JSON</button>
+            <button class="btn" onclick="exportCurrentClassCSV()">📥 CSV</button>
+          </div>
+        </div>
+
+        <!-- Quick filter in current class -->
+        <div style="margin-bottom: 8px; display: flex; gap: 8px;">
+          <input type="text" class="form-control" id="classFilterInput" placeholder="กรองค้นหาในคลาสนี้ (ชื่อนักกีฬา, ม้า, บิบ)..." oninput="renderClassTableRows()" style="padding: 7px 12px; font-size: 12.5px;">
+        </div>
+
+        <div class="table-wrap">
+          <table class="results-table">
+            <thead id="classTableHead">
+              <tr>
+                <th style="width: 45px; text-align: center;">อันดับ</th>
+                <th style="width: 60px; text-align: center;">หมายเลข</th>
+                <th style="min-width: 220px;">ชื่อนักกีฬา (Athlete)</th>
+                <th style="min-width: 160px;">ม้า (Horse)</th>
+                <th style="min-width: 180px;">สโมสร / สังกัด (Club)</th>
+                <th style="min-width: 150px;">เวลา / คะแนน (Round 1)</th>
+                <th style="min-width: 150px;">Jump-off / กรรมการ</th>
+                <th style="min-width: 110px;">โทษ / สถานะ</th>
+              </tr>
+            </thead>
+            <tbody id="classTableBody"></tbody>
+          </table>
+        </div>
+
+        <div style="margin-top: 8px; font-size: 12px; color: var(--ink-muted); display: flex; justify-content: space-between; align-items: center;">
+          <span id="editCounterText">แสดงผลตรงตามเอกสารสแกน 100%</span>
+          <span>ชื่อนักกีฬาและคะแนนแสดงเต็มทุกคอลัมน์</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIEW 2: GLOBAL SEARCH PORTAL -->
+  <section id="sectionSearch" style="display: none;">
+    <div class="liquid-panel control-card">
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <input type="text" class="form-control" id="globalSearchInput" placeholder="พิมพ์ชื่อนักกีฬา, ม้า, สโมสร หรือหมายเลขบิบ เพื่อค้นหาใน 29 รายการ..." oninput="renderGlobalSearchResults()" style="flex: 2; min-width: 260px;">
+        <select class="form-control" id="globalSearchEventFilter" onchange="renderGlobalSearchResults()" style="flex: 1; min-width: 200px;">
+          <option value="">ทุกรายการแข่งขัน (All 29 Items)</option>
+        </select>
+        <button class="btn btn-primary" onclick="exportGlobalSearchResultsCSV()">📥 ส่งออกผลค้นหา CSV</button>
+        <button class="btn" onclick="printGlobalSearchResults()" title="พิมพ์รายการผลการค้นหา">🖨 พิมพ์ผลค้นหา (Print / PDF)</button>
+      </div>
+      <div class="pills-row">
+        <span style="font-size: 12px; font-weight: 700; color: var(--ink-muted); margin-right: 4px;">ประเภทกีฬา:</span>
+        <button class="filter-pill active" data-disc="" onclick="setGlobalDiscipline(this, '')">ทั้งหมด</button>
+        <button class="filter-pill" data-disc="Jumping" onclick="setGlobalDiscipline(this, 'Jumping')">กระโดดข้ามเครื่องกีดขวาง (Jumping)</button>
+        <button class="filter-pill" data-disc="Dressage" onclick="setGlobalDiscipline(this, 'Dressage')">ศิลปะบังคับม้า (Dressage)</button>
+        <button class="filter-pill" data-disc="Eventing" onclick="setGlobalDiscipline(this, 'Eventing')">อีเว้นติ้ง (Eventing)</button>
+        <button class="filter-pill" data-disc="Endurance" onclick="setGlobalDiscipline(this, 'Endurance')">ขี่ม้ามาราธอน (Endurance)</button>
+      </div>
+    </div>
+
+    <div class="liquid-panel pane-card">
+      <div class="pane-header">
+        <h2 id="globalSearchCountHeader">ผลการค้นหา</h2>
+      </div>
+      <div class="table-wrap" style="height: 68vh;">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th style="width: 50px; text-align: center;">อันดับ</th>
+              <th style="width: 60px; text-align: center;">หมายเลข</th>
+              <th style="min-width: 220px;">ชื่อนักกีฬา</th>
+              <th style="min-width: 160px;">ม้า</th>
+              <th style="min-width: 180px;">สโมสร / สังกัด</th>
+              <th style="min-width: 180px;">รายการแข่งขัน</th>
+              <th style="min-width: 140px;">คลาส / ระดับ</th>
+              <th style="min-width: 150px;">คะแนน / เวลา</th>
+              <th style="min-width: 100px;">สถานะ</th>
+            </tr>
+          </thead>
+          <tbody id="globalSearchTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+// State Management
+let EVENTS = [];
+let CUR_EV_IDX = 0;
+let CUR_CLS_IDX = 0;
+let CUR_PDF_PATH = '';
+let CUR_IMAGE_LIST = [];
+let CUR_IMAGE_PAGE_IDX = 0;
+let CUR_ZOOM = 1.0;
+let CUR_ROTATION = 0;
+let ACTIVE_VIEWER = 'image'; // 'image' or 'pdf'
+let GLOBAL_DISCIPLINE = '';
+let SPLIT_STATE = 'normal'; // normal, full-scan, full-table
+
+// Safe HTML sanitizer
+function sanitize(str) {
+  if (str == null) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// Encode path safely so '#' becomes '%23'
+function safeEncodePath(p) {
+  if (!p) return '';
+  return p.split('/').map(segment => encodeURIComponent(segment)).join('/');
+}
+
+function init() {
+  if (window.TEF_DATA && Array.isArray(window.TEF_DATA.events)) {
+    EVENTS = window.TEF_DATA.events;
+  }
+  
+  // Calculate and update stats
+  let totalEntries = 0;
+  let totalClasses = 0;
+  const athleteSet = new Set();
+  const horseSet = new Set();
+  
+  EVENTS.forEach(ev => {
+    (ev.classes || []).forEach(c => {
+      totalClasses++;
+      (c.entries || []).forEach(ent => {
+        totalEntries++;
+        if (ent.athlete && ent.athlete !== '-') athleteSet.add(ent.athlete.trim());
+        if (ent.horse && ent.horse !== '-') horseSet.add(ent.horse.trim());
+      });
+    });
+  });
+  
+  document.getElementById('statEvents').textContent = EVENTS.length;
+  document.getElementById('statClasses').textContent = totalClasses.toLocaleString();
+  document.getElementById('statEntries').textContent = totalEntries.toLocaleString();
+  document.getElementById('statAthletes').textContent = athleteSet.size.toLocaleString();
+  document.getElementById('statHorses').textContent = horseSet.size.toLocaleString();
+
+  // Populate Dropdown 1 (Events 1-29)
+  const evSel = document.getElementById('inspectorEventSel');
+  const globalEvFilter = document.getElementById('globalSearchEventFilter');
+  evSel.innerHTML = '';
+  globalEvFilter.innerHTML = '<option value="">ทุกรายการแข่งขัน (All 29 Items)</option>';
+  
+  EVENTS.forEach((ev, idx) => {
+    const opt = document.createElement('option');
+    opt.value = idx;
+    const numCls = (ev.classes || []).length;
+    opt.textContent = `${ev.item_id || (idx + 1)}. ${ev.name} (${numCls} คลาส)`;
+    evSel.appendChild(opt);
+
+    const gOpt = document.createElement('option');
+    gOpt.value = idx;
+    gOpt.textContent = `${ev.item_id || (idx + 1)}. ${ev.name}`;
+    globalEvFilter.appendChild(gOpt);
+  });
+
+  // Select first event
+  if (EVENTS.length > 0) {
+    onInspectorEventChange(0);
+  }
+}
+
+function setMode(mode) {
+  document.getElementById('btnModeInspector').classList.toggle('active', mode === 'inspector');
+  document.getElementById('btnModeSearch').classList.toggle('active', mode === 'search');
+  document.getElementById('sectionInspector').style.display = mode === 'inspector' ? 'block' : 'none';
+  document.getElementById('sectionSearch').style.display = mode === 'search' ? 'block' : 'none';
+  if (mode === 'search') renderGlobalSearchResults();
+}
+
+// Inspector Event Change
+function onInspectorEventChange(val) {
+  CUR_EV_IDX = parseInt(val, 10);
+  const ev = EVENTS[CUR_EV_IDX];
+  if (!ev) return;
+
+  // Set Preview Images
+  CUR_IMAGE_LIST = ev.preview_images || [];
+  CUR_IMAGE_PAGE_IDX = 0;
+
+  // Populate Dropdown 2: Classes
+  const clsSel = document.getElementById('inspectorClassSel');
+  clsSel.innerHTML = '';
+  const classes = ev.classes || [];
+  
+  if (classes.length === 0) {
+    const opt = document.createElement('option');
+    opt.value = 0;
+    opt.textContent = 'ไม่มีคลาสย่อย (ดูเอกสารสแกนต้นฉบับ)';
+    clsSel.appendChild(opt);
+  } else {
+    const confirmedData = getConfirmedClasses();
+    classes.forEach((c, cIdx) => {
+      const opt = document.createElement('option');
+      opt.value = cIdx;
+      const count = (c.entries || []).length;
+      const key = getClassKey(CUR_EV_IDX, cIdx);
+      const isConf = !!confirmedData[key];
+      const prefix = isConf ? '✓ [ยืนยันแล้ว] ' : '⏳ ';
+      opt.textContent = prefix + c.class_name + ' [' + (c.discipline || 'All') + '] (' + count + ' รายการ)';
+      clsSel.appendChild(opt);
+    });
+  }
+
+  // Populate Dropdown 3: PDF Scans
+  const pdfSel = document.getElementById('inspectorPdfSel');
+  pdfSel.innerHTML = '';
+  const pdfList = ev.pdf_files || (ev.source_file ? [ev.source_file] : []);
+  
+  if (pdfList.length === 0) {
+    const opt = document.createElement('option');
+    opt.value = '';
+    opt.textContent = 'ไม่มีไฟล์ PDF แนบ';
+    pdfSel.appendChild(opt);
+    setIframePdf('');
+  } else {
+    pdfList.forEach(p => {
+      const opt = document.createElement('option');
+      opt.value = p;
+      const baseName = p.split('/').pop();
+      opt.textContent = baseName;
+      pdfSel.appendChild(opt);
+    });
+    setIframePdf(pdfList[0]);
+  }
+
+  onInspectorClassChange(0);
+}
+
+// Inspector Class Change
+function onInspectorClassChange(cIdx) {
+  CUR_CLS_IDX = parseInt(cIdx, 10);
+  const ev = EVENTS[CUR_EV_IDX];
+  const cls = (ev && ev.classes && ev.classes[CUR_CLS_IDX]) ? ev.classes[CUR_CLS_IDX] : null;
+
+  if (cls) {
+    document.getElementById('tableClassTitle').textContent = cls.class_name;
+    document.getElementById('tableClassMeta').textContent = `ประเภท: ${cls.discipline || '-'} · วันที่: ${cls.date || '-'} · ผู้เข้าแข่งขัน: ${(cls.entries || []).length} รายการ`;
+    // If class has assigned page or preview image, jump to that page
+    if (cls.preview_image && CUR_IMAGE_LIST.includes(cls.preview_image)) {
+      CUR_IMAGE_PAGE_IDX = CUR_IMAGE_LIST.indexOf(cls.preview_image);
+    } else if (cls.page_number && CUR_IMAGE_LIST.length >= cls.page_number) {
+      CUR_IMAGE_PAGE_IDX = cls.page_number - 1;
+    }
+  } else {
+    document.getElementById('tableClassTitle').textContent = ev ? ev.name : '-';
+    document.getElementById('tableClassMeta').textContent = `เอกสารสแกนต้นฉบับประจำรายการ`;
+  }
+
+  updateScanImageView();
+  document.getElementById('classFilterInput').value = '';
+  renderClassTableRows();
+  updateConfirmationButtonUI();
+}
+
+// Inspector PDF Change
+function onInspectorPdfChange(path) {
+  setIframePdf(path);
+}
+
+function setIframePdf(path) {
+  CUR_PDF_PATH = path;
+  const iframe = document.getElementById('scanIframe');
+  const pathDisplay = document.getElementById('scanPathDisplay');
+  const btnNewTab = document.getElementById('btnOpenPdfNewTab');
+
+  if (!path) {
+    iframe.src = 'about:blank';
+    pathDisplay.textContent = 'ไม่มีไฟล์ PDF';
+    btnNewTab.href = '#';
+    btnNewTab.style.pointerEvents = 'none';
+    btnNewTab.style.opacity = '0.5';
+    return;
+  }
+
+  // Safe encode path with %23 for '#'
+  const encoded = safeEncodePath(path);
+  iframe.src = encoded;
+  pathDisplay.textContent = path;
+  btnNewTab.href = encoded;
+  btnNewTab.style.pointerEvents = 'auto';
+  btnNewTab.style.opacity = '1';
+}
+
+function switchScanViewer(viewer) {
+  ACTIVE_VIEWER = viewer;
+  document.getElementById('tabViewImage').classList.toggle('active', viewer === 'image');
+  document.getElementById('tabViewPdf').classList.toggle('active', viewer === 'pdf');
+  
+  const imgBox = document.getElementById('imageViewerContainer');
+  const pdfFrame = document.getElementById('scanIframe');
+  const imgCtrls = document.getElementById('imageControls');
+  const badge = document.getElementById('scanFileBadge');
+  const note = document.getElementById('scanViewerNote');
+
+  if (viewer === 'image') {
+    imgBox.style.display = 'flex';
+    pdfFrame.style.display = 'none';
+    imgCtrls.style.display = 'flex';
+    badge.textContent = 'JPG View';
+    note.textContent = '💡 โหมดรูปภาพสแกน JPG คมชัดสูง เปิดดูได้ทันทีแบบ Offline 100% โดยไม่ต้องพึ่งปลั๊กอิน';
+    updateScanImageView();
+  } else {
+    imgBox.style.display = 'none';
+    pdfFrame.style.display = 'block';
+    imgCtrls.style.display = 'none';
+    badge.textContent = 'PDF View';
+    note.textContent = '💡 โหมด PDF Viewer แสดงผลเอกสารต้นฉบับผ่านเบราว์เซอร์';
+    if (CUR_PDF_PATH) setIframePdf(CUR_PDF_PATH);
+  }
+}
+
+function updateScanImageView() {
+  CUR_ROTATION = 0;
+  CUR_ZOOM = 1.0;
+  applyImageTransform();
+  
+  const imgEl = document.getElementById('scanImage');
+  const pageIndicator = document.getElementById('pageIndicator');
+  
+  if (CUR_IMAGE_LIST.length > 0) {
+    if (CUR_IMAGE_PAGE_IDX >= CUR_IMAGE_LIST.length) CUR_IMAGE_PAGE_IDX = CUR_IMAGE_LIST.length - 1;
+    if (CUR_IMAGE_PAGE_IDX < 0) CUR_IMAGE_PAGE_IDX = 0;
+    
+    const newSrc = safeEncodePath(CUR_IMAGE_LIST[CUR_IMAGE_PAGE_IDX]);
+    imgEl.src = newSrc;
+    imgEl.style.display = 'block';
+    pageIndicator.textContent = "หน้า " + (CUR_IMAGE_PAGE_IDX + 1) + " / " + CUR_IMAGE_LIST.length;
+    const modalImgEl = document.getElementById('modalImage');
+    const modalIndEl = document.getElementById('modalPageIndicator');
+    if (modalImgEl) modalImgEl.src = newSrc;
+    if (modalIndEl) modalIndEl.textContent = pageIndicator.textContent;
+    updateHighlightUI();
+  } else {
+    imgEl.style.display = 'none';
+    pageIndicator.textContent = 'ไม่มีภาพสแกน JPG (แนะนำสลับไปโหมด PDF)';
+  }
+}
+
+function prevScanPage() {
+  if (CUR_IMAGE_PAGE_IDX > 0) {
+    CUR_IMAGE_PAGE_IDX--;
+    updateScanImageView();
+  }
+}
+
+function nextScanPage() {
+  if (CUR_IMAGE_PAGE_IDX < CUR_IMAGE_LIST.length - 1) {
+    CUR_IMAGE_PAGE_IDX++;
+    updateScanImageView();
+  }
+}
+
+function rotateScan(deg) {
+  CUR_ROTATION = (CUR_ROTATION + deg) % 360;
+  applyImageTransform();
+}
+
+function zoomScan(delta) {
+  CUR_ZOOM = Math.max(0.4, Math.min(2.5, CUR_ZOOM + delta));
+  applyImageTransform();
+}
+
+function resetZoomScan() {
+  CUR_ZOOM = 1.0;
+  CUR_ROTATION = 0;
+  applyImageTransform();
+}
+
+function applyImageTransform() {
+  const img = document.getElementById('scanImage');
+  const modalImg = document.getElementById('modalImage');
+  if (img) {
+    img.style.transform = 'scale(' + CUR_ZOOM + ') rotate(' + CUR_ROTATION + 'deg)';
+  }
+  if (modalImg) {
+    modalImg.style.transform = 'rotate(' + CUR_ROTATION + 'deg)';
+  }
+}
+
+function toggleSplitLayout() {
+  const container = document.getElementById('splitViewContainer');
+  if (SPLIT_STATE === 'normal') {
+    SPLIT_STATE = 'full-scan';
+    container.className = 'split-view full-scan';
+    document.getElementById('btnToggleSplit').textContent = '📄 สแกนเต็มจอ';
+  } else if (SPLIT_STATE === 'full-scan') {
+    SPLIT_STATE = 'full-table';
+    container.className = 'split-view full-table';
+    document.getElementById('btnToggleSplit').textContent = '📊 ตารางเต็มจอ';
+  } else {
+    SPLIT_STATE = 'normal';
+    container.className = 'split-view';
+    document.getElementById('btnToggleSplit').textContent = '↔ ปรับขนาด';
+  }
+}
+
+// Render Table Rows for Current Class
+function renderClassTableRows() {
+  const ev = EVENTS[CUR_EV_IDX];
+  const cls = (ev && ev.classes && ev.classes[CUR_CLS_IDX]) ? ev.classes[CUR_CLS_IDX] : null;
+  const thead = document.getElementById('classTableHead');
+  const tbody = document.getElementById('classTableBody');
+  tbody.innerHTML = '';
+
+  if (!cls || !cls.entries || cls.entries.length === 0) {
+    if (thead) {
+      thead.innerHTML = '<tr><th style="padding:10px 14px; text-align:center;">เอกสารภาพรวม / ไม่มีรายชื่อการแข่งขันย่อย</th></tr>';
+    }
+    tbody.innerHTML = '<tr><td class="empty-box">ไม่พบรายการแข่งขันในคลาสนี้ หรือเป็นเอกสารประกาศภาพรวม (กรุณาดูเอกสารสแกนต้นฉบับทางด้านซ้าย)</td></tr>';
+    return;
+  }
+
+  const query = document.getElementById('classFilterInput').value.trim().toLowerCase();
+  const discStr = ((cls.discipline || '') + ' ' + (ev.name || '') + ' ' + (cls.class_name || '')).toLowerCase();
+  
+  const isDressage = discStr.includes('dressage') || discStr.includes('ศิลปะบังคับม้า');
+  const isEndurance = discStr.includes('endurance') || discStr.includes('มาราธอน') || discStr.includes('cei') || discStr.includes('cen');
+  const isEventingAll = (discStr.includes('eventing') || discStr.includes('อีเว้นติ้ง')) && !discStr.includes('dressage') && !discStr.includes('jumping');
+
+  // Filter entries
+  const filteredEntries = cls.entries.filter(e => {
+    if (!query) return true;
+    const ath = (e.athlete || '').toLowerCase();
+    const hrs = (e.horse || '').toLowerCase();
+    const clb = (e.club || '').toLowerCase();
+    const bib = (e.bib != null ? String(e.bib) : '').toLowerCase();
+    return ath.includes(query) || hrs.includes(query) || clb.includes(query) || bib.includes(query);
+  });
+
+  if (filteredEntries.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="10" class="empty-box">ไม่พบรายการที่ตรงกับคำค้นหาในคลาสนี้</td></tr>';
+    return;
+  }
+
+  // --- SMART AUTO-DETECTION ACROSS ALL DISCIPLINES ---
+  let hasQuality = false;
+  let hasTechPoints = false;
+  let hasMultiJudges = false;
+  let hasJumpOff = false;
+  let has3Phases = false;
+
+  cls.entries.forEach(e => {
+    const jo = String(e.jo_score || '').trim();
+    const r1 = String(e.r1_score || '').trim();
+    const raw = e.raw_details || {};
+
+    if (isDressage) {
+      if (jo.toLowerCase().includes('qual') || (raw.judge_e && raw.judge_e.col != null)) hasQuality = true;
+      if (jo.match(/tech\s*[\d\.]+\s*\//i) || (raw.judge_c && raw.judge_c.tech != null)) hasTechPoints = true;
+      if (jo.match(/[CE]\s*[\d\.]+/i) || (raw.judge_c && raw.judge_e && !raw.judge_c.tech)) hasMultiJudges = true;
+    } else if (isEventingAll || r1.includes('D:') || raw.dressage) {
+      has3Phases = true;
+    } else if (!isEndurance) {
+      // Jumping: only show Jump-off if ANY competitor has a jump-off score
+      if (jo && jo !== '-' && jo !== 'None' && jo !== '0' && jo !== 'null' && jo !== 'R' && jo !== 'ELIM') {
+        hasJumpOff = true;
+      }
+    }
+  });
+
+  // --- DYNAMIC HEADER GENERATION ---
+  if (thead) {
+    let thHtml = '<tr>' +
+      '<th style="width: 45px; text-align: center;">อันดับ</th>' +
+      '<th style="width: 55px; text-align: center;">หมายเลข</th>' +
+      '<th style="min-width: 170px;">ชื่อนักกีฬา (Athlete)</th>' +
+      '<th style="min-width: 130px;">ม้า (Horse)</th>' +
+      '<th style="min-width: 140px;">สโมสร / สังกัด (Club)</th>';
+
+    if (isDressage) {
+      // 1. DRESSAGE
+      if (hasQuality) {
+        thHtml += '<th style="text-align: center; background: rgba(234, 243, 238, 0.95); color: #166534; min-width: 95px;">TECHNICAL (%)</th>';
+        thHtml += '<th style="text-align: center; background: rgba(254, 243, 199, 0.95); color: #92400e; min-width: 95px;">QUALITY (%)</th>';
+      } else if (hasTechPoints) {
+        thHtml += '<th style="text-align: center; background: rgba(234, 243, 238, 0.95); color: #166534; min-width: 80px;">POINT</th>';
+        thHtml += '<th style="text-align: center; background: rgba(234, 243, 238, 0.95); color: #166534; min-width: 80px;">%</th>';
+      } else if (hasMultiJudges) {
+        thHtml += '<th style="text-align: center; background: rgba(234, 243, 238, 0.95); color: #166534; min-width: 95px;">JUDGE C (%)</th>';
+        thHtml += '<th style="text-align: center; background: rgba(254, 243, 199, 0.95); color: #92400e; min-width: 95px;">JUDGE E (%)</th>';
+      } else {
+        thHtml += '<th style="text-align: center; background: rgba(234, 243, 238, 0.95); color: #166534; min-width: 100px;">คะแนนเทคนิค</th>';
+      }
+      thHtml += '<th style="text-align: center; background: rgba(220, 252, 231, 0.95); color: #14532d; min-width: 90px;">TOTAL (%)</th>';
+      thHtml += '<th style="width: 85px; text-align: center;">สถานะ</th>';
+
+    } else if (isEndurance) {
+      // 2. ENDURANCE (ขี่ม้ามาราธอน / ทางไกล)
+      thHtml += '<th style="text-align: center; background: rgba(234, 243, 238, 0.95); color: #166534; min-width: 120px;">⏱ เวลาขี่รวม (Riding Time)</th>';
+      thHtml += '<th style="text-align: center; background: rgba(254, 243, 199, 0.95); color: #92400e; min-width: 120px;">⚡ ความเร็วเฉลี่ย (Speed)</th>';
+      thHtml += '<th style="width: 110px; text-align: center; background: rgba(220, 252, 231, 0.95); color: #14532d;">🩺 ผลตรวจม้า (Vet Gate)</th>';
+
+    } else if (has3Phases) {
+      // 3. EVENTING 3-PHASES (D + XC + SJ)
+      thHtml += '<th style="text-align: center; background: rgba(234, 243, 238, 0.95); color: #166534; min-width: 85px;">Dressage</th>';
+      thHtml += '<th style="text-align: center; background: rgba(254, 243, 199, 0.95); color: #92400e; min-width: 85px;">Jumping</th>';
+      thHtml += '<th style="text-align: center; background: rgba(254, 226, 226, 0.95); color: #991b1b; min-width: 85px;">Cross Country</th>';
+      thHtml += '<th style="text-align: center; background: rgba(220, 252, 231, 0.95); color: #14532d; min-width: 95px;">โทษรวมสุทธิ</th>';
+      thHtml += '<th style="width: 85px; text-align: center;">สถานะ</th>';
+
+    } else {
+      // 4. JUMPING & ALL STANDARD DISCIPLINES
+      const isTwoRound = discStr.includes('two round') || (cls.article && cls.article.includes('273')) || (cls.entries[0] && String(cls.entries[0].jo_score).startsWith('R2:'));
+      if (isTwoRound) {
+        thHtml += '<th style="text-align: center; min-width: 130px; background: rgba(234, 243, 238, 0.95); color: #166534;">ROUND 1 (เวลา / โทษ)</th>';
+        thHtml += '<th style="text-align: center; min-width: 130px; background: rgba(254, 243, 199, 0.95); color: #92400e;">ROUND 2 (เวลา / โทษ)</th>';
+        thHtml += '<th style="text-align: center; min-width: 130px; background: rgba(220, 252, 231, 0.95); color: #14532d;">โทษรวม / ผลทีม</th>';
+      } else {
+        thHtml += '<th style="text-align: center; min-width: 130px;">เวลา / คะแนน (Round 1)</th>';
+        if (hasJumpOff) {
+          thHtml += '<th style="text-align: center; min-width: 130px; background: rgba(254, 243, 199, 0.6);">Jump-off (เวลา / โทษ)</th>';
+        }
+      }
+      thHtml += '<th style="width: 85px; text-align: center;">สถานะ</th>';
+    }
+
+    thHtml += '</tr>';
+    thead.innerHTML = thHtml;
+  }
+
+  // --- ROW RENDERING ---
+  const rows = [];
+  filteredEntries.forEach(e => {
+    const rk = e.rank;
+    let rkClass = 'rank-other';
+    if (rk === 1) rkClass = 'rank-1';
+    else if (rk === 2) rkClass = 'rank-2';
+    else if (rk === 3) rkClass = 'rank-3';
+
+    let stBadge = '';
+    const st = (e.status || '').toUpperCase();
+    if (st.includes('PASS') || st.includes('FINISHED')) stBadge = `<span class="status-badge status-pass">${sanitize(e.status)}</span>`;
+    else if (st.includes('FTQ') || st.includes('FTC')) stBadge = `<span class="status-badge status-el" title="Failed to Qualify (ไม่ผ่านการตรวจม้า)">${sanitize(e.status)}</span>`;
+    else if (st.includes('DSQ')) stBadge = `<span class="status-badge status-el" title="Disqualified">${sanitize(e.status)}</span>`;
+    else if (st.includes('RET') || st.includes('RT') || st === 'R') stBadge = `<span class="status-badge status-ret" title="Retired (ถอนตัว)">${sanitize(e.status)}</span>`;
+    else if (st.includes('WD') || st.includes('WITHDRAWN')) stBadge = `<span class="status-badge status-wd">${sanitize(e.status)}</span>`;
+    else if (st.includes('EL') || st === 'E') stBadge = `<span class="status-badge status-el">${sanitize(e.status || 'E')}</span>`;
+    else if (e.status && e.status !== '-') stBadge = `<span class="status-badge">${sanitize(e.status)}</span>`;
+    else stBadge = `<span style="color:var(--ink-muted);">-</span>`;
+
+    // Format Horse: only clean horse name, full passport on hover tooltip
+    let horseRaw = String(e.horse || '-');
+    let horseName = horseRaw.includes('/') ? horseRaw.split('/')[0].trim() : horseRaw;
+    let horseTip = horseRaw.includes('/') ? ` title="${sanitize(horseRaw)}"` : '';
+    let horseHtml = `<span${horseTip}>${sanitize(horseName)}</span>`;
+
+    // Format Club: if multiple clubs separated by slash, show in 2 clean lines
+    let clubHtml = sanitize(e.club || '-');
+    if (e.club && e.club.includes('/')) {
+      const cParts = e.club.split('/').map(p => sanitize(p.trim())).filter(Boolean);
+      if (cParts.length > 1) {
+        clubHtml = `<div style="font-weight:600; color:var(--ink-dark);">${cParts[0]}</div><div style="font-size:11px; color:var(--ink-muted); margin-top:2px;">${cParts.slice(1).join(' / ')}</div>`;
+      }
+    }
+
+    let tr = '<tr>' +
+      `<td style="text-align:center;"><span class="rank-badge ${rkClass}">${rk != null ? rk : '-'}</span></td>` +
+      `<td style="text-align:center; font-weight:700;">${sanitize(e.bib || '-')}</td>` +
+      `<td class="cell-athlete">${sanitize(e.athlete || '-')}</td>` +
+      `<td class="cell-horse">${horseHtml}</td>` +
+      `<td class="cell-club">${clubHtml}</td>`;
+
+    if (isDressage) {
+      // DRESSAGE VALUES
+      const jo = String(e.jo_score || '').trim();
+      const raw = e.raw_details || {};
+      let totalStr = sanitize(e.score_display || e.r1_score || '-');
+      if (totalStr !== '-' && !totalStr.endsWith('%') && !isNaN(parseFloat(totalStr))) totalStr += '%';
+
+      if (hasQuality) {
+        let techVal = '-';
+        let qualVal = '-';
+        if (raw.judge_c && raw.judge_c.tech != null) techVal = raw.judge_c.percent + '%';
+        else {
+          const m = jo.match(/tech\s*([\d\.]+)/i);
+          if (m) techVal = m[1] + '%';
+        }
+        if (raw.judge_e && raw.judge_e.col != null) qualVal = raw.judge_e.percent + '%';
+        else {
+          const m = jo.match(/qual\s*([\d\.]+)/i);
+          if (m) qualVal = m[1] + '%';
+        }
+        tr += `<td style="text-align:center; font-weight:600;">${techVal}</td>`;
+        tr += `<td style="text-align:center; font-weight:600;">${qualVal}</td>`;
+      } else if (hasTechPoints) {
+        let ptVal = '-';
+        let pctVal = '-';
+        const m = jo.match(/tech\s*([\d\.]+)\s*\/\s*([\d\.]+)/i);
+        if (m) {
+          ptVal = m[1];
+          pctVal = m[2] + '%';
+        } else if (raw.judge_c && raw.judge_c.points != null) {
+          ptVal = raw.judge_c.points;
+          pctVal = (raw.judge_c.percent || '') + '%';
+        } else {
+          ptVal = jo.replace(/tech/i, '').trim();
+        }
+        tr += `<td style="text-align:center; font-weight:700; color:#1a365d;">${ptVal}</td>`;
+        tr += `<td style="text-align:center; font-weight:600;">${pctVal}</td>`;
+      } else if (hasMultiJudges) {
+        let cVal = '-';
+        let eVal = '-';
+        if (raw.judge_c && raw.judge_e) {
+          cVal = (raw.judge_c.percent || raw.judge_c.points || '-') + '%';
+          eVal = (raw.judge_e.percent || raw.judge_e.points || '-') + '%';
+        } else if (jo.includes('/')) {
+          const parts = jo.split('/');
+          cVal = parts[0].replace(/[^\d\.]/g, '') + '%';
+          eVal = parts[1].replace(/[^\d\.]/g, '') + '%';
+        }
+        tr += `<td style="text-align:center; font-weight:600;">${cVal}</td>`;
+        tr += `<td style="text-align:center; font-weight:600;">${eVal}</td>`;
+      } else {
+        tr += `<td style="text-align:center;">${sanitize(e.jo_score || '-')}</td>`;
+      }
+
+      tr += `<td style="text-align:center; font-weight:800; font-size:13.5px; color:#14532d;">${totalStr}</td>`;
+      tr += `<td style="text-align:center;">${stBadge}</td>`;
+
+    } else if (isEndurance) {
+      // ENDURANCE VALUES (เวลาขี่รวม & ความเร็วเฉลี่ย & ผลตรวจม้า)
+      const raw = e.raw_details || {};
+      const timeVal = e.r1_score || raw.total_riding_time || '-';
+      const spdVal = e.jo_score || (raw.avg_speed_kmh ? (raw.avg_speed_kmh + ' km/h') : '-');
+      const isTop3 = (rk === 1 || rk === 2 || rk === 3);
+      const timeStyle = isTop3 ? 'font-weight:800; color:#166534; font-size:13.5px;' : 'font-weight:600; color:#1a365d;';
+      const spdStyle = isTop3 ? 'font-weight:800; color:#92400e; font-size:13.5px;' : 'font-weight:600; color:#78350f;';
+      tr += `<td class="cell-score" style="text-align:center; ${timeStyle}">${sanitize(timeVal)}</td>`;
+      tr += `<td class="cell-score" style="text-align:center; ${spdStyle}">${sanitize(spdVal)}</td>`;
+      tr += `<td style="text-align:center;">${stBadge}</td>`;
+
+    } else if (has3Phases) {
+      // EVENTING 3-PHASE VALUES
+      const raw = e.raw_details || {};
+      let dP = '-';
+      let jP = '-';
+      let xP = '-';
+      let totP = e.score_display || e.jo_score || '-';
+
+      if (raw.dressage) dP = (raw.dressage.penalties != null ? raw.dressage.penalties : '-') + ' p';
+      if (raw.jumping || raw.show_jumping) {
+        const jObj = raw.jumping || raw.show_jumping;
+        jP = (jObj.penalties != null ? jObj.penalties : '-') + ' p';
+      }
+      if (raw.cross_country) xP = (raw.cross_country.penalties != null ? raw.cross_country.penalties : '-') + ' p';
+      if (raw.total_penalties != null) totP = raw.total_penalties + ' โทษ';
+
+      if (dP === '-' && e.r1_score && e.r1_score.includes('D:')) {
+        const parts = e.r1_score.split('|');
+        if (parts[0]) dP = parts[0].replace('D:', '').trim();
+        if (parts[1]) jP = parts[1].replace('J:', '').trim();
+        if (parts[2]) xP = parts[2].replace('XC:', '').trim();
+      }
+
+      tr += `<td style="text-align:center; font-weight:600;">${dP}</td>`;
+      tr += `<td style="text-align:center; font-weight:600;">${jP}</td>`;
+      tr += `<td style="text-align:center; font-weight:600;">${xP}</td>`;
+      tr += `<td style="text-align:center; font-weight:800; color:#991b1b;">${totP}</td>`;
+      tr += `<td style="text-align:center;">${stBadge}</td>`;
+
+    } else {
+      // JUMPING & ALL STANDARD DISCIPLINES
+      const isTwoRound = discStr.includes('two round') || (cls.article && cls.article.includes('273')) || (cls.entries[0] && String(cls.entries[0].jo_score).startsWith('R2:'));
+      if (isTwoRound) {
+        const raw = e.raw_details || {};
+        const teamTot = raw.team_total || '';
+        tr += `<td class="cell-score" style="text-align:center; font-weight:600;">${sanitize(e.r1_score || '-')}</td>`;
+        tr += `<td class="cell-score" style="text-align:center; font-weight:600;">${sanitize(e.jo_score || '-')}</td>`;
+        tr += `<td style="text-align:center; font-weight:800; color:#166534;">${sanitize(teamTot || '-')}</td>`;
+      } else {
+        tr += `<td class="cell-score" style="text-align:center;">${sanitize(e.r1_score || '-')}</td>`;
+        if (hasJumpOff) {
+          tr += `<td class="cell-score" style="text-align:center; background:rgba(254, 243, 199, 0.4);">${sanitize(e.jo_score || '-')}</td>`;
+        }
+      }
+      tr += `<td style="text-align:center;">${stBadge}</td>`;
+    }
+
+    tr += '</tr>';
+    rows.push(tr);
+  });
+
+  tbody.innerHTML = rows.join('');
+  updateConfirmationButtonUI();
+}
+
+// Confirmation State Management (Persistent via localStorage)
+function getConfirmedClasses() {
+  try {
+    return JSON.parse(localStorage.getItem('tef_confirmed_classes') || '{}');
+  } catch (e) {
+    return {};
+  }
+}
+
+function saveConfirmedClasses(data) {
+  try {
+    localStorage.setItem('tef_confirmed_classes', JSON.stringify(data));
+  } catch (e) {}
+}
+
+function getClassKey(evIdx, clsIdx) {
+  const ev = EVENTS[evIdx];
+  const cls = (ev && ev.classes && ev.classes[clsIdx]) ? ev.classes[clsIdx] : null;
+  const evId = ev ? (ev.item_id || (evIdx + 1)) : (evIdx + 1);
+  const cName = cls ? cls.class_name : ('class_' + clsIdx);
+  return evId + '__' + cName;
+}
+
+function isCurrentClassConfirmed() {
+  const key = getClassKey(CUR_EV_IDX, CUR_CLS_IDX);
+  const data = getConfirmedClasses();
+  return !!data[key];
+}
+
+function updateConfirmationButtonUI() {
+  const btn = document.getElementById('btnConfirmClass');
+  const counterText = document.getElementById('editCounterText');
+  if (!btn) return;
+
+  const isConfirmed = isCurrentClassConfirmed();
+  if (isConfirmed) {
+    btn.className = 'btn btn-confirmed';
+    btn.innerHTML = '✓ ยืนยันแล้ว';
+    btn.title = 'คลาสนี้ได้รับการยืนยันความถูกต้องแล้ว (คลิกเพื่อยกเลิกการยืนยัน)';
+    if (counterText) {
+      counterText.innerHTML = '<span style="color: #166534; font-weight: 700;">✓ สถานะ: ยืนยันแล้ว (ตรวจทานตรงกับเอกสารสแกน 100%)</span>';
+    }
+  } else {
+    btn.className = 'btn btn-unconfirmed';
+    btn.innerHTML = '✕ ยังไม่ยืนยัน';
+    btn.title = 'คลาสนี้ยังไม่ได้รับการยืนยัน (คลิกเพื่อยืนยันความถูกต้อง)';
+    if (counterText) {
+      counterText.innerHTML = '<span style="color: #dc2626; font-weight: 700;">⚠ สถานะ: ยังไม่ยืนยัน (กรุณาตรวจทานเทียบเอกสารสแกน)</span>';
+    }
+  }
+}
+
+function updateClassDropdownBadges() {
+  const clsSel = document.getElementById('inspectorClassSel');
+  if (!clsSel) return;
+  const ev = EVENTS[CUR_EV_IDX];
+  if (!ev || !ev.classes) return;
+  const confirmedData = getConfirmedClasses();
+
+  for (let i = 0; i < clsSel.options.length; i++) {
+    const c = ev.classes[i];
+    if (!c) continue;
+    const key = getClassKey(CUR_EV_IDX, i);
+    const isConf = !!confirmedData[key];
+    const prefix = isConf ? '✓ [ยืนยันแล้ว] ' : '⏳ ';
+    const count = (c.entries || []).length;
+    clsSel.options[i].text = prefix + c.class_name + ' [' + (c.discipline || 'All') + '] (' + count + ' รายการ)';
+  }
+}
+
+function toggleConfirmCurrentClass() {
+  const ev = EVENTS[CUR_EV_IDX];
+  const cls = (ev && ev.classes && ev.classes[CUR_CLS_IDX]) ? ev.classes[CUR_CLS_IDX] : null;
+  const cName = cls ? cls.class_name : 'คลาสนี้';
+  const key = getClassKey(CUR_EV_IDX, CUR_CLS_IDX);
+  const data = getConfirmedClasses();
+
+  if (data[key]) {
+    delete data[key];
+    saveConfirmedClasses(data);
+    updateConfirmationButtonUI();
+    updateClassDropdownBadges();
+  } else {
+    data[key] = {
+      confirmed_at: new Date().toISOString(),
+      class_name: cName,
+      event_id: ev ? ev.item_id : (CUR_EV_IDX + 1)
+    };
+    saveConfirmedClasses(data);
+    updateConfirmationButtonUI();
+    updateClassDropdownBadges();
+  }
+}
+
+function confirmCurrentClass() {
+  toggleConfirmCurrentClass();
+}
+
+function exportCurrentClassJSON() {
+  const ev = EVENTS[CUR_EV_IDX];
+  const cls = (ev && ev.classes && ev.classes[CUR_CLS_IDX]) ? ev.classes[CUR_CLS_IDX] : null;
+  if (!cls) return;
+  const payload = {
+    event_id: ev.item_id,
+    event_name: ev.name,
+    class_info: cls,
+    verified_at: new Date().toISOString()
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `TEF_Item_${ev.item_id}_Class_${CUR_CLS_IDX + 1}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function exportCurrentClassCSV() {
+  const ev = EVENTS[CUR_EV_IDX];
+  const cls = (ev && ev.classes && ev.classes[CUR_CLS_IDX]) ? ev.classes[CUR_CLS_IDX] : null;
+  if (!cls || !cls.entries) return;
+
+  let csv = '\uFEFFอันดับ,หมายเลข,นักกีฬา,ม้า,สโมสร/สังกัด,รายการแข่งขัน,คลาส,เวลา/คะแนน Round 1,Jump-Off/กรรมการ,โทษ/สถานะ\n';
+  const clean = val => '"' + String(val == null ? '' : val).replace(/"/g, '""') + '"';
+
+  cls.entries.forEach(e => {
+    csv += [
+      clean(e.rank),
+      clean(e.bib),
+      clean(e.athlete),
+      clean(e.horse),
+      clean(e.club),
+      clean(ev.name),
+      clean(cls.class_name),
+      clean(e.r1_score),
+      clean(e.jo_score),
+      clean(e.status)
+    ].join(',') + '\n';
+  });
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `TEF_Item_${ev.item_id}_Class_${CUR_CLS_IDX + 1}_Export.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// GLOBAL SEARCH MODE
+function setGlobalDiscipline(btn, disc) {
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  GLOBAL_DISCIPLINE = disc.toLowerCase();
+  renderGlobalSearchResults();
+}
+
+
+function exportGlobalSearchResultsCSV() {
+  const query = document.getElementById('globalSearchInput').value.trim().toLowerCase();
+  const evFilterVal = document.getElementById('globalSearchEventFilter').value;
+  let matches = [];
+
+  EVENTS.forEach((ev, eIdx) => {
+    if (evFilterVal !== '' && parseInt(evFilterVal, 10) !== eIdx) return;
+    (ev.classes || []).forEach(c => {
+      const cDisc = (c.discipline || '').toLowerCase();
+      if (GLOBAL_DISCIPLINE && !cDisc.includes(GLOBAL_DISCIPLINE)) return;
+      (c.entries || []).forEach(e => {
+        const ath = (e.athlete || '').toLowerCase();
+        const hrs = (e.horse || '').toLowerCase();
+        const clb = (e.club || '').toLowerCase();
+        const bib = (e.bib != null ? String(e.bib) : '').toLowerCase();
+        if (!query || ath.includes(query) || hrs.includes(query) || clb.includes(query) || bib.includes(query)) {
+          matches.push({
+            event_name: ev.name,
+            class_name: c.class_name,
+            entry: e
+          });
+        }
+      });
+    });
+  });
+
+  if (matches.length === 0) {
+    alert('ไม่มีข้อมูลสำหรับส่งออก CSV');
+    return;
+  }
+
+  let csv = '\uFEFFอันดับ,หมายเลข,นักกีฬา,ม้า,สโมสร/สังกัด,รายการแข่งขัน,คลาส,เวลา/คะแนน Round 1,Jump-Off/กรรมการ,โทษ/สถานะ\n';
+  const clean = val => '"' + String(val == null ? '' : val).replace(/"/g, '""') + '"';
+
+  matches.forEach(m => {
+    const e = m.entry;
+    csv += [
+      clean(e.rank),
+      clean(e.bib),
+      clean(e.athlete),
+      clean(e.horse),
+      clean(e.club),
+      clean(m.event_name),
+      clean(m.class_name),
+      clean(e.r1_score),
+      clean(e.jo_score),
+      clean(e.status)
+    ].join(',') + '\n';
+  });
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'TEF_Global_Search_Export.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function printGlobalSearchResults() {
+  const query = document.getElementById('globalSearchInput').value.trim();
+  const tb = document.getElementById('globalSearchTableBody');
+  if (!tb || tb.children.length === 0 || tb.innerText.includes('ไม่พบรายการ')) {
+    alert('ไม่มีข้อมูลผลการค้นหาสำหรับพิมพ์');
+    return;
+  }
+
+  const tableHtml = tb.innerHTML;
+  const fullHtml = `<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><title>Print Search Results</title><style>@page{size:A4 landscape;margin:8mm;}body{font-family:-apple-system,sans-serif;font-size:9pt;}table{width:100%;border-collapse:collapse;}th{background:#2b6cb0;color:#fff;padding:6px;text-align:left;}td{border-bottom:1px solid #e2e8f0;padding:5px 6px;}</style></head><body><h2>สมาคมกีฬาขี่ม้าแห่งประเทศไทย — รายงานผลการค้นหา</h2><p>คำค้นหา: ${query || 'ทั้งหมด'}</p><table><thead><tr><th>อันดับ</th><th>หมายเลข</th><th>ชื่อนักกีฬา</th><th>ม้า</th><th>สโมสร/สังกัด</th><th>รายการแข่งขัน</th><th>คลาส</th><th>คะแนน/เวลา</th><th>สถานะ</th></tr></thead><tbody>${tableHtml}</tbody></table></body></html>`;
+  triggerOfficialPrint(fullHtml);
+}
+
+function renderGlobalSearchResults() {
+  const query = document.getElementById('globalSearchInput').value.trim().toLowerCase();
+  const evFilterVal = document.getElementById('globalSearchEventFilter').value;
+  const tbody = document.getElementById('globalSearchTableBody');
+  tbody.innerHTML = '';
+
+  let matches = [];
+
+  EVENTS.forEach((ev, eIdx) => {
+    if (evFilterVal !== '' && parseInt(evFilterVal, 10) !== eIdx) return;
+
+    (ev.classes || []).forEach(c => {
+      const cDisc = (c.discipline || '').toLowerCase();
+      if (GLOBAL_DISCIPLINE && !cDisc.includes(GLOBAL_DISCIPLINE)) return;
+
+      (c.entries || []).forEach(e => {
+        const ath = (e.athlete || '').toLowerCase();
+        const hrs = (e.horse || '').toLowerCase();
+        const clb = (e.club || '').toLowerCase();
+        const bib = (e.bib != null ? String(e.bib) : '').toLowerCase();
+
+        if (!query || ath.includes(query) || hrs.includes(query) || clb.includes(query) || bib.includes(query)) {
+          matches.push({
+            event_name: ev.name,
+            class_name: c.class_name,
+            discipline: c.discipline || '',
+            entry: e
+          });
+        }
+      });
+    });
+  });
+
+  document.getElementById('globalSearchCountHeader').textContent = `ผลการค้นหา: พบ ${matches.length.toLocaleString()} รายการ`;
+
+  if (matches.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="9" class="empty-box">ไม่พบรายการที่ตรงกับเงื่อนไขการค้นหา</td></tr>';
+    return;
+  }
+
+  const limit = Math.min(matches.length, 300);
+  const rows = [];
+
+  for (let i = 0; i < limit; i++) {
+    const m = matches[i];
+    const e = m.entry;
+    const rk = e.rank;
+    let rkClass = 'rank-other';
+    if (rk === 1) rkClass = 'rank-1';
+    else if (rk === 2) rkClass = 'rank-2';
+    else if (rk === 3) rkClass = 'rank-3';
+
+    let stBadge = '';
+    const st = (e.status || '').toLowerCase();
+    if (st.includes('pass') || st.includes('finished')) stBadge = `<span class="status-badge status-pass">${sanitize(e.status)}</span>`;
+    else if (st.includes('el') || st.includes('eliminated') || st === 'e') stBadge = `<span class="status-badge status-el">${sanitize(e.status || 'E')}</span>`;
+    else if (st.includes('ret') || st.includes('rt') || st === 'r') stBadge = `<span class="status-badge status-ret">${sanitize(e.status)}</span>`;
+    else if (st.includes('wd') || st.includes('withdrawn')) stBadge = `<span class="status-badge status-wd">${sanitize(e.status)}</span>`;
+    else if (e.status && e.status !== '-') stBadge = `<span class="status-badge">${sanitize(e.status)}</span>`;
+    else stBadge = `<span style="color:var(--ink-muted);">-</span>`;
+
+    let scoreTxt = sanitize(e.score_display || e.r1_score || '-');
+
+    rows.push('<tr>' +
+      `<td style="text-align:center;"><span class="rank-badge ${rkClass}">${rk != null ? rk : '-'}</span></td>` +
+      `<td style="text-align:center; font-weight:700;">${sanitize(e.bib || '-')}</td>` +
+      `<td class="cell-athlete">${sanitize(e.athlete || '-')}</td>` +
+      `<td class="cell-horse">${sanitize(e.horse || '-')}</td>` +
+      `<td class="cell-club">${sanitize(e.club || '-')}</td>` +
+      `<td style="font-size:12px; color:var(--brand-green-dark); font-weight:600;">${sanitize(m.event_name)}</td>` +
+      `<td style="font-size:12px;">${sanitize(m.class_name)}</td>` +
+      `<td class="cell-score" style="text-align:center; font-weight:700;">${scoreTxt}</td>` +
+      `<td style="text-align:center;">${stBadge}</td>` +
+    '</tr>');
+  }
+
+  tbody.innerHTML = rows.join('');
+}
+
+
+// ========================================================
+// OFFICIAL TEF PRINT & CERTIFICATE EXPORT ENGINE
+// ========================================================
+function triggerOfficialPrint(fullHtml) {
+  // Remove existing print frame if any
+  const oldFrame = document.getElementById('tefPrintIframe');
+  if (oldFrame) oldFrame.remove();
+
+  // Create isolated print iframe with standard desktop dimensions placed safely offscreen
+  const iframe = document.createElement('iframe');
+  iframe.id = 'tefPrintIframe';
+  iframe.style.position = 'fixed';
+  iframe.style.left = '-9999px';
+  iframe.style.top = '0';
+  iframe.style.width = '1024px';
+  iframe.style.height = '1440px';
+  iframe.style.border = '0';
+  iframe.style.opacity = '1';
+  document.body.appendChild(iframe);
+
+  const doc = iframe.contentWindow.document;
+  doc.open();
+  doc.write(fullHtml);
+  doc.close();
+
+  // Fallback update to in-page printArea
+  const pa = document.getElementById('printArea');
+  if (pa) {
+    pa.innerHTML = fullHtml;
+  }
+
+  function execPrint() {
+    setTimeout(function() {
+      try {
+        iframe.contentWindow.focus();
+        iframe.contentWindow.print();
+      } catch (err) {
+        console.error('Iframe print error, falling back to window.print', err);
+        window.print();
+      }
+    }, 300);
+  }
+
+  // Check if there are images and wait for decoding
+  const images = doc.querySelectorAll('img');
+  if (images.length > 0) {
+    let loadedCount = 0;
+    const total = images.length;
+    let hasExecuted = false;
+
+    function onImgDone() {
+      if (hasExecuted) return;
+      loadedCount++;
+      if (loadedCount >= total) {
+        hasExecuted = true;
+        execPrint();
+      }
+    }
+
+    images.forEach(img => {
+      if (img.complete && img.naturalWidth > 0) {
+        onImgDone();
+      } else {
+        img.onload = onImgDone;
+        img.onerror = onImgDone;
+      }
+    });
+
+    setTimeout(function() {
+      if (!hasExecuted) {
+        hasExecuted = true;
+        execPrint();
+      }
+    }, 800);
+  } else {
+    execPrint();
+  }
+}
+
+function printCurrentClassResults() {
+  const ev = EVENTS[CUR_EV_IDX];
+  const cls = (ev && ev.classes && ev.classes[CUR_CLS_IDX]) ? ev.classes[CUR_CLS_IDX] : null;
+  if (!cls || !cls.entries || cls.entries.length === 0) {
+    alert('ไม่มีข้อมูลผลการแข่งขันในคลาสนี้สำหรับพิมพ์');
+    return;
+  }
+
+  const dateStr = cls.date || ev.date_range || 'ฤดูกาลแข่งขัน 2567';
+  const discStr = ((cls.discipline || '') + ' ' + (ev.name || '') + ' ' + (cls.class_name || '')).toLowerCase();
+  const countStr = cls.entries.length;
+  const nowStr = new Date().toLocaleString('th-TH', { dateStyle: 'long', timeStyle: 'short' });
+
+  const isDressage = discStr.includes('dressage') || discStr.includes('ศิลปะบังคับม้า');
+  const isEndurance = discStr.includes('endurance') || discStr.includes('มาราธอน') || discStr.includes('cei') || discStr.includes('cen');
+  const isTwoRound = discStr.includes('two round') || (cls.article && cls.article.includes('273')) || (cls.entries[0] && String(cls.entries[0].jo_score).startsWith('R2:'));
+
+  let col1Title = 'Round 1 / คะแนน';
+  let col2Title = 'Jump-Off / กรรมการ';
+  let col3Title = 'สถานะ';
+
+  if (isEndurance) {
+    col1Title = 'เวลาขี่รวม (Riding Time)';
+    col2Title = 'ความเร็วเฉลี่ย (Speed km/h)';
+    col3Title = 'ผลตรวจม้า (Vet Gate)';
+  } else if (isDressage) {
+    col1Title = 'คะแนนเทคนิค (Technical)';
+    col2Title = 'คุณภาพ / รายละเอียด';
+    col3Title = 'คะแนนรวมสุทธิ (Total %)';
+  } else if (isTwoRound) {
+    col1Title = 'ROUND 1 (เวลา / โทษ)';
+    col2Title = 'ROUND 2 (เวลา / โทษ)';
+    col3Title = 'โทษรวม / ผลทีม';
+  }
+
+  let rowsHtml = '';
+  cls.entries.forEach(function(e) {
+    let medal = '';
+    const r = String(e.rank || '').trim();
+    if (r === '1') medal = '🥇 ';
+    else if (r === '2') medal = '🥈 ';
+    else if (r === '3') medal = '🥉 ';
+
+    let col1Val = e.r1_score || '-';
+    let col2Val = e.jo_score || '-';
+    let col3Val = e.status || 'FINISHED';
+
+    if (isEndurance) {
+      const st = (e.status || 'PASS').toUpperCase();
+      if (st.includes('PASS')) {
+        col3Val = '<span style="color:#166534;font-weight:700;">PASS (ผ่าน)</span>';
+      } else {
+        col3Val = '<span style="color:#c53030;font-weight:700;">' + sanitize(st) + '</span>';
+      }
+    } else if (isDressage) {
+      col3Val = '<strong style="color:#166534;font-size:10pt;">' + (e.score_display || e.r1_score || '-') + '</strong>';
+    } else if (isTwoRound) {
+      const raw = e.raw_details || {};
+      col3Val = '<strong style="color:#166534;">' + (raw.team_total || e.score_display || 'FINISHED') + '</strong>';
+    }
+
+    let pHorse = String(e.horse || '-');
+    if (pHorse.includes('/')) pHorse = pHorse.split('/')[0].trim();
+    let pClub = sanitize(e.club || '-');
+    if (pClub.includes('/')) {
+      const parts = pClub.split('/').map(p => p.trim()).filter(Boolean);
+      if (parts.length > 1) {
+        pClub = parts[0] + '<br><span style="font-size:7.8pt;color:#718096;">' + parts.slice(1).join(' / ') + '</span>';
+      }
+    }
+
+    rowsHtml += '<tr>' +
+      '<td style="text-align:center;font-weight:700;">' + medal + (e.rank || '-') + '</td>' +
+      '<td style="text-align:center;font-weight:600;">' + (e.bib != null ? e.bib : '-') + '</td>' +
+      '<td style="font-weight:700;color:#1a202c;">' + (e.athlete || '-') + '</td>' +
+      '<td style="font-style:italic;color:#2d3748;">' + sanitize(pHorse) + '</td>' +
+      '<td style="line-height:1.2;">' + pClub + '</td>' +
+      '<td style="text-align:center;font-weight:600;">' + col1Val + '</td>' +
+      '<td style="text-align:center;font-weight:600;">' + col2Val + '</td>' +
+      '<td style="text-align:center;">' + col3Val + '</td>' +
+    '</tr>';
+  });
+
+  const fullHtml = '<!DOCTYPE html>' +
+    '<html lang="th">' +
+    '<head>' +
+      '<meta charset="UTF-8">' +
+      '<title>Official Results - ' + cls.class_name + '</title>' +
+      '<style>' +
+        '@page { size: A4 landscape; margin: 6mm 8mm; }' +
+        '* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Sarabun", "Thonburi", sans-serif; }' +
+        'html, body { width: 100%; height: auto; background: #fff !important; color: #111 !important; font-size: 9.5pt; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }' +
+        '.print-sheet { width: 100%; margin: 0 auto; }' +
+        '.print-header-box { border-bottom: 2px solid #1a365d; padding-bottom: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: flex-end; }' +
+        '.print-tef-title { font-size: 15pt; font-weight: 800; color: #1a365d; margin: 0 0 2px 0; letter-spacing: -0.3px; }' +
+        '.print-tef-subtitle { font-size: 10pt; font-weight: 700; color: #2b6cb0; margin: 0 0 3px 0; }' +
+        '.print-meta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px 10px; background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px; margin-bottom: 12px; font-size: 9pt; }' +
+        '.print-meta-item strong { color: #4a5568; }' +
+        '.print-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 8.8pt; }' +
+        '.print-table th { background: #2b6cb0 !important; color: #fff !important; padding: 6px 8px; text-align: left; font-weight: 700; border: 1px solid #2b6cb0; }' +
+        '.print-table td { padding: 5px 8px; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #edf2f7; border-left: 1px solid #edf2f7; vertical-align: middle; }' +
+        '.print-table tr:nth-child(even) td { background-color: #f7fafc !important; }' +
+        '.print-signatures { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 25px; page-break-inside: avoid; }' +
+        '.print-sign-box { border-top: 1px dashed #718096; padding-top: 6px; text-align: center; font-size: 8.5pt; color: #2d3748; }' +
+        '.print-footer-audit { margin-top: 12px; border-top: 1px solid #e2e8f0; padding-top: 4px; font-size: 7.5pt; color: #718096; display: flex; justify-content: space-between; }' +
+      '</style>' +
+    '</head>' +
+    '<body>' +
+      '<div class="print-sheet">' +
+        '<div class="print-header-box">' +
+          '<div>' +
+            '<div class="print-tef-title">สมาคมกีฬาขี่ม้าแห่งประเทศไทย (Thailand Equestrian Federation)</div>' +
+            '<div class="print-tef-subtitle">รายงานผลการแข่งขันอย่างเป็นทางการ (Official Competition Results - Year 2024 / 2567)</div>' +
+          '</div>' +
+          '<div style="text-align:right; font-size: 8.5pt; color: #4a5568;">' +
+            '<div><strong>เลขที่รายการ:</strong> ลำดับที่ ' + (ev.item_id || (CUR_EV_IDX + 1)) + '</div>' +
+            '<div><strong>หมวดหมู่:</strong> ' + (cls.discipline || 'Equestrian') + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="print-meta-grid">' +
+          '<div class="print-meta-item"><strong>รายการแข่งขัน:</strong> ' + ev.name + '</div>' +
+          '<div class="print-meta-item"><strong>คลาส / รุ่น:</strong> ' + cls.class_name + '</div>' +
+          '<div class="print-meta-item"><strong>วันที่แข่งขัน:</strong> ' + dateStr + '</div>' +
+          '<div class="print-meta-item"><strong>จำนวนผู้เข้าแข่งขัน:</strong> ' + countStr + ' รายการ</div>' +
+        '</div>' +
+        '<table class="print-table">' +
+          '<thead>' +
+            '<tr>' +
+              '<th style="width: 6%; text-align:center;">อันดับ</th>' +
+              '<th style="width: 7%; text-align:center;">หมายเลข</th>' +
+              '<th style="width: 24%;">ชื่อ-นามสกุลนักกีฬา (Athlete)</th>' +
+              '<th style="width: 18%;">ชื่อม้า (Horse)</th>' +
+              '<th style="width: 18%;">สโมสร / สังกัด / โรงเรียน</th>' +
+              '<th style="width: 12%; text-align:center;">' + col1Title + '</th>' +
+              '<th style="width: 12%; text-align:center;">' + col2Title + '</th>' +
+              '<th style="width: 13%; text-align:center;">' + col3Title + '</th>' +
+            '</tr>' +
+          '</thead>' +
+          '<tbody>' + rowsHtml + '</tbody>' +
+        '</table>' +
+        '<div class="print-signatures">' +
+          '<div class="print-sign-box"><br><br>(............................................................)<br><strong>President of Ground Jury</strong><br>ประธานคณะผู้ตัดสิน</div>' +
+          '<div class="print-sign-box"><br><br>(............................................................)<br><strong>Technical Delegate / Vet Commission</strong><br>ผู้แทนเทคนิค / ประธานสัตวแพทย์</div>' +
+          '<div class="print-sign-box"><br><br>(............................................................)<br><strong>Official Scorer / TEF Registrar</strong><br>นายทะเบียนฝ่ายประมวลผล สมาคมฯ</div>' +
+        '</div>' +
+        '<div class="print-footer-audit">' +
+          '<span>เอกสารทางการออกโดยระบบฐานข้อมูลสมาคมกีฬาขี่ม้าแห่งประเทศไทย (TEF Competition Database)</span>' +
+          '<span>พิมพ์เมื่อ: ' + nowStr + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</body>' +
+    '</html>';
+
+  triggerOfficialPrint(fullHtml);
+}
+
+function openLightbox() {
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('modalImage');
+  const scanImg = document.getElementById('scanImage');
+  if (modal && scanImg && scanImg.src) {
+    modalImg.src = scanImg.src;
+    modal.classList.add('active');
+    document.getElementById('modalPageIndicator').textContent = document.getElementById('pageIndicator').textContent;
+    applyImageTransform();
+    updateHighlightUI();
+  }
+}
+
+function closeLightbox() {
+  const modal = document.getElementById('lightboxModal');
+  if (modal) modal.classList.remove('active');
+}
+
+function onLightboxWrapClick(e) {
+  if (e.target.id === 'lightboxWrap') closeLightbox();
+}
+
+
+// Interactive Highlighter & Lightbox Scan Functions
+let HIGHLIGHT_MODE = false;
+let HIGHLIGHT_POS = { top: 30, height: 4 };
+
+function toggleHighlightMode() {
+  HIGHLIGHT_MODE = !HIGHLIGHT_MODE;
+  const pBtn = document.getElementById("panelBtnHighlight");
+  const mBtn = document.getElementById("modalBtnHighlight");
+  const adj = document.getElementById("highlightAdjustControls");
+  if (pBtn) pBtn.classList.toggle("active", HIGHLIGHT_MODE);
+  if (mBtn) mBtn.classList.toggle("active", HIGHLIGHT_MODE);
+  if (adj) adj.style.display = HIGHLIGHT_MODE ? "inline-flex" : "none";
+  updateHighlightUI();
+}
+
+function updateHighlightUI() {
+  const bar1 = document.getElementById("scanHighlightBar");
+  const bar2 = document.getElementById("modalHighlightBar");
+  if (!bar1 && !bar2) return;
+  if (!HIGHLIGHT_MODE) {
+    if (bar1) bar1.style.display = "none";
+    if (bar2) bar2.style.display = "none";
+    return;
+  }
+  if (bar1) {
+    bar1.style.display = "block";
+    bar1.style.top = HIGHLIGHT_POS.top + "%";
+    bar1.style.height = HIGHLIGHT_POS.height + "%";
+    bar1.style.left = "5%";
+    bar1.style.width = "90%";
+  }
+  if (bar2) {
+    bar2.style.display = "block";
+    bar2.style.top = HIGHLIGHT_POS.top + "%";
+    bar2.style.height = HIGHLIGHT_POS.height + "%";
+    bar2.style.left = "5%";
+    bar2.style.width = "90%";
+  }
+}
+
+function onScanImageClicked(e, img) {
+  if (!HIGHLIGHT_MODE) return;
+  const rect = img.getBoundingClientRect();
+  const clickY = e.clientY - rect.top;
+  const pctY = Math.max(2, Math.min(95, (clickY / rect.height) * 100));
+  HIGHLIGHT_POS.top = Math.round(pctY);
+  updateHighlightUI();
+}
+
+function adjustHighlightTop(delta) {
+  HIGHLIGHT_POS.top = Math.max(1, Math.min(96, HIGHLIGHT_POS.top + delta));
+  updateHighlightUI();
+}
+
+function adjustHighlightHeight(delta) {
+  HIGHLIGHT_POS.height = Math.max(1.5, Math.min(15, HIGHLIGHT_POS.height + delta));
+  updateHighlightUI();
+}
+
+function clearHighlight() {
+  HIGHLIGHT_MODE = false;
+  const pBtn = document.getElementById("panelBtnHighlight");
+  const mBtn = document.getElementById("modalBtnHighlight");
+  const adj = document.getElementById("highlightAdjustControls");
+  if (pBtn) pBtn.classList.remove("active");
+  if (mBtn) mBtn.classList.remove("active");
+  if (adj) adj.style.display = "none";
+  updateHighlightUI();
+}
+
+function startHighlightDrag(e) {
+  e.preventDefault();
+}
+
+function setupImageMagnifier() {
+  const img = document.getElementById("scanImage");
+  if (img) {
+    img.addEventListener("dblclick", function() {
+      openLightbox();
+    });
+  }
+}
+
+function printCurrentScanProof() {
+  const img = document.getElementById("scanImage");
+  if (!img || !img.src) {
+    alert("ไม่มีภาพสแกนสำหรับพิมพ์");
+    return;
+  }
+  const fullHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Print Scan</title><style>@page{size:A4 portrait;margin:5mm;}body{margin:0;text-align:center;}img{max-width:100%;height:auto;}</style></head><body><img src="' + img.src + '"></body></html>';
+  triggerOfficialPrint(fullHtml);
+}
+
+
+// ========================================================
+// RESPONSIVE WEB DESIGN (RWD) & MOBILE ENGINE
+// ========================================================
+let MOBILE_PANE = 'table'; // 'table', 'scan', or 'both'
+
+function setMobilePane(pane) {
+  MOBILE_PANE = pane;
+  const container = document.getElementById('splitViewContainer');
+  const btnTable = document.getElementById('btnMobileTable');
+  const btnScan = document.getElementById('btnMobileScan');
+  const btnBoth = document.getElementById('btnMobileBoth');
+  
+  if (btnTable) btnTable.classList.toggle('active', pane === 'table');
+  if (btnScan) btnScan.classList.toggle('active', pane === 'scan');
+  if (btnBoth) btnBoth.classList.toggle('active', pane === 'both');
+
+  if (container) {
+    container.classList.remove('mobile-view-table', 'mobile-view-scan', 'mobile-view-both');
+    container.classList.add('mobile-view-' + pane);
+  }
+
+  // If switched to scan, ensure scan image transforms apply correctly
+  if (pane === 'scan' || pane === 'both') {
+    setTimeout(applyImageTransform, 50);
+  }
+}
+
+// Auto-initialize mobile responsive state based on viewport width
+function initResponsiveLayout() {
+  const isMobile = window.innerWidth <= 1024;
+  const container = document.getElementById('splitViewContainer');
+  if (container) {
+    if (isMobile) {
+      setMobilePane(MOBILE_PANE);
+    } else {
+      container.classList.remove('mobile-view-table', 'mobile-view-scan', 'mobile-view-both');
+    }
+  }
+}
+
+window.addEventListener('resize', initResponsiveLayout);
+
+window.addEventListener('DOMContentLoaded', function() {
+  init();
+  initResponsiveLayout();
+  setupImageMagnifier();
+});
+
+</script>
+
+<!-- Fullscreen Lightbox Modal with E-Commerce Hover Zoom -->
+<div id="lightboxModal" class="lightbox-modal">
+  <div class="lightbox-toolbar">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span style="font-weight: 800; font-size: 14px;">🔍 โหมดขยายภาพเต็มจอ (E-Commerce Zoom Lens)</span>
+      <span style="font-size: 12px; opacity: 0.85;">· คลิกบนภาพเพื่อปักหมุดไฮไลท์ชื่อผู้ขอใบรับรอง</span>
+    </div>
+    <div style="display: flex; gap: 6px; align-items: center; flex-wrap: wrap;">
+      <button class="btn btn-sm" onclick="prevScanPage()">◀ หน้าก่อน</button>
+      <span id="modalPageIndicator" style="font-weight: 700; font-size: 12px;">หน้า 1 / 1</span>
+      <button class="btn btn-sm" onclick="nextScanPage()">หน้าถัดไป ▶</button>
+      <button class="btn btn-sm" onclick="rotateScan(90)">🔄 หมุน 90°</button>
+      <button class="btn btn-sm btn-highlight" id="modalBtnHighlight" onclick="toggleHighlightMode()" title="เปิด/ปิด แถบไฮไลท์สีเหลืองบนชื่อผู้ขอใบรับรอง">🖍 ไฮไลท์ชื่อ</button>
+      <span id="highlightAdjustControls" style="display: none; gap: 4px; align-items: center;">
+        <button class="btn btn-sm" onclick="adjustHighlightTop(-1.5)" title="เลื่อนแถบไฮไลท์ขึ้น">▲</button>
+        <button class="btn btn-sm" onclick="adjustHighlightTop(1.5)" title="เลื่อนแถบไฮไลท์ลง">▼</button>
+        <button class="btn btn-sm" onclick="adjustHighlightHeight(0.5)" title="เพิ่มความหนาแถบไฮไลท์">หนาขึ้น</button>
+        <button class="btn btn-sm" onclick="adjustHighlightHeight(-0.5)" title="ลดความหนาแถบไฮไลท์">บางลง</button>
+        <button class="btn btn-sm" onclick="clearHighlight()" title="ลบไฮไลท์">🗑 ล้าง</button>
+      </span>
+      <button class="btn btn-sm btn-accent" onclick="printCurrentScanProof()" title="พิมพ์เอกสารสแกนหลักฐานผลการแข่งขันสำหรับแนบคำขอใบรับรอง">🖨 พิมพ์เอกสารสแกนแนบใบรับรอง (Print A4)</button>
+      <button class="btn-close-modal" onclick="closeLightbox()">✕ ปิด (ESC)</button>
+    </div>
+  </div>
+  <div class="lightbox-wrap" id="lightboxWrap" onclick="onLightboxWrapClick(event)">
+    <div id="modalImageContainer" style="position: relative; display: inline-block;">
+      <img id="modalImage" src="" alt="ภาพสแกนขยายเต็มจอ" onclick="onScanImageClicked(event, this)">
+      <div id="modalHighlightBar" class="scan-highlight-box" style="display: none;" onmousedown="startHighlightDrag(event)"></div>
+    </div>
+  </div>
+</div>
+
+<div id="printArea"></div>
+</body>
+</html>

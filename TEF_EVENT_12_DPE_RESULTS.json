@@ -1,0 +1,1627 @@
+{
+  "schema_version": "0.1-trial",
+  "event": {
+    "event_id": "EVENT-DPE-2024",
+    "name": "การแข่งขันกีฬาขี่ม้าระหว่างโรงเรียน กรมพลศึกษา ประจำปีการศึกษา 2567",
+    "organizer": "กรมพลศึกษา ร่วมกับ สมาคมกีฬาขี่ม้าแห่งประเทศไทย (TEF)",
+    "venue": "สนามขี่ม้าสโมสรไทยโปโล แอนด์ อีเควสเทรียน คลับ พัทยา ชลบุรี",
+    "date_range": "2024-06-25 ถึง 2024-06-30",
+    "year_be": 2567
+  },
+  "extraction_summary": {
+    "event_number": 12,
+    "status": "completed_endurance_and_jumping",
+    "disciplines": [
+      "endurance",
+      "jumping"
+    ],
+    "total_endurance_entries": 17,
+    "total_jumping_entries": 72
+  },
+  "endurance_results": [
+    {
+      "class": {
+        "class_id": "DPE-END-60-10-14",
+        "name": "60 Km. Endurance รุ่นอายุ 10-14 ปี",
+        "date": "2024-06-25",
+        "distance_km": 60,
+        "loop_count": 2
+      },
+      "source": {
+        "file": "Endurance/20240702183109042.pdf",
+        "page": 1
+      },
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "2",
+          "athlete_name": "ธนัท ปฏิบัติ",
+          "horse_name": "BENTLEY",
+          "club_or_school": "โรงเรียนมกุฎเมืองราชวิทยาลัย / Rayong Beach Horse Riding : RBHR",
+          "total_riding_time": "03:54:27",
+          "total_riding_time_seconds": 14067,
+          "avg_speed_kmh": 15.36,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:32",
+              "max_vet_in": "08:15:32",
+              "actual_vet_in": "08:12:44",
+              "time_to_vet_in": "00:12:12",
+              "avg_recover": "00:12:12",
+              "riding_time": "02:12:44",
+              "speed_kmh": 13.56,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:52:44",
+              "arrival": "10:34:27",
+              "max_vet_in": "10:54:27",
+              "actual_vet_in": "10:53:17",
+              "time_to_vet_in": "00:18:50",
+              "avg_recover": "00:15:31",
+              "riding_time": "01:41:43",
+              "speed_kmh": 17.7,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "bib": "7",
+          "athlete_name": "ภิญญาพัชญ์ จำปาเงิน",
+          "horse_name": "KIRA",
+          "club_or_school": "โรงเรียนสงวนหญิง / Suphan Horses Sport Club : SP Club",
+          "total_riding_time": "03:54:29",
+          "total_riding_time_seconds": 14069,
+          "avg_speed_kmh": 15.35,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:12",
+              "max_vet_in": "08:15:12",
+              "actual_vet_in": "08:03:54",
+              "time_to_vet_in": "00:03:42",
+              "avg_recover": "00:03:42",
+              "riding_time": "02:03:54",
+              "speed_kmh": 14.53,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:43:54",
+              "arrival": "10:34:29",
+              "max_vet_in": "10:54:29",
+              "actual_vet_in": "10:49:59",
+              "time_to_vet_in": "00:15:30",
+              "avg_recover": "00:09:36",
+              "riding_time": "01:50:35",
+              "speed_kmh": 16.28,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "bib": "4",
+          "athlete_name": "เกศรา พิเสฎฐศลาศัย",
+          "horse_name": "PHILIP",
+          "club_or_school": "โรงเรียนวัฒนาวิทยาลัย / Mounted Police Club : M.P.C.",
+          "total_riding_time": "03:58:56",
+          "total_riding_time_seconds": 14336,
+          "avg_speed_kmh": 15.07,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:13",
+              "max_vet_in": "08:15:13",
+              "actual_vet_in": "08:10:21",
+              "time_to_vet_in": "00:10:08",
+              "avg_recover": "00:10:08",
+              "riding_time": "02:10:21",
+              "speed_kmh": 13.81,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:50:21",
+              "arrival": "10:38:56",
+              "max_vet_in": "10:58:56",
+              "actual_vet_in": "10:57:29",
+              "time_to_vet_in": "00:18:33",
+              "avg_recover": "00:14:20",
+              "riding_time": "01:48:35",
+              "speed_kmh": 16.58,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "bib": "1",
+          "athlete_name": "ภธิติ แวววงศ์",
+          "horse_name": "HERMES FARO",
+          "club_or_school": "โรงเรียนขอนแก่นวิทยายน / Faro Farm 101 : FF101",
+          "total_riding_time": "05:56:15",
+          "total_riding_time_seconds": 21375,
+          "avg_speed_kmh": 10.11,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:34",
+              "max_vet_in": "08:15:34",
+              "actual_vet_in": "08:05:59",
+              "time_to_vet_in": "00:05:25",
+              "avg_recover": "00:05:25",
+              "riding_time": "02:05:59",
+              "speed_kmh": 14.29,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:45:59",
+              "arrival": "12:36:15",
+              "max_vet_in": "12:56:15",
+              "actual_vet_in": "12:40:28",
+              "time_to_vet_in": "00:04:13",
+              "avg_recover": "00:04:49",
+              "riding_time": "03:50:16",
+              "speed_kmh": 7.82,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "6",
+          "athlete_name": "ศิวกร สมบูรณ์",
+          "horse_name": "FAST FARO",
+          "club_or_school": "โรงเรียนกาฬสินธุ์พิทยาสัย / Faro Farm 101 : FF101",
+          "total_riding_time": "03:54:32",
+          "total_riding_time_seconds": 14072,
+          "avg_speed_kmh": 15.35,
+          "status": "FTQ-ME",
+          "review_note": "Failed to Qualify - Metabolic (Vet-in Loop 2)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:08",
+              "max_vet_in": "08:15:08",
+              "actual_vet_in": "08:11:54",
+              "time_to_vet_in": "00:11:46",
+              "avg_recover": "00:11:46",
+              "riding_time": "02:11:54",
+              "speed_kmh": 13.65,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:51:54",
+              "arrival": "10:34:32",
+              "max_vet_in": "10:54:32",
+              "actual_vet_in": "10:53:11",
+              "time_to_vet_in": "00:18:39",
+              "avg_recover": "00:15:12",
+              "riding_time": "01:42:38",
+              "speed_kmh": 17.54,
+              "status": "FTQ-ME"
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "5",
+          "athlete_name": "วุฒิเฌอล์ อุ่นคำ",
+          "horse_name": "SAMMY",
+          "club_or_school": "โรงเรียนอัสสัมชัญธนบุรี / Nakhon Si Riding Club : N.SRC",
+          "total_riding_time": "03:58:55",
+          "total_riding_time_seconds": 14335,
+          "avg_speed_kmh": 15.07,
+          "status": "FTQ-GA",
+          "review_note": "Failed to Qualify - Gait (Vet-in Loop 2)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:35",
+              "max_vet_in": "08:15:35",
+              "actual_vet_in": "08:07:50",
+              "time_to_vet_in": "00:07:15",
+              "avg_recover": "00:07:15",
+              "riding_time": "02:07:50",
+              "speed_kmh": 14.08,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:47:50",
+              "arrival": "10:38:55",
+              "max_vet_in": "10:58:55",
+              "actual_vet_in": "10:58:04",
+              "time_to_vet_in": "00:19:09",
+              "avg_recover": "00:13:12",
+              "riding_time": "01:51:05",
+              "speed_kmh": 16.2,
+              "status": "FTQ-GA"
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "8",
+          "athlete_name": "ณภัสสรณ์ คนทน",
+          "horse_name": "LUNA SP",
+          "club_or_school": "โรงเรียนสงวนหญิง / Suphan Horses Sport Club",
+          "total_riding_time": null,
+          "total_riding_time_seconds": null,
+          "avg_speed_kmh": null,
+          "status": "FTC",
+          "review_note": "Failed to Complete (พิมพ์ FTQ และเขียนกำกับด้วยลายมือ FTC) ไม่จบ Loop 1",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": null,
+              "max_vet_in": "00:15:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "00:00:00",
+              "riding_time": null,
+              "speed_kmh": 1.67,
+              "status": "FTC"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "00:40:00",
+              "arrival": null,
+              "max_vet_in": "00:20:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "00:00:00",
+              "riding_time": null,
+              "speed_kmh": 1.29,
+              "status": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": {
+        "class_id": "DPE-END-60-15-18",
+        "name": "60 Km. Endurance รุ่นอายุ 15-18 ปี",
+        "date": "2024-06-25",
+        "distance_km": 60,
+        "loop_count": 2
+      },
+      "source": {
+        "file": "Endurance/20240702183109042.pdf",
+        "page": 2
+      },
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "15",
+          "athlete_name": "ศรุตา วรรธนะดิลก",
+          "horse_name": "CHERO",
+          "club_or_school": "โรงเรียนสาธิตมหาวิทยาลัยศรีนครินทรวิโรฒประสานมิตร (ฝ่ายมัธยม) / Suphan Horses Sport Club",
+          "total_riding_time": "03:54:33",
+          "total_riding_time_seconds": 14073,
+          "avg_speed_kmh": 15.35,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:11",
+              "max_vet_in": "08:15:11",
+              "actual_vet_in": "08:03:50",
+              "time_to_vet_in": "00:03:39",
+              "avg_recover": "00:03:39",
+              "riding_time": "02:03:50",
+              "speed_kmh": 14.54,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:43:50",
+              "arrival": "10:34:33",
+              "max_vet_in": "10:54:33",
+              "actual_vet_in": "10:49:06",
+              "time_to_vet_in": "00:14:33",
+              "avg_recover": "00:09:06",
+              "riding_time": "01:50:43",
+              "speed_kmh": 16.26,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "bib": "20",
+          "athlete_name": "ธีรภัทร วงศ์นาป่า",
+          "horse_name": "MAKE KHAW",
+          "club_or_school": "โรงเรียนสัมพันธวิทยา / Rayong Beach Horse Riding : RBHR",
+          "total_riding_time": "05:34:28",
+          "total_riding_time_seconds": 20068,
+          "avg_speed_kmh": 10.76,
+          "status": "PASS",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:16",
+              "max_vet_in": "08:15:16",
+              "actual_vet_in": "08:09:05",
+              "time_to_vet_in": "00:08:49",
+              "avg_recover": "00:08:49",
+              "riding_time": "02:09:05",
+              "speed_kmh": 13.94,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:49:05",
+              "arrival": "12:14:28",
+              "max_vet_in": "12:34:28",
+              "actual_vet_in": "12:28:44",
+              "time_to_vet_in": "00:14:16",
+              "avg_recover": "00:11:33",
+              "riding_time": "03:25:23",
+              "speed_kmh": 8.76,
+              "status": "PASS"
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "13",
+          "athlete_name": "ณฐเศรษฐ เจ้ยเปลี่ยน",
+          "horse_name": "มิลกี้ สวีท",
+          "club_or_school": "โรงเรียนสาธิตกรุงเทพธนบุรี / Mounted Police Club : M.P.C.",
+          "total_riding_time": "06:43:15",
+          "total_riding_time_seconds": 24195,
+          "avg_speed_kmh": 8.93,
+          "status": "FTQ-ME",
+          "review_note": "Failed to Qualify - Metabolic (Vet-in Loop 2)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:10",
+              "max_vet_in": "08:15:10",
+              "actual_vet_in": "08:12:30",
+              "time_to_vet_in": "00:12:20",
+              "avg_recover": "00:12:20",
+              "riding_time": "02:12:30",
+              "speed_kmh": 13.58,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:52:30",
+              "arrival": "13:23:15",
+              "max_vet_in": "13:43:15",
+              "actual_vet_in": "13:41:00",
+              "time_to_vet_in": "00:17:45",
+              "avg_recover": "00:15:03",
+              "riding_time": "04:30:45",
+              "speed_kmh": 6.65,
+              "status": "FTQ-ME"
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "18",
+          "athlete_name": "หัตถพิชาช์ ประจักษ์นนท์",
+          "horse_name": "FARON FARO",
+          "club_or_school": "Crimson Global Academy / Faro Farm 101 : FF101",
+          "total_riding_time": "03:54:31",
+          "total_riding_time_seconds": 14071,
+          "avg_speed_kmh": 15.35,
+          "status": "FTQ-GA",
+          "review_note": "Failed to Qualify - Gait (Vet-in Loop 2)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:07",
+              "max_vet_in": "08:15:07",
+              "actual_vet_in": "08:08:00",
+              "time_to_vet_in": "00:07:53",
+              "avg_recover": "00:07:53",
+              "riding_time": "02:08:00",
+              "speed_kmh": 14.06,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:48:00",
+              "arrival": "10:34:31",
+              "max_vet_in": "10:54:31",
+              "actual_vet_in": "10:53:32",
+              "time_to_vet_in": "00:19:01",
+              "avg_recover": "00:13:27",
+              "riding_time": "01:46:31",
+              "speed_kmh": 16.9,
+              "status": "FTQ-GA"
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "10",
+          "athlete_name": "อรวรรณษา ธำรงวานาลัย",
+          "horse_name": "SMILE_N",
+          "club_or_school": "โรงเรียนสุนทรภู่พิทยา / Rayong Beach Horse Riding : RBHR",
+          "total_riding_time": "04:06:45",
+          "total_riding_time_seconds": 14805,
+          "avg_speed_kmh": 14.59,
+          "status": "FTQ-GA",
+          "review_note": "Failed to Qualify - Gait (Vet-in Loop 2)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:15",
+              "max_vet_in": "08:15:15",
+              "actual_vet_in": "08:07:19",
+              "time_to_vet_in": "00:07:04",
+              "avg_recover": "00:07:04",
+              "riding_time": "02:07:19",
+              "speed_kmh": 14.14,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:47:19",
+              "arrival": "10:46:45",
+              "max_vet_in": "11:06:45",
+              "actual_vet_in": "10:55:48",
+              "time_to_vet_in": "00:09:03",
+              "avg_recover": "00:08:03",
+              "riding_time": "01:59:26",
+              "speed_kmh": 15.07,
+              "status": "FTQ-GA"
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "17",
+          "athlete_name": "ศุภกฤษ จตุรพัฒน์",
+          "horse_name": "ADEN",
+          "club_or_school": "โรงเรียนสาธิตมหาวิทยาลัยศิลปากร / Suphan Horses Sport Club",
+          "total_riding_time": null,
+          "total_riding_time_seconds": null,
+          "avg_speed_kmh": null,
+          "status": "FTC",
+          "review_note": "Failed to Complete (พิมพ์ FTQ และเขียนกำกับ FTC) ไม่จบ Loop 2",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:36",
+              "max_vet_in": "08:15:36",
+              "actual_vet_in": "08:10:24",
+              "time_to_vet_in": "00:09:48",
+              "avg_recover": "00:09:48",
+              "riding_time": "02:10:24",
+              "speed_kmh": 13.8,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:50:24",
+              "arrival": null,
+              "max_vet_in": "00:20:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "00:04:54",
+              "riding_time": null,
+              "speed_kmh": 1.98,
+              "status": "FTC"
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "21",
+          "athlete_name": "ชลิต ไกรพันธ์",
+          "horse_name": "ARMANDO",
+          "club_or_school": "โรงเรียนหนองจอกพิทยานุสรณ์มัธยม / Mounted Police Club : M.P.C.",
+          "total_riding_time": null,
+          "total_riding_time_seconds": null,
+          "avg_speed_kmh": null,
+          "status": "FTC-FTQ-GA",
+          "review_note": "มีข้อความเขียนกำกับ FTC-FTQ-GA ไม่จบ Loop 2",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:02:27",
+              "max_vet_in": "08:17:27",
+              "actual_vet_in": "08:12:03",
+              "time_to_vet_in": "00:09:36",
+              "avg_recover": "00:09:36",
+              "riding_time": "02:12:03",
+              "speed_kmh": null,
+              "status": "PASS"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:52:03",
+              "arrival": null,
+              "max_vet_in": "00:20:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "00:04:48",
+              "riding_time": null,
+              "speed_kmh": 1.98,
+              "status": "FTC-FTQ-GA"
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "16",
+          "athlete_name": "จฤฬวัจน์ ผาดเจริญชัย",
+          "horse_name": "FANCY FARO",
+          "club_or_school": "โรงเรียนพระกุมาร ร้อยเอ็ด / Faro Farm 101 : FF101",
+          "total_riding_time": null,
+          "total_riding_time_seconds": null,
+          "avg_speed_kmh": null,
+          "status": "DSQ LP1",
+          "review_note": "พิมพ์ FTQ-ME และเขียนกำกับ DSQ LP1 (Disqualified Loop 1)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:09",
+              "max_vet_in": "08:15:09",
+              "actual_vet_in": "08:16:16",
+              "time_to_vet_in": "00:16:07",
+              "avg_recover": "00:16:07",
+              "riding_time": "02:16:16",
+              "speed_kmh": 13.21,
+              "status": "DSQ LP1"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:56:16",
+              "arrival": null,
+              "max_vet_in": "00:20:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "00:08:03",
+              "riding_time": null,
+              "speed_kmh": 1.99,
+              "status": null
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "19",
+          "athlete_name": "เพ็ญนภา เพ็ชร์เล็ก",
+          "horse_name": "VOGE",
+          "club_or_school": "โรงเรียนเทศบาล 2 (บ้านสะเดา) / Ban-Ma Khun Phla Riding Club",
+          "total_riding_time": null,
+          "total_riding_time_seconds": null,
+          "avg_speed_kmh": null,
+          "status": "FTQ-GA",
+          "review_note": "Failed to Qualify - Gait (Vet-in Loop 1)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:14",
+              "max_vet_in": "08:15:14",
+              "actual_vet_in": "08:13:06",
+              "time_to_vet_in": "00:12:52",
+              "avg_recover": "00:12:52",
+              "riding_time": "02:13:06",
+              "speed_kmh": 13.52,
+              "status": "FTQ-GA"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:53:06",
+              "arrival": null,
+              "max_vet_in": "00:20:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "00:06:26",
+              "riding_time": null,
+              "speed_kmh": 1.98,
+              "status": null
+            }
+          ]
+        },
+        {
+          "rank": null,
+          "bib": "11",
+          "athlete_name": "ฐิตินันท์ จิตต์ชะนะ",
+          "horse_name": "QUEEN",
+          "club_or_school": "โรงเรียนนวมินทราชินูทิศ สวนกุหลาบวิทยาลัย ปทุมธานี / Baanmarimklong : BAANMA",
+          "total_riding_time": null,
+          "total_riding_time_seconds": null,
+          "avg_speed_kmh": null,
+          "status": "FTQ-GA",
+          "review_note": "Failed to Qualify - Gait (Vet-in Loop 1)",
+          "loops": [
+            {
+              "loop": 1,
+              "dist_km": 30,
+              "depart": "06:00:00",
+              "arrival": "08:00:33",
+              "max_vet_in": "08:15:33",
+              "actual_vet_in": "08:11:55",
+              "time_to_vet_in": "00:11:22",
+              "avg_recover": "00:11:22",
+              "riding_time": "02:11:55",
+              "speed_kmh": 13.64,
+              "status": "FTQ-GA"
+            },
+            {
+              "loop": 2,
+              "dist_km": 30,
+              "depart": "08:51:55",
+              "arrival": null,
+              "max_vet_in": "00:20:00",
+              "actual_vet_in": null,
+              "time_to_vet_in": "00:00:00",
+              "avg_recover": "00:05:41",
+              "riding_time": null,
+              "speed_kmh": 1.98,
+              "status": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "jumping_results": [
+    {
+      "class": {
+        "class_id": "DPE-JUMP-TEAM-90",
+        "name": "การแข่งขันขี่ม้ากระโดดข้ามเครื่องกีดขวาง ประเภททีม",
+        "date": "2024-06-29",
+        "article": "273.3.3.2 (Two Round)",
+        "height_cm": 90,
+        "time_allowed": {
+          "round_1": 83,
+          "round_2": 72
+        },
+        "judges": [
+          "Mr. Nattakit Lertrungamorn (THA)",
+          "Maj.Gen Kiatsakul Chantana (THA)"
+        ],
+        "course_designer": "Mr. Kittipong Youngpong (THA)"
+      },
+      "source": {
+        "file": "Jumping/20240702183736538.pdf",
+        "page": 1
+      },
+      "teams": [
+        {
+          "rank": 1,
+          "team_name": "โรงเรียนสาธิตมหาวิทยาลัยเกษตรศาสตร์ (พหุภาษา)",
+          "team_time_seconds": 88.49,
+          "team_total_penalties": 4,
+          "members": [
+            {
+              "bib": "344",
+              "athlete_name": "วราภรณ์ วุฒิวัฒน์ชัย",
+              "horse_name": "สตรี",
+              "school": "โรงเรียนสาธิตมหาวิทยาลัยเกษตรศาสตร์ (พหุภาษา)",
+              "r1_time": 56.11,
+              "r1_faults": 0,
+              "r2_time": 45.37,
+              "r2_faults": 0
+            },
+            {
+              "bib": "343",
+              "athlete_name": "แพรวาอังณ์ญา ลังกา",
+              "horse_name": "Haruetai",
+              "school": "โรงเรียนสาธิตมหาวิทยาลัยเกษตรศาสตร์ (พหุภาษา)",
+              "r1_time": 49.16,
+              "r1_faults": 4,
+              "r2_time": 43.12,
+              "r2_faults": 0
+            },
+            {
+              "bib": "345",
+              "athlete_name": "คุณัชญ์ คุณากรธำรง",
+              "horse_name": "งามขำ",
+              "school": "โรงเรียนสาธิตมหาวิทยาลัยเกษตรศาสตร์ (พหุภาษา)",
+              "r1_time": 51.28,
+              "r1_faults": 4,
+              "r2_time": 44.22,
+              "r2_faults": 4
+            }
+          ]
+        },
+        {
+          "rank": 2,
+          "team_name": "สาธิต มก. พหุภาษา & สาธิต มธ.",
+          "team_time_seconds": 96.06,
+          "team_total_penalties": 4,
+          "members": [
+            {
+              "bib": "347",
+              "athlete_name": "อรภัทร์พัฏฐ์ เลี้ยงสุนทร",
+              "horse_name": "เอลีเบิร์ท",
+              "school": "โรงเรียนสาธิตแห่งมหาวิทยาลัยเกษตรศาสตร์ (พหุภาษา)",
+              "r1_time": 65.16,
+              "r1_faults": 0,
+              "r2_time": 49.68,
+              "r2_faults": 0
+            },
+            {
+              "bib": "348",
+              "athlete_name": "ชญานันทินท์ เล้าสมรุ่งเรือง",
+              "horse_name": "เทพวิทย์",
+              "school": "โรงเรียนสาธิตแห่งมหาวิทยาลัยธรรมศาสตร์",
+              "r1_time": 61.64,
+              "r1_faults": 0,
+              "r2_time": 46.38,
+              "r2_faults": 4
+            }
+          ]
+        },
+        {
+          "rank": 3,
+          "team_name": "โรงเรียนอำนวยศิลป์",
+          "team_time_seconds": 98.83,
+          "team_total_penalties": 4,
+          "members": [
+            {
+              "bib": "352",
+              "athlete_name": "อังคราลักษมณ์ วรเทพพุฒิพงศ์",
+              "horse_name": "Carl G",
+              "school": "โรงเรียนอำนวยศิลป์",
+              "r1_time": 65.85,
+              "r1_faults": 4,
+              "r2_time": 48.06,
+              "r2_faults": 0
+            },
+            {
+              "bib": "354",
+              "athlete_name": "ณัฐวดี อูฑะพุทธิ",
+              "horse_name": "Clintino",
+              "school": "โรงเรียนอำนวยศิลป์",
+              "r1_time": 65.08,
+              "r1_faults": 0,
+              "r2_time": 50.77,
+              "r2_faults": 0
+            },
+            {
+              "bib": "353",
+              "athlete_name": "สรพัทัก ชูศรีอภิยัน",
+              "horse_name": "Romeo",
+              "school": "โรงเรียนอำนวยศิลป์",
+              "r1_time": 69.03,
+              "r1_faults": 4,
+              "r2_time": 54.72,
+              "r2_faults": 4
+            }
+          ]
+        },
+        {
+          "rank": 4,
+          "team_name": "นานาชาติคอนคอร์เดียน (Concordian International School)",
+          "team_time_seconds": 104.48,
+          "team_total_penalties": 4,
+          "members": [
+            {
+              "bib": "319",
+              "athlete_name": "ณัฏฐา เมฆข่ายภิรมย์",
+              "horse_name": "Dvalin",
+              "school": "นานาชาติคอนคอร์เดียน",
+              "r1_time": 67.79,
+              "r1_faults": 0,
+              "r2_time": 58.28,
+              "r2_faults": 0
+            },
+            {
+              "bib": "318",
+              "athlete_name": "พิชชา กุลดานนท์",
+              "horse_name": "Giouvette",
+              "school": "นานาชาติคอนคอร์เดียน",
+              "r1_time": 82.25,
+              "r1_faults": 4,
+              "r2_time": 58.28,
+              "r2_faults": 0
+            }
+          ]
+        },
+        {
+          "rank": 5,
+          "team_name": "โรงเรียนจิตรลดา",
+          "team_time_seconds": 111.71,
+          "team_total_penalties": 4,
+          "members": [
+            {
+              "bib": "323",
+              "athlete_name": "สุภาการ สีละวะนิช",
+              "horse_name": "Just George W",
+              "school": "โรงเรียนจิตรลดา",
+              "r1_time": 69.36,
+              "r1_faults": 0,
+              "r2_time": 49.51,
+              "r2_faults": 0
+            },
+            {
+              "bib": "322",
+              "athlete_name": "ปุรณ์ภัสสร ชายบาง",
+              "horse_name": "เอ็นเนป",
+              "school": "โรงเรียนจิตรลดา",
+              "r1_time": 72.46,
+              "r1_faults": 0,
+              "r2_time": 62.2,
+              "r2_faults": 4
+            },
+            {
+              "bib": "324",
+              "athlete_name": "ขวัญสุดา สีละวะนิช",
+              "horse_name": "ขวัญกุญชร",
+              "school": "โรงเรียนจิตรลดา",
+              "r1_time": 72.28,
+              "r1_faults": 4,
+              "r2_time": 54.65,
+              "r2_faults": 8
+            }
+          ]
+        },
+        {
+          "rank": 6,
+          "team_name": "British Columbia International School Bangkok",
+          "team_time_seconds": null,
+          "team_total_penalties": 32,
+          "members": [
+            {
+              "bib": "321",
+              "athlete_name": "ธัญญา เชียงกูล",
+              "horse_name": "No Name",
+              "school": "British Columbia International school Bangkok",
+              "r1_time": 0.0,
+              "r1_faults": 24,
+              "r2_time": 0.0,
+              "r2_faults": 28
+            },
+            {
+              "bib": "305",
+              "athlete_name": "นภัทร ฐากิจบวรกุล",
+              "horse_name": "Florida depranzac",
+              "school": "British Columbia International school Bangkok",
+              "r1_time": 70.5,
+              "r1_faults": 0,
+              "r2_time": 47.89,
+              "r2_faults": 0
+            },
+            {
+              "bib": "306",
+              "athlete_name": "ปัณฑิตา กมลยะบุตร",
+              "horse_name": "Canysha",
+              "school": "British Columbia International school Bangkok",
+              "r1_time": 77.28,
+              "r1_faults": 4,
+              "r2_time": 0.0,
+              "r2_faults": 28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": {
+        "class_id": "DPE-JUMP-IND-U12-70",
+        "name": "การแข่งขันขี่ม้ากระโดดข้ามเครื่องกีดขวาง ประเภทบุคคล อายุต่ำกว่า 12 ปี",
+        "date": "2024-06-30",
+        "article": "238.2.2",
+        "height_cm": 70,
+        "time_allowed": {
+          "round_1": 72,
+          "jump_off": 56
+        },
+        "judges": [
+          "Mr. Nattakit Lertrungamorn (THA)",
+          "Maj.Gen Kiatsakul Chantana (THA)"
+        ],
+        "course_designer": "Mr. Kittipong Youngpong (THA)"
+      },
+      "source": {
+        "file": "Jumping/20240702183736538.pdf",
+        "page": 2
+      },
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "305",
+          "athlete_name": "นภัทร ฐากิจบวรกุล",
+          "horse_name": "Florida depranzac",
+          "club_or_school": "British Columbia International School Bangkok",
+          "r1_time": 60.02,
+          "r1_faults": 0,
+          "joff_time": 33.79,
+          "joff_faults": 0
+        },
+        {
+          "rank": 2,
+          "bib": "317",
+          "athlete_name": "พริมา ศิริอยู่วิทยา",
+          "horse_name": "Esperanza Seredihel",
+          "club_or_school": "School Bangkok",
+          "r1_time": 60.57,
+          "r1_faults": 0,
+          "joff_time": 37.75,
+          "joff_faults": 0
+        },
+        {
+          "rank": 3,
+          "bib": "356",
+          "athlete_name": "ปัญญารีย์ สุทธิอัมพรพันธ์",
+          "horse_name": "พลอยไพลิน",
+          "club_or_school": "นานาชาติคอนคอร์เดียน",
+          "r1_time": 60.9,
+          "r1_faults": 0,
+          "joff_time": 38.9,
+          "joff_faults": 0
+        },
+        {
+          "rank": 4,
+          "bib": "350",
+          "athlete_name": "กฤชช์วัชร์ เสือโต",
+          "horse_name": "Leo_MM",
+          "club_or_school": "ศูนย์การเรียนกุหลาบธนบุรี",
+          "r1_time": 68.39,
+          "r1_faults": 0,
+          "joff_time": 46.0,
+          "joff_faults": 0
+        },
+        {
+          "rank": 5,
+          "bib": "313",
+          "athlete_name": "พรพรรษ์ ประทุมสูตร",
+          "horse_name": "Toffy",
+          "club_or_school": "Rugby School Thailand",
+          "r1_time": 66.12,
+          "r1_faults": 0,
+          "joff_time": 46.95,
+          "joff_faults": 0
+        },
+        {
+          "rank": 6,
+          "bib": "315",
+          "athlete_name": "พัฒน์ณดา ศิรพงษ์พันธ์",
+          "horse_name": "Margkld",
+          "club_or_school": "Shrewsbury International School Bangkok Riverside",
+          "r1_time": 62.87,
+          "r1_faults": 0,
+          "joff_time": 37.33,
+          "joff_faults": 4
+        },
+        {
+          "rank": 7,
+          "bib": "306",
+          "athlete_name": "ปัณฑิตา กมลยะบุตร",
+          "horse_name": "Canysha",
+          "club_or_school": "British Columbia International",
+          "r1_time": 60.39,
+          "r1_faults": 0,
+          "joff_time": 48.3,
+          "joff_faults": 4
+        },
+        {
+          "rank": 8,
+          "bib": "351",
+          "athlete_name": "ณัฏฐ์วรัชต์ วรเทพพุฒิพงศ์",
+          "horse_name": "Julia",
+          "club_or_school": "โรงเรียนอำนวยศิลป์",
+          "r1_time": 59.69,
+          "r1_faults": 0,
+          "joff_time": 35.45,
+          "joff_faults": 8
+        },
+        {
+          "rank": 9,
+          "bib": "304",
+          "athlete_name": "เลอฌญ่า โภคาพานิช",
+          "horse_name": "Wasabi",
+          "club_or_school": "BASIS International School Bangkok",
+          "r1_time": 62.27,
+          "r1_faults": 0,
+          "joff_time": null,
+          "joff_faults": "EL"
+        },
+        {
+          "rank": 10,
+          "bib": "349",
+          "athlete_name": "ณัฐกมล โกศลมัย",
+          "horse_name": "มะมะลา",
+          "club_or_school": "โรงเรียนสารสาสน์พิทยา",
+          "r1_time": 63.62,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 11,
+          "bib": "335",
+          "athlete_name": "อภิญญา เอกแพทย์",
+          "horse_name": "Dritter",
+          "club_or_school": "โรงเรียนราชินี",
+          "r1_time": 64.72,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 12,
+          "bib": "303",
+          "athlete_name": "วัจรวุฒ พิเจียรณ์ธรรม",
+          "horse_name": "Tommy K",
+          "club_or_school": "BASIS International School Bangkok",
+          "r1_time": 66.59,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 13,
+          "bib": "301",
+          "athlete_name": "อลัน สตูวร์",
+          "horse_name": "Winter",
+          "club_or_school": "Anglo Singapore International School Nakhon Ratchasima (Korat)",
+          "r1_time": 69.48,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 14,
+          "bib": "309",
+          "athlete_name": "กัญณ์ณภัทร์ ตันติมงคลสุข",
+          "horse_name": "Tammy K",
+          "club_or_school": "International School Bangkok (ISB)",
+          "r1_time": 77.18,
+          "r1_faults": 10,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 15,
+          "bib": "338",
+          "athlete_name": "ภูริต อัครวงศ์",
+          "horse_name": "J Red",
+          "club_or_school": "โรงเรียนวชิราวุธวิทยาลัย",
+          "r1_time": 81.43,
+          "r1_faults": 14,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": null,
+          "bib": "332",
+          "athlete_name": "ชญานน ฌานรานนท์",
+          "horse_name": "Betty Boop",
+          "club_or_school": "โรงเรียนนานาชาติฮาร์โรว์",
+          "r1_time": null,
+          "r1_faults": "EL",
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": null,
+          "bib": "329",
+          "athlete_name": "ปัณฑาพัชร์ วรธิติกุล",
+          "horse_name": "ลำพูน",
+          "club_or_school": "โรงเรียนนานาชาติการ์เด้นระยอง",
+          "r1_time": null,
+          "r1_faults": "EL",
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": null,
+          "bib": "302",
+          "athlete_name": "ชัญญา จาดเสถียร",
+          "horse_name": "Nagasaki",
+          "club_or_school": "BASIS International School Bangkok",
+          "r1_time": null,
+          "r1_faults": "EL",
+          "joff_time": null,
+          "joff_faults": null
+        }
+      ]
+    },
+    {
+      "class": {
+        "class_id": "DPE-JUMP-IND-16-18-100",
+        "name": "การแข่งขันขี่ม้ากระโดดข้ามเครื่องกีดขวาง ประเภทบุคคล อายุ 16 - 18 ปี",
+        "date": "2024-06-30",
+        "article": "238.2.2",
+        "height_cm": 100,
+        "time_allowed": {
+          "round_1": 83,
+          "jump_off": 48
+        },
+        "judges": [
+          "Mr. Nattakit Lertrungamorn (THA)",
+          "Maj.Gen Kiatsakul Chantana (THA)"
+        ],
+        "course_designer": "Mr. Kittipong Youngpong (THA)"
+      },
+      "source": {
+        "file": "Jumping/20240702183736538.pdf",
+        "page": 3
+      },
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "308",
+          "athlete_name": "นภสร จิระกิจกุล",
+          "horse_name": "Carracci M",
+          "club_or_school": "International Community School",
+          "r1_time": 76.36,
+          "r1_faults": 0,
+          "joff_time": 31.41,
+          "joff_faults": 0
+        },
+        {
+          "rank": 2,
+          "bib": "354",
+          "athlete_name": "ณัฐวดี อูฑะพุทธิ",
+          "horse_name": "Clintino",
+          "club_or_school": "โรงเรียนอำนวยศิลป์",
+          "r1_time": 70.63,
+          "r1_faults": 0,
+          "joff_time": 33.98,
+          "joff_faults": 0
+        },
+        {
+          "rank": 3,
+          "bib": "341",
+          "athlete_name": "ปาลภัสร์ ปลั่งเกตุผล",
+          "horse_name": "ขวัญ",
+          "club_or_school": "มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี",
+          "r1_time": 64.69,
+          "r1_faults": 0,
+          "joff_time": 32.33,
+          "joff_faults": 12
+        },
+        {
+          "rank": 4,
+          "bib": "330",
+          "athlete_name": "ณัฐพัชร์ รัฐปฏิภานนท์",
+          "horse_name": "ศลาร์ซี่",
+          "club_or_school": "โรงเรียนนานาชาติบรอมส์โกรฟ",
+          "r1_time": 65.87,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 5,
+          "bib": "336",
+          "athlete_name": "ณัฏฐ์ชนัน วัฒนาไพศาลรัตน์",
+          "horse_name": "Chiwo WZ",
+          "club_or_school": "โรงเรียนนานาชาติร่วมฤดีวิเทศศึกษา",
+          "r1_time": 76.02,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 6,
+          "bib": "342",
+          "athlete_name": "ภูสชา ธัญญลักษณาศาสตร์",
+          "horse_name": "CR7",
+          "club_or_school": "มหาวิทยาลัยมหิดล",
+          "r1_time": 86.0,
+          "r1_faults": 7,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 7,
+          "bib": "345",
+          "athlete_name": "คุณัชญ์ คุณากรธำรง",
+          "horse_name": "งามขำ",
+          "club_or_school": "โรงเรียนสาธิตมหาวิทยาลัยเกษตรศาสตร์ (พหุภาษา)",
+          "r1_time": 60.29,
+          "r1_faults": 8,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 8,
+          "bib": "323",
+          "athlete_name": "สุภาการ สีละวะนิช",
+          "horse_name": "Just George W",
+          "club_or_school": "โรงเรียนจิตรลดา",
+          "r1_time": 77.46,
+          "r1_faults": 8,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 9,
+          "bib": "353",
+          "athlete_name": "สรพัทัก ชูศรีอภิยัน",
+          "horse_name": "Romeo",
+          "club_or_school": "โรงเรียนอำนวยศิลป์",
+          "r1_time": 75.93,
+          "r1_faults": 12,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": null,
+          "bib": "324",
+          "athlete_name": "ขวัญสุดา สีละวะนิช",
+          "horse_name": "ขวัญกุญชร",
+          "club_or_school": "โรงเรียนจิตรลดา",
+          "r1_time": null,
+          "r1_faults": "EL",
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": null,
+          "bib": "326",
+          "athlete_name": "พิชช์พงษ์ ทองนุ่มนุ่ม",
+          "horse_name": "หวานหยด",
+          "club_or_school": "โรงเรียนเซนต์คาเบรียล",
+          "r1_time": null,
+          "r1_faults": "EL",
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": null,
+          "bib": "311",
+          "athlete_name": "หฤทัย ฐิตินาพงศ์รัตน์",
+          "horse_name": "The Winner",
+          "club_or_school": "Kevalee International School",
+          "r1_time": null,
+          "r1_faults": "EL",
+          "joff_time": null,
+          "joff_faults": null
+        }
+      ]
+    },
+    {
+      "class": {
+        "class_id": "DPE-JUMP-IND-13-15-80-90",
+        "name": "การแข่งขันขี่ม้ากระโดดข้ามเครื่องกีดขวาง ประเภทบุคคล อายุ 13 - 15 ปี",
+        "date": "2024-06-30",
+        "article": "238.2.2",
+        "height_cm": "80-90",
+        "time_allowed": {
+          "round_1": 83,
+          "jump_off": 48
+        },
+        "judges": [
+          "Mr. Nattakit Lertrungamorn (THA)",
+          "Maj.Gen Kiatsakul Chantana (THA)"
+        ],
+        "course_designer": "Mr. Kittipong Youngpong (THA)"
+      },
+      "source": {
+        "file": "Jumping/20240702183736538.pdf",
+        "page": "4-5"
+      },
+      "entries": [
+        {
+          "rank": 1,
+          "bib": "320",
+          "athlete_name": "ศุภิดา จิตตะสมบัติ",
+          "horse_name": "Edwina",
+          "club_or_school": "โรงเรียนขอนแก่นวิทยายน",
+          "r1_time": 73.25,
+          "r1_faults": 0,
+          "joff_time": 30.66,
+          "joff_faults": 0
+        },
+        {
+          "rank": 2,
+          "bib": "333",
+          "athlete_name": "ภาณุภัทท์ เชื้อไพศาล",
+          "horse_name": "Capucine Du Hameau",
+          "club_or_school": "โรงเรียนนานาชาติฮาร์โรว์",
+          "r1_time": 70.96,
+          "r1_faults": 0,
+          "joff_time": 30.86,
+          "joff_faults": 0
+        },
+        {
+          "rank": 3,
+          "bib": "319",
+          "athlete_name": "ณัฏฐา เมฆข่ายภิรมย์",
+          "horse_name": "Dvalin",
+          "club_or_school": "นานาชาติคอนคอร์เดียน",
+          "r1_time": 72.2,
+          "r1_faults": 0,
+          "joff_time": 31.95,
+          "joff_faults": 0
+        },
+        {
+          "rank": 4,
+          "bib": "347",
+          "athlete_name": "อรภัทร์พัฏฐ์ เลี้ยงสุนทร",
+          "horse_name": "เอลีเบิร์ท",
+          "club_or_school": "โรงเรียนสาธิตแห่งมหาวิทยาลัยเกษตรศาสตร์ (พหุภาษา)",
+          "r1_time": 65.84,
+          "r1_faults": 0,
+          "joff_time": 32.46,
+          "joff_faults": 0
+        },
+        {
+          "rank": 5,
+          "bib": "314",
+          "athlete_name": "ศศิดา กำเนิดนพคุณ",
+          "horse_name": "Cesar-mail",
+          "club_or_school": "Shrewsbury International School Bangkok Riverside",
+          "r1_time": 80.18,
+          "r1_faults": 0,
+          "joff_time": 33.29,
+          "joff_faults": 0
+        },
+        {
+          "rank": 6,
+          "bib": "339",
+          "athlete_name": "แพรภิญญ์ โพธิ์พฤกษากุล",
+          "horse_name": "Con Brio",
+          "club_or_school": "โรงเรียนวัฒนาวิทยาลัย",
+          "r1_time": 77.63,
+          "r1_faults": 0,
+          "joff_time": 36.03,
+          "joff_faults": 0
+        },
+        {
+          "rank": 7,
+          "bib": "343",
+          "athlete_name": "แพรวาอังณ์ญา ลังกา",
+          "horse_name": "Haruetai",
+          "club_or_school": "โรงเรียนสาธิตมหาวิทยาลัยเกษตรศาสตร์ (พหุภาษา)",
+          "r1_time": 70.47,
+          "r1_faults": 0,
+          "joff_time": 29.43,
+          "joff_faults": 4
+        },
+        {
+          "rank": 8,
+          "bib": "325",
+          "athlete_name": "อัจฉริยา บุญบุยา",
+          "horse_name": "Sakchai",
+          "club_or_school": "โรงเรียนสาธิตบางปทุม",
+          "r1_time": 74.34,
+          "r1_faults": 0,
+          "joff_time": 35.13,
+          "joff_faults": 4
+        },
+        {
+          "rank": 9,
+          "bib": "337",
+          "athlete_name": "ณัฐธัญ ภมรทัตตา",
+          "horse_name": "Conthair",
+          "club_or_school": "โรงเรียนอัสสัมชัญลำปาง",
+          "r1_time": 70.6,
+          "r1_faults": 0,
+          "joff_time": 40.91,
+          "joff_faults": 4
+        },
+        {
+          "rank": 10,
+          "bib": "352",
+          "athlete_name": "อังคราลักษมณ์ วรเทพพุฒิพงศ์",
+          "horse_name": "Carl G",
+          "club_or_school": "โรงเรียนอำนวยศิลป์",
+          "r1_time": 68.25,
+          "r1_faults": 0,
+          "joff_time": 30.3,
+          "joff_faults": 8
+        },
+        {
+          "rank": 11,
+          "bib": "355",
+          "athlete_name": "ปุญญพัฒน์ บุณยเสนาคม",
+          "horse_name": "คัตเตอร์แมน",
+          "club_or_school": "ศูนย์การเรียนเซนต์จอห์นบอสโก อุปถัมภ์ (Saint John Bosco Upatham Learning Center)",
+          "r1_time": 74.87,
+          "r1_faults": 0,
+          "joff_time": null,
+          "joff_faults": "RT"
+        },
+        {
+          "rank": 12,
+          "bib": "348",
+          "athlete_name": "ชญานันทินท์ เล้าสมรุ่งเรือง",
+          "horse_name": "เทพวิทย์",
+          "club_or_school": "โรงเรียนสาธิตแห่งมหาวิทยาลัยธรรมศาสตร์",
+          "r1_time": 64.83,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 13,
+          "bib": "344",
+          "athlete_name": "วราภรณ์ วุฒิวัฒน์ชัย",
+          "horse_name": "สตรี",
+          "club_or_school": "โรงเรียนสาธิตมหาวิทยาลัยเกษตรศาสตร์ (พหุภาษา)",
+          "r1_time": 66.7,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 14,
+          "bib": "312",
+          "athlete_name": "กัณดา รักษ์ยุติธรรม",
+          "horse_name": "Elite De L'Ermitage",
+          "club_or_school": "KIS International School",
+          "r1_time": 71.56,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 15,
+          "bib": "322",
+          "athlete_name": "ปุรณ์ภัสสร ชายบาง",
+          "horse_name": "เอ็นเนป",
+          "club_or_school": "โรงเรียนจิตรลดา",
+          "r1_time": 73.09,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 16,
+          "bib": "340",
+          "athlete_name": "สลณา ไชยหิรัญการ",
+          "horse_name": "ชัตตรา",
+          "club_or_school": "โรงเรียนสตรีวิทยา",
+          "r1_time": 77.97,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 17,
+          "bib": "328",
+          "athlete_name": "นภัม เดอ ครูซเซิล",
+          "horse_name": "Rocky",
+          "club_or_school": "โรงเรียนนานาชาติรีเจ้นท์ พัทยา",
+          "r1_time": 78.16,
+          "r1_faults": 4,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 18,
+          "bib": "331",
+          "athlete_name": "ชัญญา เชียงกูล",
+          "horse_name": "ทวีเดช",
+          "club_or_school": "โรงเรียนนานาชาติบรอมส์โกรฟกรุงเทพ",
+          "r1_time": 85.74,
+          "r1_faults": 7,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 19,
+          "bib": "346",
+          "athlete_name": "อภิณพสภา สิระรานนท์",
+          "horse_name": "ชำบุตร",
+          "club_or_school": "โรงเรียนสาธิตมหาวิทยาลัยศรีนครินทรวิโรฒประสานมิตร (ฝ่ายมัธยม)",
+          "r1_time": 88.81,
+          "r1_faults": 14,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": 20,
+          "bib": "310",
+          "athlete_name": "ธันวา ชวาประศาสตร์",
+          "horse_name": "Geisha Du Faubourg",
+          "club_or_school": "International School Bangkok (ISB)",
+          "r1_time": 95.61,
+          "r1_faults": 17,
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": null,
+          "bib": "334",
+          "athlete_name": "นัช กาญจนบัตร",
+          "horse_name": "Hongstong_MM",
+          "club_or_school": "โรงเรียนเพลินพัฒนา",
+          "r1_time": null,
+          "r1_faults": "EL",
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": null,
+          "bib": "321",
+          "athlete_name": "ธัญญา เชียงกูล",
+          "horse_name": "No Name",
+          "club_or_school": "โรงเรียนจิตรลดา",
+          "r1_time": null,
+          "r1_faults": "EL",
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": null,
+          "bib": "318",
+          "athlete_name": "พิชชา กุลดานนท์",
+          "horse_name": "Gouvette",
+          "club_or_school": "นานาชาติคอนคอร์เดียน",
+          "r1_time": null,
+          "r1_faults": "EL",
+          "joff_time": null,
+          "joff_faults": null
+        },
+        {
+          "rank": null,
+          "bib": "307",
+          "athlete_name": "ปาลิน ตั้งจิตสารกิจ",
+          "horse_name": "Elsa",
+          "club_or_school": "International Community School",
+          "r1_time": null,
+          "r1_faults": "EL",
+          "joff_time": null,
+          "joff_faults": null
+        }
+      ]
+    }
+  ]
+}

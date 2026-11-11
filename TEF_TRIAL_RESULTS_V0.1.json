@@ -1,0 +1,349 @@
+{
+  "schema_version": "0.1-trial",
+  "description": "ชุดข้อมูลทดลองจากการตรวจเทียบ PDF ต้นฉบับจริง 4 ประเภทกีฬา (Jumping, Dressage, Eventing, Endurance)",
+  "metadata": {
+    "created_at": "2026-11-10T22:45:00+07:00",
+    "generated_by": "TEF Results Archive Audit",
+    "source_directory": "/Users/mac_phalot/Downloads/ผลการแข่งขัน THC 2567/"
+  },
+  "results": [
+    {
+      "result_id": "TRIAL-JUMP-DPE-001",
+      "event": {
+        "event_id": "EVENT-DPE-2024",
+        "name": "การแข่งขันกีฬาขี่ม้าระหว่างโรงเรียน กรมพลศึกษา ประจำปีการศึกษา 2567",
+        "venue": "สนามขี่ม้าสโมสรไทยโปโล แอนด์ อีเควสเทรียน คลับ พัทยา ชลบุรี",
+        "date": "2024-06-29",
+        "year_be": 2567
+      },
+      "discipline": "jumping",
+      "result_scope": "team",
+      "team_name": "โรงเรียนสาธิตมหาวิทยาลัยเกษตรศาสตร์ (พหุภาษา)",
+      "class": {
+        "class_id": "DPE-J-TEAM-90",
+        "name": "การแข่งขันขี่ม้ากระโดดข้ามเครื่องกีดขวาง ประเภททีม",
+        "article": "273.3.3.2 (Two Round)",
+        "height_cm": 90,
+        "time_allowed_seconds": {
+          "round_1": 83,
+          "round_2": 72
+        },
+        "officials": {
+          "judges": [
+            "Mr. Nattakit Lertlungamorn (THA)",
+            "Maj.Gen Kiatsakul Chantana (THA)"
+          ],
+          "course_designer": "Mr. Kittipong Youngpong (THA)"
+        }
+      },
+      "entry": {
+        "bib": "344",
+        "athlete": {
+          "tef_id": null,
+          "fei_id": null,
+          "name_as_printed": "วราภรณ์ วุฒิวัฒน์ชัย",
+          "matched_athlete_id": null
+        },
+        "horse": {
+          "tef_id": null,
+          "fei_id": null,
+          "name_as_printed": "สตรี",
+          "matched_horse_id": null
+        },
+        "club_or_school_as_printed": "โรงเรียนสาธิตมหาวิทยาลัยเกษตรศาสตร์ (พหุภาษา)"
+      },
+      "discipline_data": {
+        "rank": 1,
+        "status": "finished",
+        "rounds": [
+          {
+            "round_type": "round_1",
+            "time_seconds": 56.11,
+            "obstacle_penalties": 0,
+            "time_penalties": 0,
+            "total_penalties": 0
+          },
+          {
+            "round_type": "round_2",
+            "time_seconds": 45.37,
+            "obstacle_penalties": 0,
+            "time_penalties": 0,
+            "total_penalties": 0
+          }
+        ],
+        "team_result": {
+          "rank": 1,
+          "team_total_time_seconds": 88.49,
+          "team_total_penalties": 4
+        }
+      },
+      "source": {
+        "source_file": "12.DPE กีฬาระหว่างโรงเรียน กีฬากรมพลศึกษา/Jumping/20240702183736538.pdf",
+        "source_page": 1,
+        "extraction_method": "ocr_and_visual_audit"
+      },
+      "review": {
+        "status": "verified",
+        "reviewed_by": "Auditor",
+        "reviewed_at": "2026-11-10T22:45:00+07:00",
+        "notes": [
+          "ประเภททีม แถวนี้คือสมาชิกคนที่ 1 ของทีมชนะเลิศ"
+        ]
+      }
+    },
+    {
+      "result_id": "TRIAL-DRESS-DPE-001",
+      "event": {
+        "event_id": "EVENT-DPE-2024",
+        "name": "การแข่งขันกีฬาขี่ม้าระหว่างโรงเรียน กรมพลศึกษา ประจำปีการศึกษา 2567",
+        "venue": "สนามขี่ม้าสโมสรไทยโปโล แอนด์ อีเควสเทรียน คลับ พัทยา ชลบุรี",
+        "date": "2024-06-27",
+        "year_be": 2567
+      },
+      "discipline": "dressage",
+      "result_scope": "individual",
+      "class": {
+        "class_id": "DPE-D-IND-13-15",
+        "name": "การแข่งขันขี่ม้าประเภทศิลปะบังคับม้า ประเภทบุคคล อายุ 13-15 ปี",
+        "article": "Preliminary 3 (T2023)",
+        "max_points": "170/40",
+        "average_time_minutes": 7,
+        "officials": {
+          "judges": [
+            {
+              "position": "C",
+              "name": "Mr. Vittorio Barba (PHI)"
+            },
+            {
+              "position": "E",
+              "name": "Ms. Wan Ming Ong (MAS)"
+            }
+          ]
+        }
+      },
+      "entry": {
+        "bib": "249",
+        "athlete": {
+          "tef_id": null,
+          "fei_id": null,
+          "name_as_printed": "นภัม เดอ ครูซเซิล",
+          "matched_athlete_id": null
+        },
+        "horse": {
+          "tef_id": null,
+          "fei_id": null,
+          "name_as_printed": "Elcapitan",
+          "matched_horse_id": null
+        },
+        "club_or_school_as_printed": "โรงเรียนนานาชาติรีเจ้นท์ พัทยา"
+      },
+      "discipline_data": {
+        "rank": 1,
+        "status": "finished",
+        "official_total_percent": 70.147,
+        "judges": [
+          {
+            "position": "C",
+            "points": 119.5,
+            "percent": 70.294
+          },
+          {
+            "position": "E",
+            "points": 28.0,
+            "percent": 70.0
+          }
+        ]
+      },
+      "source": {
+        "source_file": "12.DPE กีฬาระหว่างโรงเรียน กีฬากรมพลศึกษา/Dressage/20240702183725719.pdf",
+        "source_page": 3,
+        "extraction_method": "ocr_and_visual_audit"
+      },
+      "review": {
+        "status": "verified",
+        "reviewed_by": "Auditor",
+        "reviewed_at": "2026-11-10T22:45:00+07:00",
+        "notes": [
+          "กรรมการ C คิดคะแนนเต็ม 170, กรรมการ E คิดคะแนนเต็ม 40 ตามใบคะแนน Preliminary 3"
+        ]
+      }
+    },
+    {
+      "result_id": "TRIAL-EV-PCUP-001",
+      "event": {
+        "event_id": "EVENT-PCUP-2024",
+        "name": "PRESIDENT'S CUP 2024 Thailand Championship Eventing Qualifier # 3",
+        "venue": "Cavalry Center, Saraburi, Thailand",
+        "date": "2024-06-02",
+        "year_be": 2567
+      },
+      "discipline": "eventing",
+      "result_scope": "individual",
+      "class": {
+        "class_id": "PCUP-E1",
+        "name": "Competition E1: Eventing & Thailand Championship Qualifier # 3",
+        "article": "FEI Eventing CCI1* Test B",
+        "officials": {
+          "judges": [
+            "Maj.Gen Kiatsakul Chantana (THA)",
+            "Mr. Nathakit Lertrungamorn (THA)"
+          ],
+          "course_designer": "Mr. Kittipong Youngpong (THA)"
+        }
+      },
+      "entry": {
+        "bib": "303",
+        "athlete": {
+          "tef_id": null,
+          "fei_id": null,
+          "name_as_printed": "Arinadtha Chavatanont",
+          "matched_athlete_id": null
+        },
+        "horse": {
+          "tef_id": null,
+          "fei_id": null,
+          "name_as_printed": "Baileys",
+          "matched_horse_id": null
+        },
+        "club_or_school_as_printed": "Chavallino"
+      },
+      "discipline_data": {
+        "rank": 1,
+        "status": "finished",
+        "official_total_penalties": 32.5,
+        "phases": {
+          "dressage": {
+            "judges": [
+              {
+                "position": "C",
+                "points": 172.5,
+                "percent": 69.0
+              },
+              {
+                "position": "B",
+                "points": 165.0,
+                "percent": 66.0
+              }
+            ],
+            "total_percent": 67.5,
+            "penalties": 32.5
+          },
+          "jumping": {
+            "obstacle_faults": 0,
+            "time_seconds": 67.88,
+            "time_faults": 0,
+            "penalties": 0
+          },
+          "cross_country": {
+            "obstacle_faults": 0,
+            "time_seconds": 239.87,
+            "time_faults": 0.0,
+            "penalties": 0.0
+          }
+        }
+      },
+      "source": {
+        "source_file": "10.President_s Cup 2024 Jumping Eventing/R Eventing THC President_s Adisorn 31-3 June.pdf",
+        "source_page": 4,
+        "extraction_method": "ocr_and_visual_audit"
+      },
+      "review": {
+        "status": "verified",
+        "reviewed_by": "Auditor",
+        "reviewed_at": "2026-11-10T22:45:00+07:00",
+        "notes": [
+          "ผลรวม 3 Phase: Dressage (32.5) + Jumping (0) + Cross Country (0.0) = Total 32.5"
+        ]
+      }
+    },
+    {
+      "result_id": "TRIAL-END-DPE-001",
+      "event": {
+        "event_id": "EVENT-DPE-2024",
+        "name": "การแข่งขันระหว่างโรงเรียน 2024",
+        "venue": "สนามไทยโปโล แอนด์อีเควสเทรียน คลับ พัทยา",
+        "date": "2024-06-25",
+        "year_be": 2567
+      },
+      "discipline": "endurance",
+      "result_scope": "individual",
+      "class": {
+        "class_id": "DPE-END-60-10-14",
+        "name": "60 Km. Endurance รุ่นอายุ 10-14 ปี",
+        "distance_km": 60,
+        "loop_count": 2
+      },
+      "entry": {
+        "bib": "2",
+        "athlete": {
+          "tef_id": null,
+          "fei_id": null,
+          "name_as_printed": "ธนัท ปฏิบัติ",
+          "matched_athlete_id": null
+        },
+        "horse": {
+          "tef_id": null,
+          "fei_id": null,
+          "name_as_printed": "BENTLEY",
+          "matched_horse_id": null
+        },
+        "club_or_school_as_printed": "โรงเรียนมกุฎเมืองราชวิทยาลัย / Rayong Beach Horse Riding : RBHR"
+      },
+      "discipline_data": {
+        "rank": 1,
+        "status": "finished",
+        "official_status": "PASS",
+        "official_total_riding_time": "03:54:27",
+        "official_total_riding_time_seconds": 14067,
+        "official_average_speed_kmh": 15.36,
+        "loops": [
+          {
+            "loop_number": 1,
+            "distance_km": 30.0,
+            "depart_time": "06:00:00",
+            "arrival_time": "08:00:32",
+            "max_vet_in_time": "08:15:32",
+            "actual_vet_in_time": "08:12:44",
+            "time_taken_to_vet_in": "00:12:12",
+            "average_recovery": "00:12:12",
+            "riding_time": "02:12:44",
+            "riding_time_seconds": 7964,
+            "total_riding_time": "02:12:44",
+            "speed_kmh": 13.56,
+            "average_speed_kmh": 13.56,
+            "status": "PASS"
+          },
+          {
+            "loop_number": 2,
+            "distance_km": 30.0,
+            "depart_time": "08:52:44",
+            "arrival_time": "10:34:27",
+            "max_vet_in_time": "10:54:27",
+            "actual_vet_in_time": "10:53:17",
+            "time_taken_to_vet_in": "00:18:50",
+            "average_recovery": "00:15:31",
+            "riding_time": "01:41:43",
+            "riding_time_seconds": 6103,
+            "total_riding_time": "03:54:27",
+            "speed_kmh": 17.7,
+            "average_speed_kmh": 15.36,
+            "status": "PASS"
+          }
+        ]
+      },
+      "source": {
+        "source_file": "12.DPE กีฬาระหว่างโรงเรียน กีฬากรมพลศึกษา/Endurance/20240702183109042.pdf",
+        "source_page": 1,
+        "extraction_method": "ocr_and_visual_audit"
+      },
+      "review": {
+        "status": "verified",
+        "reviewed_by": "Auditor",
+        "reviewed_at": "2026-11-10T22:45:00+07:00",
+        "notes": [
+          "อันดับ 1 รุ่น 10-14 ปี ผ่านทั้ง 2 Loop สมบูรณ์"
+        ]
+      }
+    }
+  ]
+}
