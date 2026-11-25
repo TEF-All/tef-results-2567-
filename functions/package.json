@@ -1,0 +1,20 @@
+{
+  "name": "tef-admin-import-functions",
+  "description": "Cloud Functions for TEF Admin Import System (OCR draft extraction + reviewed publish to GitHub Pages). See ../PHASE2_IMPLEMENTATION_NOTES.md.",
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "node --check index.js && node --check src/ocr.js && node --check src/tableParser.js && node --check src/githubPublish.js && node --check src/extractDraft.js && node --check src/publishYear.js",
+    "serve": "firebase emulators:start --only functions,firestore,storage,auth",
+    "deploy": "firebase deploy --only functions"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1",
+    "@google-cloud/vision": "^4.3.2",
+    "pdf-parse": "^1.1.1"
+  },
+  "private": true
+}

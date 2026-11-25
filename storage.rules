@@ -1,0 +1,26 @@
+rules_version = '2';
+
+// TEF Admin Import System — Storage security rules.
+//
+// Only PDF uploads under uploads/{draftId}/ are stored here, and only an
+// allowlisted admin (admin_users/{uid}.allowed == true in Firestore) may
+// read or write them. Max 25MB per file, PDF content-type only — a sanity
+// check, not a substitute for the Firestore-side review gate.
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAllowedAdmin() {
+      return request.auth != null &&
+        firestore.get(/databases/(default)/documents/admin_users/$(request.auth.uid)).data.allowed == true;
+    }
+
+    match /uploads/{draftId}/{fileName} {
+      allow read: if isAllowedAdmin();
+      allow write: if isAllowedAdmin()
+        && request.resource.size < 25 * 1024 * 1024
+        && request.resource.contentType == 'application/pdf';
+    }
+
+    // Everything else denied by default.
+  }
+}

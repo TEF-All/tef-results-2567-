@@ -1,0 +1,39 @@
+rules_version = '2';
+
+// TEF Admin Import System — Firestore security rules.
+//
+// Everything here is scoped to the `admin_users` allowlist described in
+// ADMIN_IMPORT_SYSTEM_ARCHITECTURE.md: a signed-in user can do nothing in
+// `drafts` unless their own uid has a document in `admin_users` with
+// `allowed == true`. There is no public read/write path at all — the
+// public results website (index.html) never talks to Firestore; it only
+// ever reads the static tef_master_data*.js files committed to GitHub.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAllowedAdmin() {
+      return request.auth != null &&
+        exists(/databases/$(database)/documents/admin_users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/admin_users/$(request.auth.uid)).data.allowed == true;
+    }
+
+    // A signed-in user may check only their OWN allowlist doc (so the admin
+    // UI can show "not authorized yet" instead of a raw permission error).
+    // No one can list the collection or read someone else's doc.
+    match /admin_users/{uid} {
+      allow get: if request.auth != null && request.auth.uid == uid;
+      allow list, write: if false; // managed by the project owner via the Firebase console / admin SDK only
+    }
+
+    match /drafts/{draftId} {
+      // Admins can create a new draft (metadata only — PDF itself goes to
+      // Storage, not Firestore) and read/edit entries while reviewing.
+      allow read, create, update: if isAllowedAdmin();
+      // Deleting a draft (e.g. a bad upload) is also admin-only. Published
+      // drafts are kept for traceability, not expected to be deleted.
+      allow delete: if isAllowedAdmin();
+    }
+
+    // Everything else is denied by default (no catch-all allow anywhere).
+  }
+}

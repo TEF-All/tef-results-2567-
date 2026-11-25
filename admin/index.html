@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TEF Admin Import System</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-title">🐎 TEF Admin Import System</div>
+  <div id="userBox" class="user-box"></div>
+</header>
+
+<main id="app" class="app">
+
+  <!-- Signed-out state -->
+  <section id="viewSignedOut" class="panel center-panel" style="display:none;">
+    <h1>เข้าสู่ระบบ Admin Import</h1>
+    <p class="muted">ระบบนี้สำหรับผู้ดูแลที่ได้รับอนุญาตเท่านั้น (allowlist ใน Firestore)</p>
+    <button id="btnSignIn" class="btn btn-primary">เข้าสู่ระบบด้วย Google</button>
+  </section>
+
+  <!-- Signed-in but not on the allowlist -->
+  <section id="viewNotAllowed" class="panel center-panel" style="display:none;">
+    <h1>ยังไม่ได้รับสิทธิ์เข้าถึง</h1>
+    <p class="muted">บัญชีนี้เข้าสู่ระบบสำเร็จ แต่ยังไม่ถูกเพิ่มใน allowlist (<code>admin_users</code>)</p>
+    <p>ส่ง UID นี้ให้ผู้ดูแลระบบเพื่อเพิ่มสิทธิ์:</p>
+    <code id="uidDisplay" class="uid-box"></code>
+    <button id="btnSignOut2" class="btn">ออกจากระบบ</button>
+  </section>
+
+  <!-- Main authorized view -->
+  <section id="viewMain" style="display:none;">
+
+    <div class="grid">
+      <!-- Left: upload / new draft -->
+      <div class="panel">
+        <h2>นำเข้าผลการแข่งขันใหม่</h2>
+        <form id="uploadForm">
+          <label>ปี พ.ศ.
+            <select id="fYear">
+              <option value="2568">2568</option>
+              <option value="2569">2569</option>
+            </select>
+          </label>
+          <label>ประเภทกีฬา (Discipline)
+            <select id="fDiscipline">
+              <option value="Jumping">Jumping</option>
+              <option value="Dressage">Dressage</option>
+              <option value="Eventing">Eventing</option>
+              <option value="Endurance">Endurance</option>
+            </select>
+          </label>
+          <label>ชื่อรายการแข่งขัน
+            <input id="fEventName" type="text" placeholder="เช่น Thailand Open Jumping 2568 - Class A" required />
+          </label>
+          <label>วันที่แข่งขัน (ถ้ามี)
+            <input id="fEventDate" type="date" />
+          </label>
+          <label>ไฟล์ PDF ผลการแข่งขัน
+            <input id="fFile" type="file" accept="application/pdf" required />
+          </label>
+          <button type="submit" id="btnUpload" class="btn btn-primary">อัปโหลด + สแกน (OCR)</button>
+        </form>
+        <div id="uploadStatus" class="muted" style="margin-top:8px;"></div>
+      </div>
+
+      <!-- Right: list of drafts -->
+      <div class="panel">
+        <h2>รายการที่นำเข้าล่าสุด</h2>
+        <ul id="draftList" class="draft-list"></ul>
+      </div>
+    </div>
+
+    <!-- Review panel for the selected draft -->
+    <div id="reviewPanel" class="panel" style="display:none; margin-top:20px;">
+      <div class="review-header">
+        <h2 id="reviewTitle">ตรวจทานผล</h2>
+        <div class="review-actions">
+          <button id="btnRescan" class="btn">🔄 Re-scan</button>
+          <button id="btnSaveEdits" class="btn">💾 Save</button>
+          <button id="btnConfirmImport" class="btn btn-primary">✅ Confirm Import</button>
+        </div>
+      </div>
+      <div id="reviewMeta" class="muted"></div>
+      <div class="table-wrap">
+        <table id="entriesTable">
+          <thead>
+            <tr>
+              <th>⚠</th>
+              <th>Rank</th>
+              <th>Bib</th>
+              <th>Athlete</th>
+              <th>Horse</th>
+              <th>Club</th>
+              <th>Result (display)</th>
+              <th>Reviewed?</th>
+            </tr>
+          </thead>
+          <tbody id="entriesBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
