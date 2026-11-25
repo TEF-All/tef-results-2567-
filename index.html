@@ -275,9 +275,9 @@
   }
   table.results-table tr:hover td { background: rgba(255, 255, 255, 0.95); }
 
-  .cell-athlete { font-weight: 700; color: var(--brand-green-dark); min-width: 125px; max-width: 190px; white-space: normal; line-height: 1.25; }
-  .cell-horse { font-weight: 600; color: var(--ink-dark); min-width: 105px; max-width: 150px; white-space: normal; line-height: 1.25; }
-  .cell-club { color: var(--ink-muted); font-size: 11.5px; min-width: 125px; max-width: 175px; white-space: normal; line-height: 1.25; }
+  .cell-athlete { font-weight: 700; color: var(--brand-green-dark); min-width: 125px; max-width: 190px; white-space: normal; line-height: 1.25; overflow: hidden; word-break: break-word; overflow-wrap: anywhere; }
+  .cell-horse { font-weight: 600; color: var(--ink-dark); min-width: 105px; max-width: 150px; white-space: normal; line-height: 1.25; overflow: hidden; word-break: break-word; overflow-wrap: anywhere; }
+  .cell-club { color: var(--ink-muted); font-size: 11.5px; min-width: 125px; max-width: 175px; white-space: normal; line-height: 1.25; overflow: hidden; word-break: break-word; overflow-wrap: anywhere; }
   .cell-score { font-family: -apple-system, BlinkMacSystemFont, monospace, sans-serif; font-weight: 700; color: var(--ink-dark); text-align: center; }
   .score-lead { color: #166534 !important; font-weight: 800 !important; }
   .speed-lead { color: #92400e !important; font-weight: 800 !important; }
@@ -2458,7 +2458,19 @@ function printCurrentScanProof() {
     alert("ไม่มีภาพสแกนสำหรับพิมพ์");
     return;
   }
-  const fullHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Print Scan</title><style>@page{size:A4 portrait;margin:5mm;}body{margin:0;text-align:center;}img{max-width:100%;height:auto;}</style></head><body><img src="' + img.src + '"></body></html>';
+  // Carry the yellow highlight bar into the print output too — previously
+  // this only ever printed the raw <img>, so a highlight marked on screen
+  // silently vanished from the printed/PDF copy. Replicate the same
+  // top/height/left/width percentages and look as .scan-highlight-box.
+  let highlightHtml = '';
+  if (HIGHLIGHT_MODE) {
+    highlightHtml =
+      '<div style="position:absolute; left:5%; width:90%; top:' + HIGHLIGHT_POS.top + '%; height:' + HIGHLIGHT_POS.height + '%; ' +
+      'background:rgba(254,240,138,0.55); border:2px dashed #ca8a04; border-radius:4px; box-sizing:border-box; mix-blend-mode:multiply;">' +
+      '<span style="position:absolute; right:4px; top:-16px; background:#ca8a04; color:#fff; font-size:10px; font-weight:800; padding:1px 6px; border-radius:3px; white-space:nowrap;">★ ผู้ขอใบรับรอง</span>' +
+      '</div>';
+  }
+  const fullHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Print Scan</title><style>@page{size:A4 portrait;margin:5mm;}body{margin:0;text-align:center;}.print-scan-wrap{position:relative; display:inline-block; max-width:100%;}img{max-width:100%;height:auto;display:block;}</style></head><body><div class="print-scan-wrap"><img src="' + img.src + '">' + highlightHtml + '</div></body></html>';
   triggerOfficialPrint(fullHtml);
 }
 
