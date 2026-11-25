@@ -866,6 +866,30 @@
 
 </style>
 <script src="tef_master_data.js"></script>
+<script>
+  // ============================================================================
+  // TEF_YEARS_CONFIG — config-driven year registry (NO real data here).
+  //
+  // "status": "available"    → year has a real loaded dataset, shown normally.
+  // "status": "coming_soon"  → year has no data yet; UI shows a clear
+  //                            "ยังไม่มีข้อมูล / Coming soon" state, never fake rows.
+  //
+  // HOW TO ADD A NEW YEAR ONCE ITS OCR-REVIEWED DATA EXISTS (e.g. 2568):
+  //   1. Build a new data file next to this one, e.g. "tef_master_data_2568.js",
+  //      that sets (same per-event/class/entry shape as tef_master_data.json):
+  //        window.TEF_DATA_BY_YEAR = window.TEF_DATA_BY_YEAR || {};
+  //        window.TEF_DATA_BY_YEAR['2568'] = { summary: {...}, events: [...] };
+  //   2. Add a new <script> tag loading that file (src="tef_master_data_2568.js")
+  //      below this block (only for years that are actually "available").
+  //   3. Flip that year's entry below to status: "available", dataKey: "2568".
+  //   No other code change should be needed — index.html reads this config.
+  // ============================================================================
+  window.TEF_YEARS_CONFIG = [
+    { year: "2567", label: "พ.ศ. 2567 (2024)", status: "available",    dataKey: "legacy" },
+    { year: "2568", label: "พ.ศ. 2568 (2025)", status: "coming_soon",  dataKey: "2568"   },
+    { year: "2569", label: "พ.ศ. 2569 (2026)", status: "coming_soon",  dataKey: "2569"   }
+  ];
+</script>
 </head>
 <body>
 
@@ -880,9 +904,13 @@
     <div class="logo-block">
       <div class="badge-tef">TEF</div>
       <div class="app-title">
-        <h1>ระบบตรวจทานผลการแข่งขันขี่ม้าแห่งประเทศไทย (THC 2567)</h1>
-        <p>Thailand Equestrian Federation · ตรวจทานผลเทียบเอกสารจริง 29 รายการ (Liquid Cream Glass)</p>
+        <h1 id="appMainTitle">ระบบตรวจทานผลการแข่งขันขี่ม้าแห่งประเทศไทย (THC 2567)</h1>
+        <p id="appSubtitle">Thailand Equestrian Federation · ตรวจทานผลเทียบเอกสารจริง 29 รายการ (Liquid Cream Glass)</p>
       </div>
+    </div>
+    <div class="ctrl-group" style="min-width: 170px; margin: 0 4px;">
+      <label>📅 เลือกปี พ.ศ.:</label>
+      <select class="form-control" id="yearSel" onchange="onYearChange(this.value)"></select>
     </div>
     <div class="mode-switch">
       <button class="mode-btn active" id="btnModeInspector" onclick="setMode('inspector')">📋 ตรวจตามรายการ 1-29 (Dropdown & Scan)</button>
@@ -893,13 +921,24 @@
 
 <main class="container">
   <!-- Stats Bar -->
-  <div class="stats-bar">
+  <div class="stats-bar" id="statsBar">
     <div class="stat-card"><div class="val" id="statEvents">29</div><div class="lbl">รายการแข่งขันทั้งหมด (รายการที่ 1–29)</div></div>
     <div class="stat-card"><div class="val" id="statClasses">190+</div><div class="lbl">คลาส / รุ่นการแข่งขัน</div></div>
     <div class="stat-card"><div class="val" id="statEntries">2,450</div><div class="lbl">ระเบียนผลการแข่งขันรวม</div></div>
     <div class="stat-card"><div class="val" id="statAthletes">400+</div><div class="lbl">นักกีฬาที่มีสถิติในระบบ</div></div>
     <div class="stat-card"><div class="val" id="statHorses">520+</div><div class="lbl">ม้าที่บันทึกข้อมูล</div></div>
   </div>
+
+  <!-- VIEW 0: NO DATA YET FOR SELECTED YEAR (e.g. 2568 / 2569) -->
+  <section id="sectionNoData" style="display:none;">
+    <div class="liquid-panel control-card" style="text-align:center; padding: 56px 24px;">
+      <div style="font-size: 44px; margin-bottom: 14px;">🗂️</div>
+      <h2 style="font-size: 18px; margin-bottom: 8px; color: var(--ink-dark);">ยังไม่มีข้อมูลผลการแข่งขันสำหรับปี <span id="noDataYearLabel">—</span></h2>
+      <p style="color: var(--ink-muted); font-size: 13px; max-width: 560px; margin: 0 auto;">
+        ระบบเตรียมโครงสร้างไว้รองรับแล้ว (config-driven) แต่ยังไม่มีการนำเข้าข้อมูลผลการแข่งขันที่ผ่านการตรวจทาน (OCR Review) จริงสำหรับปีนี้ — Coming soon
+      </p>
+    </div>
+  </section>
 
   <!-- VIEW 1: DROPDOWN & SCAN INSPECTOR (DEFAULT VIEW) -->
   <section id="sectionInspector">
@@ -1085,6 +1124,7 @@ let CUR_ROTATION = 0;
 let ACTIVE_VIEWER = 'image'; // 'image' or 'pdf'
 let GLOBAL_DISCIPLINE = '';
 let SPLIT_STATE = 'normal'; // normal, full-scan, full-table
+let CUR_YEAR = '2567';
 
 // Safe HTML sanitizer
 function sanitize(str) {
@@ -1104,10 +1144,90 @@ function safeEncodePath(p) {
 }
 
 function init() {
-  if (window.TEF_DATA && Array.isArray(window.TEF_DATA.events)) {
-    EVENTS = window.TEF_DATA.events;
+  populateYearSelector();
+  const cfgList = window.TEF_YEARS_CONFIG || [];
+  const defaultCfg = cfgList.find(y => y.status === 'available') || cfgList[0];
+  const defaultYear = defaultCfg ? defaultCfg.year : '2567';
+  const yearSel = document.getElementById('yearSel');
+  if (yearSel) yearSel.value = defaultYear;
+  onYearChange(defaultYear);
+}
+
+// Build the Year dropdown from TEF_YEARS_CONFIG (config-driven; add a year
+// there and it appears here automatically, no other code change needed).
+function populateYearSelector() {
+  const sel = document.getElementById('yearSel');
+  if (!sel) return;
+  sel.innerHTML = '';
+  (window.TEF_YEARS_CONFIG || []).forEach(y => {
+    const opt = document.createElement('option');
+    opt.value = y.year;
+    opt.textContent = y.label + (y.status !== 'available' ? ' — ยังไม่มีข้อมูล' : '');
+    sel.appendChild(opt);
+  });
+}
+
+// Switch the whole page to a given year. "available" years render exactly
+// like the original single-year app; years with no data yet show a clear
+// "ยังไม่มีข้อมูล / Coming soon" state instead of any fabricated results.
+function onYearChange(year) {
+  CUR_YEAR = year;
+  const cfg = (window.TEF_YEARS_CONFIG || []).find(y => y.year === year);
+  const statsBar = document.getElementById('statsBar');
+  const noDataSection = document.getElementById('sectionNoData');
+  const modeSwitchEl = document.querySelector('.mode-switch');
+
+  if (!cfg || cfg.status !== 'available') {
+    EVENTS = [];
+    document.getElementById('sectionInspector').style.display = 'none';
+    document.getElementById('sectionSearch').style.display = 'none';
+    if (statsBar) statsBar.style.display = 'none';
+    if (modeSwitchEl) modeSwitchEl.style.display = 'none';
+    if (noDataSection) {
+      noDataSection.style.display = 'block';
+      const lbl = document.getElementById('noDataYearLabel');
+      if (lbl) lbl.textContent = cfg ? cfg.label : ('พ.ศ. ' + year);
+    }
+    updateHeaderTitles();
+    return;
   }
-  
+
+  // Available year: resolve its event list.
+  // '2567' keeps using the original, untouched window.TEF_DATA global
+  // (tef_master_data.js) exactly as before. Future years read from the
+  // namespaced window.TEF_DATA_BY_YEAR[dataKey] global instead, so the
+  // legacy 2567 data file never has to change.
+  if (cfg.dataKey === 'legacy') {
+    EVENTS = (window.TEF_DATA && Array.isArray(window.TEF_DATA.events)) ? window.TEF_DATA.events : [];
+  } else {
+    const byYear = window.TEF_DATA_BY_YEAR || {};
+    EVENTS = (byYear[cfg.dataKey] && Array.isArray(byYear[cfg.dataKey].events)) ? byYear[cfg.dataKey].events : [];
+  }
+
+  if (modeSwitchEl) modeSwitchEl.style.display = '';
+  if (statsBar) statsBar.style.display = '';
+  if (noDataSection) noDataSection.style.display = 'none';
+
+  updateHeaderTitles();
+  renderEventsUI();
+  setMode('inspector');
+}
+
+function updateHeaderTitles() {
+  const titleEl = document.getElementById('appMainTitle');
+  const subEl = document.getElementById('appSubtitle');
+  const cfg = (window.TEF_YEARS_CONFIG || []).find(y => y.year === CUR_YEAR);
+  if (titleEl) titleEl.textContent = `ระบบตรวจทานผลการแข่งขันขี่ม้าแห่งประเทศไทย (THC ${CUR_YEAR})`;
+  if (subEl) {
+    subEl.textContent = (cfg && cfg.status === 'available')
+      ? `Thailand Equestrian Federation · ตรวจทานผลเทียบเอกสารจริง ${EVENTS.length} รายการ (Liquid Cream Glass)`
+      : `Thailand Equestrian Federation · ยังไม่มีข้อมูลผลการแข่งขันสำหรับปีนี้`;
+  }
+}
+
+// Populates dropdowns/stats/table from the currently-selected year's EVENTS.
+// This is the original init() body (unchanged logic) for an "available" year.
+function renderEventsUI() {
   // Calculate and update stats
   let totalEntries = 0;
   let totalClasses = 0;
@@ -2078,7 +2198,7 @@ function printCurrentClassResults() {
     return;
   }
 
-  const dateStr = cls.date || ev.date_range || 'ฤดูกาลแข่งขัน 2567';
+  const dateStr = cls.date || ev.date_range || ('ฤดูกาลแข่งขัน ' + CUR_YEAR);
   const discStr = ((cls.discipline || '') + ' ' + (ev.name || '') + ' ' + (cls.class_name || '')).toLowerCase();
   const countStr = cls.entries.length;
   const nowStr = new Date().toLocaleString('th-TH', { dateStyle: 'long', timeStyle: 'short' });
@@ -2182,7 +2302,7 @@ function printCurrentClassResults() {
         '<div class="print-header-box">' +
           '<div>' +
             '<div class="print-tef-title">สมาคมกีฬาขี่ม้าแห่งประเทศไทย (Thailand Equestrian Federation)</div>' +
-            '<div class="print-tef-subtitle">รายงานผลการแข่งขันอย่างเป็นทางการ (Official Competition Results - Year 2024 / 2567)</div>' +
+            '<div class="print-tef-subtitle">รายงานผลการแข่งขันอย่างเป็นทางการ (Official Competition Results - Year ' + (parseInt(CUR_YEAR, 10) - 543) + ' / ' + CUR_YEAR + ')</div>' +
           '</div>' +
           '<div style="text-align:right; font-size: 8.5pt; color: #4a5568;">' +
             '<div><strong>เลขที่รายการ:</strong> ลำดับที่ ' + (ev.item_id || (CUR_EV_IDX + 1)) + '</div>' +
