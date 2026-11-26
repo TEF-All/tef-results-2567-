@@ -1,0 +1,458 @@
+{
+  "summary": {
+    "total_items": 1,
+    "total_entries": 13,
+    "year_be": 2569
+  },
+  "events": [
+    {
+      "item_id": 1,
+      "name": "CSIY-B Pattaya 2026",
+      "source_file": "CSIY-B Pattaya 2026.pdf",
+      "pdf_files": [
+        "CSIY-B Pattaya 2026.pdf"
+      ],
+      "preview_images": [],
+      "classes": [
+        {
+          "class_name": "CSIY-B Pattaya 2026",
+          "discipline": "Jumping",
+          "date": "2026-02-27",
+          "page_number": 1,
+          "preview_image": null,
+          "entries": [
+            {
+              "official_value": {
+                "technical_percent": null,
+                "vet_gate_result": null,
+                "display": "0  0  0  77.66  0  0  0  0  41.16 0.00",
+                "loop_times": null,
+                "jump_off_faults": null,
+                "collective_percent": null,
+                "total_percent": null,
+                "xc_penalty": null,
+                "dressage_penalty": null,
+                "time_seconds": 77.66,
+                "jumping_penalty": null,
+                "faults": null,
+                "jump_off_time_seconds": null
+              },
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "source_page": 1,
+              "status": null,
+              "review_status": "reviewed",
+              "athlete": "Nueafha KIDCHOB",
+              "calculated_value": {
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร",
+                "computed_total_penalty": null
+              },
+              "rank": 1,
+              "discipline": "Jumping",
+              "name_as_printed": "Nueafha KIDCHOB",
+              "bib": null,
+              "club": "THA",
+              "needs_review": false,
+              "horse": "NOBLE ONE"
+            },
+            {
+              "rank": 2,
+              "official_value": {
+                "jump_off_time_seconds": null,
+                "total_percent": null,
+                "dressage_penalty": null,
+                "collective_percent": null,
+                "faults": null,
+                "jumping_penalty": null,
+                "jump_off_faults": null,
+                "technical_percent": null,
+                "vet_gate_result": null,
+                "xc_penalty": null,
+                "display": "0  0  0  78.61  0  4  0  4  40.93 4.00",
+                "time_seconds": 78.61,
+                "loop_times": null
+              },
+              "athlete": "HARSYA,Touku Ritat Renanda",
+              "bib": null,
+              "source_page": 1,
+              "discipline": "Jumping",
+              "status": null,
+              "name_as_printed": "HARSYA,Touku Ritat Renanda",
+              "club": "INA",
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "horse": "CONTEXT 3",
+              "needs_review": false,
+              "calculated_value": {
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร",
+                "computed_total_penalty": null
+              },
+              "review_status": "reviewed"
+            },
+            {
+              "discipline": "Jumping",
+              "horse": "FILDEL'OAA",
+              "status": null,
+              "calculated_value": {
+                "computed_total_penalty": null,
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร"
+              },
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "source_page": 1,
+              "bib": null,
+              "name_as_printed": "Ting-Le CHU",
+              "athlete": "Ting-Le CHU",
+              "club": "ΤΡΕ",
+              "needs_review": false,
+              "official_value": {
+                "display": "4  0  4  68.88  4",
+                "jump_off_faults": null,
+                "vet_gate_result": null,
+                "loop_times": null,
+                "technical_percent": null,
+                "time_seconds": 68.88,
+                "faults": null,
+                "collective_percent": null,
+                "jumping_penalty": null,
+                "total_percent": null,
+                "xc_penalty": null,
+                "dressage_penalty": null,
+                "jump_off_time_seconds": null
+              },
+              "review_status": "reviewed",
+              "rank": 3
+            },
+            {
+              "bib": null,
+              "name_as_printed": "Yejin LEE",
+              "review_status": "reviewed",
+              "athlete": "Yejin LEE",
+              "needs_review": false,
+              "calculated_value": {
+                "computed_total_penalty": null,
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร"
+              },
+              "club": "KOR",
+              "official_value": {
+                "dressage_penalty": null,
+                "technical_percent": null,
+                "xc_penalty": null,
+                "faults": null,
+                "jumping_penalty": null,
+                "time_seconds": 79.23,
+                "collective_percent": null,
+                "loop_times": null,
+                "display": "4  0  4  79.23  4",
+                "jump_off_faults": null,
+                "total_percent": null,
+                "vet_gate_result": null,
+                "jump_off_time_seconds": null
+              },
+              "discipline": "Jumping",
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "horse": "ARNOKING",
+              "status": null,
+              "rank": 3,
+              "source_page": 1
+            },
+            {
+              "bib": null,
+              "horse": "PIKES PEAK",
+              "name_as_printed": "AUNG.Kyaw Wana",
+              "club": "MYA",
+              "rank": 3,
+              "discipline": "Jumping",
+              "official_value": {
+                "vet_gate_result": null,
+                "time_seconds": 78.8,
+                "jump_off_faults": null,
+                "dressage_penalty": null,
+                "jump_off_time_seconds": null,
+                "technical_percent": null,
+                "display": "4  0  4  78.80  4",
+                "xc_penalty": null,
+                "faults": null,
+                "jumping_penalty": null,
+                "total_percent": null,
+                "collective_percent": null,
+                "loop_times": null
+              },
+              "status": null,
+              "source_page": 1,
+              "athlete": "AUNG.Kyaw Wana",
+              "review_status": "reviewed",
+              "calculated_value": {
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร",
+                "computed_total_penalty": null
+              },
+              "needs_review": false,
+              "source_file": "CSIY-B Pattaya 2026.pdf"
+            },
+            {
+              "bib": null,
+              "source_page": 1,
+              "status": null,
+              "calculated_value": {
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร",
+                "computed_total_penalty": null
+              },
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "name_as_printed": "JULLOBOL,Supinun",
+              "official_value": {
+                "faults": null,
+                "total_percent": null,
+                "collective_percent": null,
+                "dressage_penalty": null,
+                "jumping_penalty": null,
+                "jump_off_time_seconds": null,
+                "time_seconds": 73.11,
+                "vet_gate_result": null,
+                "display": "4  0  4  73.11  4",
+                "xc_penalty": null,
+                "jump_off_faults": null,
+                "technical_percent": null,
+                "loop_times": null
+              },
+              "review_status": "reviewed",
+              "rank": 3,
+              "discipline": "Jumping",
+              "athlete": "JULLOBOL,Supinun",
+              "needs_review": false,
+              "horse": "IAM",
+              "club": "THA"
+            },
+            {
+              "horse": "KAKI DU GIBET",
+              "name_as_printed": "RATTANACHOTIRAT,Natchinaph",
+              "athlete": "RATTANACHOTIRAT,Natchinaph",
+              "rank": 3,
+              "source_page": 1,
+              "calculated_value": {
+                "computed_total_penalty": null,
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร"
+              },
+              "needs_review": false,
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "review_status": "reviewed",
+              "bib": null,
+              "official_value": {
+                "jump_off_faults": null,
+                "display": "4  0  4  71.26  4",
+                "loop_times": null,
+                "vet_gate_result": null,
+                "total_percent": null,
+                "faults": null,
+                "xc_penalty": null,
+                "dressage_penalty": null,
+                "time_seconds": 71.26,
+                "jump_off_time_seconds": null,
+                "collective_percent": null,
+                "jumping_penalty": null,
+                "technical_percent": null
+              },
+              "status": null,
+              "club": "THA",
+              "discipline": "Jumping"
+            },
+            {
+              "horse": "NYGEL",
+              "athlete": "Adam Hariz KAMALUDIN",
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "name_as_printed": "Adam Hariz KAMALUDIN",
+              "source_page": 1,
+              "discipline": "Jumping",
+              "review_status": "reviewed",
+              "club": "MAS",
+              "status": null,
+              "calculated_value": {
+                "computed_total_penalty": null,
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร"
+              },
+              "bib": null,
+              "needs_review": false,
+              "rank": 3,
+              "official_value": {
+                "jumping_penalty": null,
+                "faults": null,
+                "display": "4  0  4  81.65  4",
+                "loop_times": null,
+                "xc_penalty": null,
+                "total_percent": null,
+                "dressage_penalty": null,
+                "collective_percent": null,
+                "jump_off_time_seconds": null,
+                "vet_gate_result": null,
+                "technical_percent": null,
+                "jump_off_faults": null,
+                "time_seconds": 81.65
+              }
+            },
+            {
+              "horse": "IMAGINEDE BARBEREAU",
+              "review_status": "reviewed",
+              "official_value": {
+                "total_percent": null,
+                "jump_off_faults": null,
+                "vet_gate_result": null,
+                "xc_penalty": null,
+                "technical_percent": null,
+                "collective_percent": null,
+                "display": "4  0  4  80.20  4",
+                "time_seconds": 80.2,
+                "faults": null,
+                "loop_times": null,
+                "jump_off_time_seconds": null,
+                "dressage_penalty": null,
+                "jumping_penalty": null
+              },
+              "discipline": "Jumping",
+              "bib": null,
+              "athlete": "Sophia Louie LACSON",
+              "name_as_printed": "Sophia Louie LACSON",
+              "needs_review": false,
+              "club": "PHI",
+              "calculated_value": {
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร",
+                "computed_total_penalty": null
+              },
+              "status": null,
+              "source_page": 1,
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "rank": 3
+            },
+            {
+              "status": null,
+              "rank": 4,
+              "bib": null,
+              "needs_review": false,
+              "name_as_printed": "Sarah BRODERICK",
+              "official_value": {
+                "dressage_penalty": null,
+                "display": "16  0  16  81.45  16",
+                "jump_off_faults": null,
+                "vet_gate_result": null,
+                "time_seconds": 81.45,
+                "total_percent": null,
+                "collective_percent": null,
+                "faults": null,
+                "technical_percent": null,
+                "xc_penalty": null,
+                "jump_off_time_seconds": null,
+                "loop_times": null,
+                "jumping_penalty": null
+              },
+              "horse": "BONIRO",
+              "club": "AUS",
+              "source_page": 1,
+              "athlete": "Sarah BRODERICK",
+              "discipline": "Jumping",
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "calculated_value": {
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร",
+                "computed_total_penalty": null
+              },
+              "review_status": "reviewed"
+            },
+            {
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "calculated_value": {
+                "computed_total_penalty": null,
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร"
+              },
+              "official_value": {
+                "xc_penalty": null,
+                "jumping_penalty": null,
+                "time_seconds": 75.95,
+                "collective_percent": null,
+                "technical_percent": null,
+                "loop_times": null,
+                "faults": null,
+                "total_percent": null,
+                "dressage_penalty": null,
+                "jump_off_time_seconds": null,
+                "display": "16  0  16  75.95  16",
+                "jump_off_faults": null,
+                "vet_gate_result": null
+              },
+              "horse": "RALFLOREN DEFAVRAY",
+              "club": "Z  CAM",
+              "needs_review": false,
+              "discipline": "Jumping",
+              "source_page": 1,
+              "rank": 4,
+              "status": null,
+              "bib": null,
+              "athlete": "HH Princess Amrita NORODOM",
+              "name_as_printed": "HH Princess Amrita NORODOM",
+              "review_status": "reviewed"
+            },
+            {
+              "club": "HKG",
+              "calculated_value": {
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร",
+                "computed_total_penalty": null
+              },
+              "status": null,
+              "discipline": "Jumping",
+              "review_status": "reviewed",
+              "rank": 4,
+              "name_as_printed": "STAPLETON,Oliver",
+              "needs_review": false,
+              "horse": "J'T'ADORECOUPARIE",
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "bib": null,
+              "source_page": 1,
+              "official_value": {
+                "collective_percent": null,
+                "dressage_penalty": null,
+                "loop_times": null,
+                "jump_off_time_seconds": null,
+                "jumping_penalty": null,
+                "total_percent": null,
+                "faults": null,
+                "xc_penalty": null,
+                "vet_gate_result": null,
+                "display": "16  0  16  76.99  16",
+                "jump_off_faults": null,
+                "time_seconds": 76.99,
+                "technical_percent": null
+              },
+              "athlete": "STAPLETON,Oliver"
+            },
+            {
+              "calculated_value": {
+                "computed_total_penalty": null,
+                "note": "ค่าในกลุ่มนี้ใช้เพื่อ cross-check เท่านั้น ห้ามถือเป็นผลรับรองแทนค่าที่พิมพ์ในเอกสาร"
+              },
+              "discipline": "Jumping",
+              "rank": 4,
+              "status": null,
+              "club": "CHN",
+              "bib": null,
+              "needs_review": false,
+              "source_page": 1,
+              "athlete": "Yuning TAO",
+              "official_value": {
+                "jump_off_time_seconds": null,
+                "total_percent": null,
+                "technical_percent": null,
+                "xc_penalty": null,
+                "jump_off_faults": null,
+                "faults": null,
+                "vet_gate_result": null,
+                "loop_times": null,
+                "dressage_penalty": null,
+                "display": "16  0  16  78.69  16",
+                "jumping_penalty": null,
+                "collective_percent": null,
+                "time_seconds": 78.69
+              },
+              "horse": "HUDSON DU CHENE",
+              "review_status": "reviewed",
+              "source_file": "CSIY-B Pattaya 2026.pdf",
+              "name_as_printed": "Yuning TAO"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
