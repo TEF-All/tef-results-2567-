@@ -370,6 +370,24 @@ function buildColumnBoundaries(anchors) {
   return cols;
 }
 
+// Columns whose content is semantically always a bare number (plus maybe
+// trailing "." or "," list punctuation) - never a letter. Used below to
+// catch the dominant real-world column-boundary bug: buildColumnBoundaries
+// places the RANK|ATHLETE divider at the midpoint between the two header
+// LABELS' own x-positions, which is a poor proxy for where the real data
+// column actually splits whenever RANK is a narrow header hugging the left
+// margin next to a wide RIDER/ATHLETE column whose text starts almost
+// immediately. Confirmed against real production word coordinates (CSIY-B
+// Pattaya 2026, 2026-11-26): every rider's first name/initial word landed
+// to the left of that boundary and inside the RANK bucket (e.g. "Nueafha"
+// at cx=55 vs. a RANK|ATHLETE boundary of 61.75), where it was then
+// silently dropped once the rank text was reduced to digits-only. A rank
+// or bib cell with non-numeric words IS exactly this leak, every time -
+// semantic validation is far more robust here than trying to tune the
+// pixel boundary itself, since it doesn't depend on exact column widths
+// that vary PDF to PDF.
+const NUMERIC_ONLY_ROLES = ['RANK', 'BIB'];
+
 function assignRowToColumns(rowWords, cols) {
   const byRoleWords = {};
   const restWords = [];
@@ -383,6 +401,18 @@ function assignRowToColumns(rowWords, cols) {
       }
     }
     if (!placed) restWords.push(w);
+  }
+  for (const role of NUMERIC_ONLY_ROLES) {
+    const words = byRoleWords[role];
+    if (!words || !words.length) continue;
+    const numericWords = words.filter((w) => /^\d+[.,]?$/.test(w.text));
+    const strayWords = words.filter((w) => !/^\d+[.,]?$/.test(w.text));
+    if (!strayWords.length) continue;
+    if (numericWords.length) byRoleWords[role] = numericWords;
+    else delete byRoleWords[role];
+    byRoleWords.ATHLETE = [...(byRoleWords.ATHLETE || []), ...strayWords].sort(
+      (a, b) => a.cx - b.cx
+    );
   }
   const byRole = {};
   for (const [role, words] of Object.entries(byRoleWords)) {
@@ -526,26 +556,10 @@ function parsePositionalRow(rowWords, discipline, sourceFile, pageNumber) {
 
 function parseGenericHeaderedPage(rows, header, discipline, sourceFile, pageNumber) {
   const cols = buildColumnBoundaries(header.anchors);
-  // TEMP DEBUG (2026-11-26): diagnosing real rider names losing their first
-  // word (e.g. "Adam Hariz KAMALUDIN" -> "HarizKAMALUDIN") against CSIY-B
-  // Pattaya 2026. Dumps the exact header-anchor edges, the computed column
-  // boundaries, and every data row's word list with its assigned column, so
-  // the true cause (vs. guessing) decides the real fix. Remove once fixed.
-  console.log(
-    '[TP_DEBUG] page', pageNumber,
-    'anchors:', JSON.stringify(header.anchors),
-    'cols:', JSON.stringify(cols)
-  );
   const entries = [];
   for (let i = header.rowIndex + 1; i < rows.length; i++) {
     const row = rows[i];
     if (!row.length) continue;
-    const wordDump = row.map((w) => ({
-      t: w.text,
-      cx: Math.round(w.cx),
-      col: cols.find((c) => w.cx >= c.left && w.cx < c.right)?.role || 'UNASSIGNED',
-    }));
-    console.log('[TP_DEBUG] row', i, JSON.stringify(wordDump));
     const { byRole, rest } = assignRowToColumns(row, cols);
     // Skip rows that are clearly not data (signature blocks, page-footer
     // timestamps, stray marks) — no athlete/horse/rank/rest content at all.
