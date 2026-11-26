@@ -404,6 +404,29 @@ function splitLeadingNumber(text) {
   return { lead: null, rest: text };
 }
 
+// Cleans a name-ish field (athlete/horse/club) reconstructed from
+// column-assigned words. Two artifacts confirmed against real production
+// output (CSIY-B Pattaya 2026, 2026-11-26):
+//  - A stray leading "." or "," — the preceding RANK cell's own trailing
+//    punctuation (e.g. "3." or "4,") sometimes lands just inside the next
+//    column's X range and gets attached to the athlete text instead
+//    (",Touku Rit Renanda", ".KyawWana").
+//  - Two real words glued with no space at all — joinWordsGlued's "same
+//    word" gap threshold is sometimes narrower than the true gap between
+//    a first name and surname in this font ("HarizKAMALUDIN",
+//    "LouieLACSON"). A lowercase-letter-immediately-followed-by-uppercase
+//    transition essentially never happens inside one real word of a
+//    name, so it's split. A genuinely intercapped surname (McDonald) is
+//    rare enough, and every row here is needs_review anyway pending human
+//    confirmation, that splitting is the safer default.
+function cleanupNameField(text) {
+  if (!text) return text;
+  let cleaned = text.replace(/^[.,;:]+\s*/, '');
+  cleaned = cleaned.replace(/([a-zก-๙])([A-Z])/g, '$1 $2');
+  cleaned = cleaned.trim();
+  return cleaned || null;
+}
+
 function buildEntryFromColumns(byRole, rest, discipline, sourceFile, pageNumber) {
   const entry = blankEntry();
   entry.source_file = sourceFile;
@@ -436,10 +459,10 @@ function buildEntryFromColumns(byRole, rest, discipline, sourceFile, pageNumber)
 
   entry.rank = toNumberOrNull(rankRaw);
   entry.bib = bibRaw ? String(bibRaw).trim() : null;
-  entry.athlete = athleteRaw ? athleteRaw.trim() : null;
+  entry.athlete = cleanupNameField(athleteRaw);
   entry.name_as_printed = entry.athlete;
-  entry.horse = horseRaw ? horseRaw.trim() : null;
-  entry.club = clubRaw ? clubRaw.trim() : null;
+  entry.horse = cleanupNameField(horseRaw);
+  entry.club = cleanupNameField(clubRaw);
   entry.official_value.display = rest || null;
 
   const looksClean =
@@ -490,10 +513,10 @@ function parsePositionalRow(rowWords, discipline, sourceFile, pageNumber) {
       restCells.push(cells[i].text);
     }
   }
-  entry.athlete = textCells[0] || null;
+  entry.athlete = cleanupNameField(textCells[0] || null);
   entry.name_as_printed = entry.athlete;
-  entry.horse = textCells[1] || null;
-  entry.club = textCells[2] || null;
+  entry.horse = cleanupNameField(textCells[1] || null);
+  entry.club = cleanupNameField(textCells[2] || null);
   entry.official_value.display = restCells.join('  ') || null;
 
   if (!entry.athlete && !entry.horse) return null; // nothing usable at all
@@ -512,8 +535,19 @@ function parseGenericHeaderedPage(rows, header, discipline, sourceFile, pageNumb
     // timestamps, stray marks) — no athlete/horse/rank/rest content at all.
     const hasAnyContent = Object.values(byRole).some(Boolean) || rest;
     if (!hasAnyContent) continue;
+    // Skip rows that landed no column-matched content at all (a page
+    // footer timestamp, a generated-at stamp, a stray ID in the margin).
+    // Confirmed against real production output (CSIY-B Pattaya 2026,
+    // 2026-11-26): three such stray lines ("10049008", "28/2/2026.",
+    // "28/2/2026 16:42") slipped through as fake entries because the old
+    // check only skipped a row with NO digits anywhere in its leftover
+    // text — a date or ID is all digits, so it wasn't skipped. A real
+    // data row always has rank, bib, athlete or horse in a recognized
+    // column; requiring one of those (rather than "any digit anywhere")
+    // is what actually distinguishes a table row from page furniture.
     const hasNameish = byRole.ATHLETE || byRole.HORSE;
-    if (!hasNameish && !/\d/.test(rest || '')) continue;
+    const hasRankOrBib = byRole.RANK || byRole.BIB;
+    if (!hasNameish && !hasRankOrBib) continue;
     entries.push(buildEntryFromColumns(byRole, rest, discipline, sourceFile, pageNumber));
   }
   return entries;
