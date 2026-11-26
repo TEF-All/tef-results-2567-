@@ -27,13 +27,52 @@ function authHeaders(token) {
   };
 }
 
+// Wraps a raw GitHub REST error into a message that's actually useful to an
+// admin looking at the "เผยแพร่ไม่สำเร็จ" alert in the browser — Cloud
+// Functions callable errors hide the real Error.message from the client for
+// any error that isn't an HttpsError, so without this wrapping every GitHub
+// API failure (bad/expired token, no repo access, rate limit, etc.) shows up
+// as a useless generic "INTERNAL" with no indication of what actually broke.
+function githubErrorMessage(status, path, bodyText) {
+  let parsed = null;
+  try {
+    parsed = JSON.parse(bodyText);
+  } catch (_) {
+    // body wasn't JSON — fall through, use bodyText raw below
+  }
+  const ghMessage = parsed?.message || bodyText || '';
+
+  if (status === 401) {
+    return (
+      `GITHUB_TOKEN ไม่ถูกต้องหรือหมดอายุ (GitHub ตอบ 401 Bad credentials ตอนเข้าถึง ${path}) — ` +
+      `ต้องสร้าง Personal Access Token ใหม่แล้วตั้งค่าใหม่ด้วย ` +
+      `"firebase functions:secrets:set GITHUB_TOKEN" (ดู PHASE2_IMPLEMENTATION_NOTES.md หัวข้อการตั้งค่า)`
+    );
+  }
+  if (status === 403) {
+    return (
+      `GITHUB_TOKEN ไม่มีสิทธิ์เพียงพอสำหรับ ${path} (GitHub ตอบ 403: ${ghMessage}) — ` +
+      `ตรวจสอบว่า Token ตั้ง Resource owner เป็น TEF-All, เลือก repo tef-results-2567- และให้สิทธิ์ ` +
+      `Contents: Read and write`
+    );
+  }
+  if (status === 404) {
+    return `ไม่พบไฟล์หรือ repo สำหรับ ${path} บน GitHub (404: ${ghMessage}) — ตรวจสอบชื่อ repo/branch ใน schema.js`;
+  }
+  if (status === 409 || status === 422) {
+    return `GitHub ปฏิเสธการเขียนไฟล์ ${path} (${status}: ${ghMessage}) — อาจมีคนอื่นแก้ไฟล์เดียวกันพร้อมกัน ลองใหม่อีกครั้ง`;
+  }
+  return `GitHub API ล้มเหลวที่ ${path} (${status}: ${ghMessage})`;
+}
+
 async function getFile(token, path) {
   const res = await fetch(`${API_BASE}/${encodeURIComponent(path)}?ref=${GITHUB_BRANCH}`, {
     headers: authHeaders(token),
   });
   if (res.status === 404) return null;
   if (!res.ok) {
-    throw new Error(`GitHub GET ${path} failed: ${res.status} ${await res.text()}`);
+    const bodyText = await res.text();
+    throw new Error(githubErrorMessage(res.status, path, bodyText));
   }
   const json = await res.json();
   return {
@@ -56,7 +95,8 @@ async function putFile(token, path, content, message, sha) {
     body: JSON.stringify(body),
   });
   if (!res.ok) {
-    throw new Error(`GitHub PUT ${path} failed: ${res.status} ${await res.text()}`);
+    const bodyText = await res.text();
+    throw new Error(githubErrorMessage(res.status, path, bodyText));
   }
   const json = await res.json();
   return json.commit?.sha;

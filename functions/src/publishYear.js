@@ -60,7 +60,18 @@ async function publishYearHandler(data, context, { db, githubTokenSecret }) {
 
   const year = String(draft.year);
   const jsonPath = `tef_master_data_${year}.json`;
-  const existing = await getFile(token, jsonPath);
+
+  // Anything from here down that touches GitHub can throw a plain Error (see
+  // githubPublish.js) — Cloud Functions callable hides a plain Error's real
+  // message from the client and returns just "INTERNAL", so we must
+  // re-throw as an HttpsError to actually surface what went wrong in the
+  // admin UI's alert() instead of a useless generic code name.
+  let existing;
+  try {
+    existing = await getFile(token, jsonPath);
+  } catch (err) {
+    throw new HttpsError('internal', `เผยแพร่ไม่สำเร็จ: ${err.message}`);
+  }
   const existingData = existing ? JSON.parse(existing.content) : { summary: { total_items: 0, total_entries: 0 }, events: [] };
 
   const nextItemId = (existingData.events || []).reduce((max, e) => Math.max(max, e.item_id || 0), 0) + 1;
@@ -92,12 +103,17 @@ async function publishYearHandler(data, context, { db, githubTokenSecret }) {
     ),
   };
 
-  const { commits } = await publishYearToGithub(token, {
-    year,
-    summary,
-    events,
-    commitMessageSuffix: `draft ${draftId}: ${draft.event_name}`,
-  });
+  let commits;
+  try {
+    ({ commits } = await publishYearToGithub(token, {
+      year,
+      summary,
+      events,
+      commitMessageSuffix: `draft ${draftId}: ${draft.event_name}`,
+    }));
+  } catch (err) {
+    throw new HttpsError('internal', `เผยแพร่ไม่สำเร็จ: ${err.message}`);
+  }
 
   await draftRef.update({
     status: DRAFT_STATUS.PUBLISHED,
