@@ -2,7 +2,7 @@
   "name": "tef-admin-import-functions",
   "description": "Cloud Functions for TEF Admin Import System (OCR draft extraction + reviewed publish to GitHub Pages). See ../PHASE2_IMPLEMENTATION_NOTES.md.",
   "engines": {
-    "node": "20"
+    "node": "22"
   },
   "main": "index.js",
   "scripts": {

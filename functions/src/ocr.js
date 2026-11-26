@@ -20,6 +20,51 @@
 const MIN_TEXT_LAYER_CHARS_PER_PAGE = 40; // below this, treat the page as "no usable text layer"
 const VISION_MAX_PAGES_PER_REQUEST = 5; // Cloud Vision files.annotate sync limit
 
+/**
+ * Pulls word-level bounding boxes out of a Vision `fullTextAnnotation`.
+ *
+ * Why this matters: `fullTextAnnotation.text` is a flat string where Vision
+ * has already collapsed each line's inter-column whitespace down to single
+ * spaces. That destroyed tableParser.js's old "split on 2+ spaces" column
+ * detection the moment it met a real scanned result sheet — every column on
+ * a line collapsed into one undifferentiated blob (confirmed against the 16
+ * real competition PDFs supplied 2026-11-26; see tableParser.js header
+ * comment). The only way to recover real column structure is to use the
+ * geometry Vision still gives us per word, and reconstruct rows/columns
+ * from pixel positions instead of from whitespace.
+ *
+ * @returns {Array<{text:string,x0:number,x1:number,y0:number,y1:number}>}
+ */
+function wordsFromFullTextAnnotation(fta) {
+  const words = [];
+  if (!fta || !Array.isArray(fta.pages)) return words;
+  for (const page of fta.pages) {
+    for (const block of page.blocks || []) {
+      for (const para of block.paragraphs || []) {
+        for (const word of para.words || []) {
+          const text = (word.symbols || []).map((s) => (s && s.text) || '').join('');
+          if (!text.trim()) continue;
+          const verts =
+            (word.boundingBox && word.boundingBox.vertices) ||
+            (word.boundingBox && word.boundingBox.normalizedVertices) ||
+            [];
+          if (verts.length < 4) continue;
+          const xs = verts.map((v) => v.x || 0);
+          const ys = verts.map((v) => v.y || 0);
+          words.push({
+            text,
+            x0: Math.min(...xs),
+            x1: Math.max(...xs),
+            y0: Math.min(...ys),
+            y1: Math.max(...ys),
+          });
+        }
+      }
+    }
+  }
+  return words;
+}
+
 async function extractTextLayer(pdfBuffer) {
   // Lazy require: keeps cold start fast for the (common) OCR path where
   // pdf-parse's text-layer attempt still runs first but isn't the bottleneck.
@@ -41,7 +86,11 @@ async function extractTextLayer(pdfBuffer) {
 
   return {
     hasUsableTextLayer: avgCharsPerPage >= MIN_TEXT_LAYER_CHARS_PER_PAGE,
-    pages: pageTexts.map((text, i) => ({ pageNumber: i + 1, text })),
+    // words: [] (always) — pdf-parse's text layer gives us strings, not
+    // per-word geometry, so tableParser.js uses its legacy flat-text path
+    // for these pages. That's fine: a real text layer (not OCR) preserves
+    // meaningful whitespace far better than Vision's flattened OCR text did.
+    pages: pageTexts.map((text, i) => ({ pageNumber: i + 1, text, words: [] })),
   };
 }
 
@@ -79,7 +128,17 @@ async function extractWithVision(pdfBuffer, visionClient, pageCountHint) {
       const pageNumber = pages[idx];
       const text = pageResp.fullTextAnnotation?.text || '';
       if (text.trim().length > 0) {
-        allPages.push({ pageNumber, text });
+        // Best-effort: if geometry extraction throws for any reason (an
+        // unexpected response shape), fall back to words: [] rather than
+        // failing the whole page — tableParser.js treats an empty words
+        // array as "use the legacy flat-text parser" for that page.
+        let words = [];
+        try {
+          words = wordsFromFullTextAnnotation(pageResp.fullTextAnnotation);
+        } catch (err) {
+          words = [];
+        }
+        allPages.push({ pageNumber, text, words });
       }
       // A page past the end of the real document comes back with no
       // fullTextAnnotation at all — Vision doesn't error, it just returns
@@ -119,4 +178,4 @@ async function extractText(pdfBuffer, visionClient) {
   return { source: 'vision_ocr', pages };
 }
 
-module.exports = { extractText };
+module.exports = { extractText, wordsFromFullTextAnnotation };

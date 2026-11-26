@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "tef-result"
-  }
+  },
+  "targets": {
+    "tef-result": {
+      "storage": {
+        "rules": [
+          "tef-result.firebasestorage.app"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
