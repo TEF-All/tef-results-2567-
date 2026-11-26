@@ -82,9 +82,17 @@ async function getFile(token, path) {
 }
 
 async function putFile(token, path, content, message, sha) {
+  // content is either a text string (JSON/JS/HTML we build ourselves) or a
+  // Buffer of raw binary bytes (the original scanned PDF, downloaded as-is
+  // from Firebase Storage). Decoding a binary Buffer as utf8 before
+  // re-encoding to base64 would corrupt it, so Buffers are base64-encoded
+  // directly and only strings go through the utf8 step.
+  const contentBase64 = Buffer.isBuffer(content)
+    ? content.toString('base64')
+    : Buffer.from(content, 'utf8').toString('base64');
   const body = {
     message,
-    content: Buffer.from(content, 'utf8').toString('base64'),
+    content: contentBase64,
     branch: GITHUB_BRANCH,
   };
   if (sha) body.sha = sha;
@@ -151,15 +159,33 @@ function ensureDataScriptTag(htmlSource, year) {
  * @param {object} summary { total_items, total_entries }
  * @param {Array} events events array in the schema's per-year format
  * @param {string} commitMessageSuffix free text, e.g. the draft id / event name
+ * @param {Buffer} [pdfBuffer] original scanned PDF bytes, if available (see publishYear.js)
+ * @param {string} [pdfRepoPath] where to put it in the repo, e.g. "<event name>/<file>.pdf"
  * @returns {Promise<{commits: Record<string,string>}>}
  */
-async function publishYearToGithub(token, { year, summary, events, commitMessageSuffix }) {
+async function publishYearToGithub(token, { year, summary, events, commitMessageSuffix, pdfBuffer, pdfRepoPath }) {
   const jsonPath = `tef_master_data_${year}.json`;
   const jsPath = `tef_master_data_${year}.js`;
   const jsonString = buildPerYearJson(year, summary, events);
   const jsString = buildPerYearJs(year, jsonString);
 
   const commits = {};
+
+  // Carry the original scan into the repo so the public site's PDF viewer
+  // tab actually has a file to show (matches the legacy "<event name>/
+  // <file>.pdf" convention from the 2567 data). Non-fatal by omission: if
+  // the caller didn't pass a PDF (couldn't fetch it from Storage), we just
+  // skip this and the data still publishes without a scan attached.
+  if (pdfBuffer && pdfRepoPath) {
+    const existingPdf = await getFile(token, pdfRepoPath);
+    commits[pdfRepoPath] = await putFile(
+      token,
+      pdfRepoPath,
+      pdfBuffer,
+      `Add original scan PDF (${commitMessageSuffix})`,
+      existingPdf?.sha
+    );
+  }
 
   const existingJson = await getFile(token, jsonPath);
   commits[jsonPath] = await putFile(

@@ -21,7 +21,7 @@ const { DRAFT_STATUS } = require('./schema');
  *      .json/.js files, flip TEF_YEARS_CONFIG status, commit.
  *   4. Mark the draft 'published' with the commit shas, for traceability.
  */
-async function publishYearHandler(data, context, { db, githubTokenSecret }) {
+async function publishYearHandler(data, context, { db, bucket, githubTokenSecret }) {
   await requireAdmin(db, context);
 
   const { draftId } = data || {};
@@ -76,11 +76,32 @@ async function publishYearHandler(data, context, { db, githubTokenSecret }) {
 
   const nextItemId = (existingData.events || []).reduce((max, e) => Math.max(max, e.item_id || 0), 0) + 1;
 
+  // Carry the original scanned PDF (still sitting in Firebase Storage from
+  // the admin's upload step — see extractDraft.js) into the GitHub repo, so
+  // the public site's "เอกสาร (PDF)" viewer tab has something to show.
+  // Previously pdf_files only ever held the bare filename with no file
+  // actually published anywhere, so the viewer iframe pointed at a path
+  // that never existed in the repo. Path matches the legacy (2567) data's
+  // own "<event name>/<file>.pdf" convention. Best-effort: if the download
+  // fails for any reason, publish still proceeds without a scan attached
+  // rather than blocking the whole publish on it.
+  let pdfBuffer = null;
+  let pdfRepoPath = null;
+  if (draft.storage_path && draft.source_file) {
+    try {
+      [pdfBuffer] = await bucket.file(draft.storage_path).download();
+      pdfRepoPath = `${draft.event_name}/${draft.source_file}`;
+    } catch (err) {
+      pdfBuffer = null;
+      pdfRepoPath = null;
+    }
+  }
+
   const newEvent = {
     item_id: nextItemId,
     name: draft.event_name,
     source_file: draft.source_file,
-    pdf_files: draft.source_file ? [draft.source_file] : [],
+    pdf_files: pdfRepoPath ? [pdfRepoPath] : (draft.source_file ? [draft.source_file] : []),
     preview_images: [],
     classes: [
       {
@@ -110,6 +131,8 @@ async function publishYearHandler(data, context, { db, githubTokenSecret }) {
       summary,
       events,
       commitMessageSuffix: `draft ${draftId}: ${draft.event_name}`,
+      pdfBuffer,
+      pdfRepoPath,
     }));
   } catch (err) {
     throw new HttpsError('internal', `เผยแพร่ไม่สำเร็จ: ${err.message}`);

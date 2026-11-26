@@ -41,6 +41,9 @@ exports.extractDraft = onCall(
 );
 
 exports.publishYear = onCall(
-  { secrets: [githubTokenSecret], timeoutSeconds: 120 },
-  async (request) => publishYearHandler(request.data, { auth: request.auth }, { db, githubTokenSecret })
+  // Bumped from 120s: publish now also downloads the original PDF from
+  // Storage and uploads it to GitHub (see publishYear.js), one more
+  // round-trip than before.
+  { secrets: [githubTokenSecret], timeoutSeconds: 180, memory: '512MiB' },
+  async (request) => publishYearHandler(request.data, { auth: request.auth }, { db, bucket, githubTokenSecret })
 );
