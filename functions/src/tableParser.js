@@ -750,8 +750,31 @@ function parseGeometryPage(page, discipline, sourceFile) {
 
   const header = findHeaderAnchors(rows, scanLimit);
   if (header) {
+    console.log(
+      '[TP_DEBUG_DRESSAGE] page', page.pageNumber,
+      'discipline', discipline,
+      'header FOUND rowIndex', header.rowIndex,
+      'anchors', JSON.stringify(header.anchors)
+    );
     return parseGenericHeaderedPage(rows, header, discipline, sourceFile, page.pageNumber);
   }
+
+  // Temporary diagnostic: header anchor matching failed entirely, so this
+  // page is about to fall through to the per-row positional fallback below.
+  // Dump the first several clustered rows' raw text + each word's cx so we
+  // can see exactly what Vision OCR returned for the header area and why
+  // none of ROLE_KEYWORDS matched it, instead of guessing.
+  console.log(
+    '[TP_DEBUG_DRESSAGE] page', page.pageNumber,
+    'discipline', discipline,
+    'header NOT FOUND — first rows:',
+    JSON.stringify(
+      rows.slice(0, 15).map((r) => ({
+        text: reconstructRow(r).text,
+        words: r.map((w) => ({ t: w.text, cx: Math.round(w.cx), cy: Math.round(w.cy) })),
+      }))
+    )
+  );
 
   // No header recognized at all (e.g. OCR mangled every header keyword, or
   // this page is a schedule/cover/signature page with no results table).
