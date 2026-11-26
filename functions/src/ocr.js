@@ -136,7 +136,60 @@ async function extractWithVision(pdfBuffer, visionClient, pageCountHint) {
         try {
           words = wordsFromFullTextAnnotation(pageResp.fullTextAnnotation);
         } catch (err) {
+          console.error(
+            '[OCR_DEBUG] wordsFromFullTextAnnotation threw for page',
+            pageNumber,
+            '-',
+            err && err.message,
+            err && err.stack
+          );
           words = [];
+        }
+        // TEMP DEBUG (2026-11-26): instrumenting a live mismatch where the
+        // geometry engine silently falls back to the legacy flat-text parser
+        // in production despite working against a local Tesseract-based
+        // proxy of the same real PDFs. Remove once root-caused.
+        try {
+          const fta = pageResp.fullTextAnnotation;
+          console.log(
+            '[OCR_DEBUG] page',
+            pageNumber,
+            'hasFullTextAnnotation:', !!fta,
+            'ftaKeys:', fta ? Object.keys(fta) : null,
+            'pagesIsArray:', fta ? Array.isArray(fta.pages) : null,
+            'pagesLen:', fta && Array.isArray(fta.pages) ? fta.pages.length : null,
+            'wordsExtracted:', words.length,
+            'sampleWord0:', words[0] ? JSON.stringify(words[0]) : null
+          );
+          if (fta && Array.isArray(fta.pages) && fta.pages[0]) {
+            const p0 = fta.pages[0];
+            console.log(
+              '[OCR_DEBUG] page0Keys:', Object.keys(p0),
+              'blocksIsArray:', Array.isArray(p0.blocks),
+              'blocksLen:', Array.isArray(p0.blocks) ? p0.blocks.length : null
+            );
+            if (Array.isArray(p0.blocks) && p0.blocks[0]) {
+              const b0 = p0.blocks[0];
+              console.log(
+                '[OCR_DEBUG] block0Keys:', Object.keys(b0),
+                'paragraphsLen:', Array.isArray(b0.paragraphs) ? b0.paragraphs.length : null
+              );
+              if (Array.isArray(b0.paragraphs) && b0.paragraphs[0]) {
+                const para0 = b0.paragraphs[0];
+                console.log(
+                  '[OCR_DEBUG] para0Keys:', Object.keys(para0),
+                  'wordsLen:', Array.isArray(para0.words) ? para0.words.length : null
+                );
+                if (Array.isArray(para0.words) && para0.words[0]) {
+                  console.log(
+                    '[OCR_DEBUG] word0 raw:', JSON.stringify(para0.words[0]).slice(0, 1000)
+                  );
+                }
+              }
+            }
+          }
+        } catch (debugErr) {
+          console.error('[OCR_DEBUG] debug logging itself threw:', debugErr && debugErr.message);
         }
         allPages.push({ pageNumber, text, words });
       }
