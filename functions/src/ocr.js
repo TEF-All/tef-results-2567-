@@ -39,18 +39,44 @@ function wordsFromFullTextAnnotation(fta) {
   const words = [];
   if (!fta || !Array.isArray(fta.pages)) return words;
   for (const page of fta.pages) {
+    // Confirmed against a real production Vision response (2026-11-26): for
+    // a PDF submitted via batchAnnotateFiles, Vision returns an EMPTY
+    // `vertices` array (`[]`, not absent) on every word, with real
+    // coordinates only in `normalizedVertices` (0..1 floats). `[] || x`
+    // evaluates to `[]` in JS (empty array is truthy), so the old
+    // `vertices || normalizedVertices` fallback never actually reached
+    // normalizedVertices — every word got 0 vertices and was dropped,
+    // silently emptying `words` and sending every page through the legacy
+    // flat-text parser. Fix: explicitly prefer vertices only when it has
+    // real points, and scale normalizedVertices by the page's pixel size.
+    const pageW = typeof page.width === 'number' && page.width > 0 ? page.width : null;
+    const pageH = typeof page.height === 'number' && page.height > 0 ? page.height : null;
     for (const block of page.blocks || []) {
       for (const para of block.paragraphs || []) {
         for (const word of para.words || []) {
           const text = (word.symbols || []).map((s) => (s && s.text) || '').join('');
           if (!text.trim()) continue;
-          const verts =
-            (word.boundingBox && word.boundingBox.vertices) ||
-            (word.boundingBox && word.boundingBox.normalizedVertices) ||
-            [];
-          if (verts.length < 4) continue;
-          const xs = verts.map((v) => v.x || 0);
-          const ys = verts.map((v) => v.y || 0);
+          const bbox = word.boundingBox || {};
+          let xs;
+          let ys;
+          if (Array.isArray(bbox.vertices) && bbox.vertices.length >= 4) {
+            xs = bbox.vertices.map((v) => v.x || 0);
+            ys = bbox.vertices.map((v) => v.y || 0);
+          } else if (Array.isArray(bbox.normalizedVertices) && bbox.normalizedVertices.length >= 4) {
+            // Normalized (0..1) coordinates — scale to the page's pixel
+            // dimensions when known so thresholds elsewhere (medH * 0.35,
+            // etc.) behave the same regardless of which field Vision used.
+            // Without a known page size, fall back to the 0..1 values
+            // directly — still internally consistent since every
+            // downstream threshold is relative to the words' own median
+            // height, not an absolute pixel count.
+            const sx = pageW || 1;
+            const sy = pageH || 1;
+            xs = bbox.normalizedVertices.map((v) => (v.x || 0) * sx);
+            ys = bbox.normalizedVertices.map((v) => (v.y || 0) * sy);
+          } else {
+            continue;
+          }
           words.push({
             text,
             x0: Math.min(...xs),
@@ -145,52 +171,10 @@ async function extractWithVision(pdfBuffer, visionClient, pageCountHint) {
           );
           words = [];
         }
-        // TEMP DEBUG (2026-11-26): instrumenting a live mismatch where the
-        // geometry engine silently falls back to the legacy flat-text parser
-        // in production despite working against a local Tesseract-based
-        // proxy of the same real PDFs. Remove once root-caused.
-        try {
-          const fta = pageResp.fullTextAnnotation;
-          console.log(
-            '[OCR_DEBUG] page',
-            pageNumber,
-            'hasFullTextAnnotation:', !!fta,
-            'ftaKeys:', fta ? Object.keys(fta) : null,
-            'pagesIsArray:', fta ? Array.isArray(fta.pages) : null,
-            'pagesLen:', fta && Array.isArray(fta.pages) ? fta.pages.length : null,
-            'wordsExtracted:', words.length,
-            'sampleWord0:', words[0] ? JSON.stringify(words[0]) : null
-          );
-          if (fta && Array.isArray(fta.pages) && fta.pages[0]) {
-            const p0 = fta.pages[0];
-            console.log(
-              '[OCR_DEBUG] page0Keys:', Object.keys(p0),
-              'blocksIsArray:', Array.isArray(p0.blocks),
-              'blocksLen:', Array.isArray(p0.blocks) ? p0.blocks.length : null
-            );
-            if (Array.isArray(p0.blocks) && p0.blocks[0]) {
-              const b0 = p0.blocks[0];
-              console.log(
-                '[OCR_DEBUG] block0Keys:', Object.keys(b0),
-                'paragraphsLen:', Array.isArray(b0.paragraphs) ? b0.paragraphs.length : null
-              );
-              if (Array.isArray(b0.paragraphs) && b0.paragraphs[0]) {
-                const para0 = b0.paragraphs[0];
-                console.log(
-                  '[OCR_DEBUG] para0Keys:', Object.keys(para0),
-                  'wordsLen:', Array.isArray(para0.words) ? para0.words.length : null
-                );
-                if (Array.isArray(para0.words) && para0.words[0]) {
-                  console.log(
-                    '[OCR_DEBUG] word0 raw:', JSON.stringify(para0.words[0]).slice(0, 1000)
-                  );
-                }
-              }
-            }
-          }
-        } catch (debugErr) {
-          console.error('[OCR_DEBUG] debug logging itself threw:', debugErr && debugErr.message);
-        }
+        // Lightweight confirmation log — kept intentionally (cheap, one line
+        // per page) so a future "table still won't split" report can be
+        // checked against this instead of re-adding debug instrumentation.
+        console.log('[OCR] page', pageNumber, 'wordsExtracted:', words.length);
         allPages.push({ pageNumber, text, words });
       }
       // A page past the end of the real document comes back with no
