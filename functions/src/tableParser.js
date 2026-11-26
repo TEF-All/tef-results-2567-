@@ -526,10 +526,26 @@ function parsePositionalRow(rowWords, discipline, sourceFile, pageNumber) {
 
 function parseGenericHeaderedPage(rows, header, discipline, sourceFile, pageNumber) {
   const cols = buildColumnBoundaries(header.anchors);
+  // TEMP DEBUG (2026-11-26): diagnosing real rider names losing their first
+  // word (e.g. "Adam Hariz KAMALUDIN" -> "HarizKAMALUDIN") against CSIY-B
+  // Pattaya 2026. Dumps the exact header-anchor edges, the computed column
+  // boundaries, and every data row's word list with its assigned column, so
+  // the true cause (vs. guessing) decides the real fix. Remove once fixed.
+  console.log(
+    '[TP_DEBUG] page', pageNumber,
+    'anchors:', JSON.stringify(header.anchors),
+    'cols:', JSON.stringify(cols)
+  );
   const entries = [];
   for (let i = header.rowIndex + 1; i < rows.length; i++) {
     const row = rows[i];
     if (!row.length) continue;
+    const wordDump = row.map((w) => ({
+      t: w.text,
+      cx: Math.round(w.cx),
+      col: cols.find((c) => w.cx >= c.left && w.cx < c.right)?.role || 'UNASSIGNED',
+    }));
+    console.log('[TP_DEBUG] row', i, JSON.stringify(wordDump));
     const { byRole, rest } = assignRowToColumns(row, cols);
     // Skip rows that are clearly not data (signature blocks, page-footer
     // timestamps, stray marks) — no athlete/horse/rank/rest content at all.
